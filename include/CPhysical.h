@@ -12,6 +12,7 @@ struct tObjectDrawable
 	CPhysical* m_pEntityPtr;											// 008-00C
 };
 
+// someone split this damn thing into entity, dynamicentity and physical, this is a cry for help
 class CPhysical
 {
 public:
@@ -24,15 +25,15 @@ public:
 		unsigned int pad1 : 5;
 		unsigned int m_bVisible : 1; // >> 5 & 1 - visible
 		unsigned int pad2 : 26;
-	} m_nFlags;															// 024-028 >> 5 & 1 - visible
-	uint32_t m_nFlags2;													// 028-02C 0x80 - cast shadows
+	} m_nEntityFlags;													// 024-028 >> 5 & 1 - visible
+	uint32_t m_nEntityFlags2;											// 028-02C 0x80 - cast shadows
 	uint8_t pad1[0x2];													// 02C-02E
 	int16_t m_nModelIndex;												// 02E-030
 	uint8_t pad2[0x4];													// 030-034
 	tObjectDrawable* m_pDrawablePtr;									// 034-038
 	phInstGta* m_pInstGta;												// 038-03C cars have fraginst, peds have phinst
 	uint8_t pad3[0x10];													// 03C-04C
-	uint32_t m_unkDelPtr;												// 04C-050
+	uint32_t m_unkDeletePtr;											// 04C-050
 	float m_fDrawDistance;												// 050-054
 	uint8_t pad4_[0xF];													// 054-063
 	uint8_t m_nAlpha;													// 063-064
@@ -78,7 +79,7 @@ VALIDATE_OFFSET(CPhysical, m_pLastDamageEntity, 0x1E4);
 VALIDATE_OFFSET(CPhysical, m_nLastDamageWeapon, 0x1EC);
 VALIDATE_OFFSET(CPhysical, m_fHealth, 0x1F0);
 VALIDATE_OFFSET(CPhysical, m_nPhysicalFlags, 0x118);
-VALIDATE_OFFSET(CPhysical, m_nFlags, 0x24);
+VALIDATE_OFFSET(CPhysical, m_nEntityFlags, 0x24);
 VALIDATE_OFFSET(CPhysical, m_pMatrix, 0x20);
 VALIDATE_OFFSET(CPhysical, m_pInstGta, 0x38);
 VALIDATE_OFFSET(CPhysical, m_pAttachedToEntity, 0x1BC);
