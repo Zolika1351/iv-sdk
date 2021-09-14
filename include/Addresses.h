@@ -1,0 +1,34 @@
+namespace Addresses
+{
+	uint32_t nProcessScriptsEvent;
+	uint32_t nProcessScriptsEventRet;
+	uint32_t nGetPadFromPlayer;
+	uint32_t nGetPad;
+	uint32_t nGetPlayerInfo;
+	uint32_t nPlayers;
+	uint32_t nPlayerInFocus;
+	uint32_t nm_radarRange;
+	uint32_t nPoolGetAt;
+	uint32_t nPoolGetIndex;
+	uint32_t nms_pPedPool;
+	uint32_t nms_pVehiclePool;
+	uint32_t nms_pBuildingPool;
+	uint32_t nms_pObjectPool;
+	uint32_t nm_sStoredCars;
+	uint32_t nHandlingData;
+	uint32_t nGetModelInfo;
+	uint32_t nGetKey;
+	uint32_t nFindNativeAddress;
+	uint32_t nGetConstrainedCollider;
+	uint32_t nm_CodePause;
+	uint32_t nm_UserPause;
+	uint32_t nm_FrameCounter;
+	uint32_t nm_snTimeInMilliseconds;
+	uint32_t nms_fMinTimeStep;
+	uint32_t nms_fMaxTimeStep;
+	uint32_t nms_fTimeStep;
+	uint32_t nms_fTimeStepNonClipped;
+	uint32_t nms_fTimeScale;
+	uint32_t nms_fTimeScale2;
+	uint32_t nms_fTimeScale3;
+}
