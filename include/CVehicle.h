@@ -10,6 +10,20 @@ enum eVehicleType
 
 struct tHandlingData;
 
+struct tDoor
+{
+	uint32_t m_nBoneID;		// in the order from tVehicleStruct
+	uint8_t pad;
+	uint8_t m_nBoneIndex;	// group for detach, needs to be higher than 0
+	uint8_t pad2[0x2E];
+};
+VALIDATE_SIZE(tDoor, 0x34);
+
+struct tDoors
+{
+	tDoor m_sDoors[6];
+};
+
 class CVehicle : public CPhysical
 {
 public:
@@ -67,7 +81,7 @@ public:
 	CPed* m_pDriver;													// 0FA0-0FA4
 	CPed* m_pPassengers[8];												// 0FA4-0FC4
 	uint8_t pad4[0x14];													// 0FC4-0FD8
-	uint32_t* m_pDoors;													// 0FD8-0FDC
+	tDoors* m_pDoors;													// 0FD8-0FDC
 	uint32_t m_nDoorCount;												// 0FDC-0FE0
 	uint8_t pad5[0x4];													// 0FE0-0FE4
 	uint8_t m_nPrimaryColor;											// 0FE4-0FE5
