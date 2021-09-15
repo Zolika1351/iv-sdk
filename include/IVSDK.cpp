@@ -133,6 +133,7 @@ namespace plugin
 			Addresses::nGameInitialise = gBaseAddress + 0x4ADA50;
 			Addresses::nCdStreamAddImage = gBaseAddress + 0x497730;
 			Addresses::nms_disableStreaming = gBaseAddress + 0xE1DFAA;
+			Addresses::nms_modelInfoPtrs = gBaseAddress + 0x11F73B0;
 			break;
 		case VERSION_1080:
 			Addresses::nProcessScriptsEvent = gBaseAddress + 0x95141;
@@ -173,6 +174,7 @@ namespace plugin
 			Addresses::nGameInitialise = gBaseAddress + 0x770660;
 			Addresses::nCdStreamAddImage = gBaseAddress + 0x622BE0;
 			Addresses::nms_disableStreaming = gBaseAddress + 0xF997D2;
+			Addresses::nms_modelInfoPtrs = gBaseAddress + 0xE2C168;
 			break;
 		default:
 			break;

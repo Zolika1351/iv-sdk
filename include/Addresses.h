@@ -40,4 +40,5 @@ namespace Addresses
 	uint32_t nGameInitialise;
 	uint32_t nCdStreamAddImage;
 	uint32_t nms_disableStreaming;
+	uint32_t nms_modelInfoPtrs;
 }
