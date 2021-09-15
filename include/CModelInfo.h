@@ -92,7 +92,7 @@ VALIDATE_OFFSET(CVehicleModelInfo, m_nVehicleFlags, 0x94);
 class CModelInfo
 {
 public:
-	static inline CBaseModelInfo* ms_modelInfoPtrs; // ms_modelInfoPtrs[31000]
+	static inline CBaseModelInfo** ms_modelInfoPtrs; // ms_modelInfoPtrs[31000]
 	static CBaseModelInfo* GetModelInfo(uint32_t hashKey, int* index)
 	{
 		return ((CBaseModelInfo*(__cdecl*)(uint32_t, int*))(Addresses::nGetModelInfo))(hashKey, index);

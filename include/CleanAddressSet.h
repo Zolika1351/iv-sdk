@@ -6,6 +6,6 @@ namespace CleanAddressSetter
 		CWorld::Players = (CPlayerInfo**)Addresses::nPlayers;
 		CGarage::m_sStoredCars = (CStoredCar*)Addresses::nm_sStoredCars;
 		cHandlingDataMgr::HandlingData = (tHandlingData*)Addresses::nHandlingData;
-		CModelInfo::ms_modelInfoPtrs = (CBaseModelInfo*)Addresses::nms_modelInfoPtrs;
+		CModelInfo::ms_modelInfoPtrs = (CBaseModelInfo**)Addresses::nms_modelInfoPtrs;
 	}
 }
