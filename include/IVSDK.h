@@ -14,6 +14,7 @@ namespace plugin
 	eGameVersion gameVer = VERSION_NONE;
 	void processScriptsEvent();
 	void gameStartupEvent();
+	void gameLoadEvent();
 }
 
 #include "CKeyGen.h"
@@ -37,3 +38,7 @@ namespace plugin
 #include "CRunningScript.h"
 #include "phConstrainedCollider.h"
 #include "CTimer.h"
+#include "CStreaming.h"
+#include "CFileLoader.h"
+#include "CdStream.h"
+#include "CGame.h"

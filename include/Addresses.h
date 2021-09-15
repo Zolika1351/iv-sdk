@@ -2,6 +2,8 @@ namespace Addresses
 {
 	uint32_t nProcessScriptsEvent;
 	uint32_t nProcessScriptsEventRet;
+	uint32_t nGameLoadEvent;
+	uint32_t nGameLoadEventRet;
 	uint32_t nGetPadFromPlayer;
 	uint32_t nGetPad;
 	uint32_t nGetPlayerInfo;
@@ -31,4 +33,11 @@ namespace Addresses
 	uint32_t nms_fTimeScale;
 	uint32_t nms_fTimeScale2;
 	uint32_t nms_fTimeScale3;
+	uint32_t nLoadAllRequestedModels;
+	uint32_t nScriptRequestModel;
+	uint32_t nRequestModel;
+	uint32_t nLoadLevel;
+	uint32_t nGameInitialise;
+	uint32_t nCdStreamAddImage;
+	uint32_t nms_disableStreaming;
 }

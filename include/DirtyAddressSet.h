@@ -26,6 +26,7 @@ namespace DirtyAddressSetter
 	DIRTYSETADDRFUNCTION(CTimer::ms_fTimeScale, ms_fTimeScale)
 	DIRTYSETADDRFUNCTION(CTimer::ms_fTimeScale2, ms_fTimeScale2)
 	DIRTYSETADDRFUNCTION(CTimer::ms_fTimeScale3, ms_fTimeScale3)
+	DIRTYSETADDRFUNCTION(CStreaming::ms_disableStreaming, ms_disableStreaming)
 	void SetAll()
 	{
 		DIRTYSETADDR(PlayerInFocus, Addresses::nPlayerInFocus)
@@ -45,5 +46,6 @@ namespace DirtyAddressSetter
 		DIRTYSETADDR(ms_fTimeScale, Addresses::nms_fTimeScale)
 		DIRTYSETADDR(ms_fTimeScale2, Addresses::nms_fTimeScale2)
 		DIRTYSETADDR(ms_fTimeScale3, Addresses::nms_fTimeScale3)
+		DIRTYSETADDR(ms_disableStreaming, Addresses::nms_disableStreaming)
 	}
 }

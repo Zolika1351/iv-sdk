@@ -8,3 +8,13 @@ void __declspec(naked) processScriptsEventHook()
 		jmp Addresses::nProcessScriptsEventRet
 	}
 }
+void __declspec(naked) gameLoadEventHook()
+{
+	__asm
+	{
+		pushad
+		call plugin::gameLoadEvent
+		popad
+		jmp Addresses::nGameLoadEventRet
+	}
+}

@@ -33,7 +33,7 @@ namespace plugin
 		return 0;
 	}
 
-	// this is probably terrible but i dont care
+	// this is probably terrible
 	uint32_t GetVersionFromEXE()
 	{
 		TCHAR szFileName[MAX_PATH];
@@ -96,6 +96,7 @@ namespace plugin
 		{
 		case VERSION_1070:
 			Addresses::nProcessScriptsEvent = gBaseAddress + 0x21601;
+			Addresses::nGameLoadEvent = gBaseAddress + 0x4ADB38;
 			Addresses::nGetPadFromPlayer = gBaseAddress + 0x5BE5D0;
 			Addresses::nGetPad = gBaseAddress + 0x3C3900;
 			Addresses::nGetPlayerInfo = gBaseAddress + 0x417F20;
@@ -125,9 +126,17 @@ namespace plugin
 			Addresses::nms_fTimeScale = gBaseAddress + 0xB1D9D8;
 			Addresses::nms_fTimeScale2 = gBaseAddress + 0xB1D9DC;
 			Addresses::nms_fTimeScale3 = gBaseAddress + 0xB1D9E0;
+			Addresses::nLoadAllRequestedModels = gBaseAddress + 0x432C20;
+			Addresses::nScriptRequestModel = gBaseAddress + 0x76C3D0;
+			Addresses::nRequestModel = gBaseAddress + 0x432C40;
+			Addresses::nLoadLevel = gBaseAddress + 0x4D79A0;
+			Addresses::nGameInitialise = gBaseAddress + 0x4ADA50;
+			Addresses::nCdStreamAddImage = gBaseAddress + 0x497730;
+			Addresses::nms_disableStreaming = gBaseAddress + 0xE1DFAA;
 			break;
 		case VERSION_1080:
 			Addresses::nProcessScriptsEvent = gBaseAddress + 0x95141;
+			Addresses::nGameLoadEvent = gBaseAddress + 0x770748;
 			Addresses::nGetPadFromPlayer = gBaseAddress + 0x596F80;
 			Addresses::nGetPad = gBaseAddress + 0x46A110;
 			Addresses::nGetPlayerInfo = gBaseAddress + 0x3CD210;
@@ -157,6 +166,13 @@ namespace plugin
 			Addresses::nms_fTimeScale = gBaseAddress + 0xB2E090;
 			Addresses::nms_fTimeScale2 = gBaseAddress + 0xB2E094;
 			Addresses::nms_fTimeScale3 = gBaseAddress + 0xB2E098;
+			Addresses::nLoadAllRequestedModels = gBaseAddress + 0x4B4BB0;
+			Addresses::nScriptRequestModel = gBaseAddress + 0x7191D0;
+			Addresses::nRequestModel = gBaseAddress + 0x4B4BD0;
+			Addresses::nLoadLevel = gBaseAddress + 0x6CBE60;
+			Addresses::nGameInitialise = gBaseAddress + 0x770660;
+			Addresses::nCdStreamAddImage = gBaseAddress + 0x622BE0;
+			Addresses::nms_disableStreaming = gBaseAddress + 0xF997D2;
 			break;
 		default:
 			break;
@@ -171,6 +187,7 @@ namespace plugin
 	void InitHooks()
 	{
 		Addresses::nProcessScriptsEventRet = DoHook(Addresses::nProcessScriptsEvent, processScriptsEventHook);
+		Addresses::nGameLoadEventRet = DoHook(Addresses::nGameLoadEvent, gameLoadEventHook);
 		DirtyAddressSetter::SetAll();
 		CleanAddressSetter::SetAll();
 	}
