@@ -27,3 +27,9 @@ void plugin::gameStartupEvent()
 {
 	
 }
+
+// right after gta.dat loads, put any extra loading related things here
+void plugin::gameLoadEvent()
+{
+	
+}
