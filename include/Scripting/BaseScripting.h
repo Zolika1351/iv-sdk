@@ -18,7 +18,6 @@ file is licensed as part of the ScriptHook SDK.
 #include "NativeInvoke.h"
 #include "ScriptingTypes.h"
 #include "ScriptingHelpers.h"
-#include "ScriptingNatives.h"
 
 typedef enum eKey
 {
