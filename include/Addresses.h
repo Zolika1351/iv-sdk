@@ -71,4 +71,17 @@ namespace Addresses
 	uint32_t nms_aWeaponNames;
 	uint32_t nms_WeaponInfo;
 	uint32_t nGetWeaponInfo;
+	uint32_t nMakeDirty;
+	uint32_t nGetVehicleLightsStatus;
+	uint32_t nms_nGameClockForcedMinutes;
+	uint32_t nms_nGameClockForcedHours;
+	uint32_t nCurrentDay;
+	uint32_t nms_nGameClockSeconds;
+	uint32_t nms_nGameClockMinutes;
+	uint32_t nms_nGameClockHours;
+	uint32_t nms_nGameClockDays;
+	uint32_t nms_nGameClockMonth;
+	uint32_t nms_nMillisecondsPerGameMinute;
+	uint32_t nCutsceneMgrms_running;
+	uint32_t nCutsceneMgrIsRunning;
 }

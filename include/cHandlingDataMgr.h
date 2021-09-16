@@ -5,11 +5,11 @@ struct tHandlingData
 	float m_fDragMult;											// 014-018
 	uint8_t pad[0x8];											// 018-020 always 0
 	CVector_pad m_vCenterOfMass;								// 020-02C
-	int m_nPercentSubmerged;									// 030-034
+	uint32_t m_nPercentSubmerged;								// 030-034
 	float m_fPercentSubmerged;									// 034-038 100.0 / m_nPercentSubmerged
 	float m_fDriveBiasF;										// 038-03C
 	float m_fDriveBiasR;										// 03C-040
-	int m_nDriveGears;											// 040-044
+	uint32_t m_nDriveGears;										// 040-044
 	float m_fDriveForce;										// 044-048
 	float m_fDriveInertia;										// 048-04C
 	float m_fV_times12;											// 04C-050 m_fV * 1.2
@@ -51,7 +51,7 @@ struct tHandlingData
 	float m_fDeformationDamageMult;								// 0DC-0E0
 	float m_fEngineDamageMult;									// 0E0-0E4
 	float m_fSeatOffsetDist;									// 0E4-0E8
-	int m_nMonetaryValue;										// 0E8-0EC
+	uint32_t m_nMonetaryValue;									// 0E8-0EC
 	struct {
 		unsigned int m_bIsVan : 1;
 		unsigned int m_bIsBus : 1;
@@ -85,7 +85,7 @@ struct tHandlingData
 		unsigned int m_bDoubleRWheels : 1;
 		unsigned int m_bForceGroundClearance : 1;
 		unsigned int m_bIsHatchback : 1;
-	}              m_mFlags;									// 0EC-0F0
+	} m_mFlags;													// 0EC-0F0
 	struct {
 		unsigned int m_bSmoothCompresn : 1;
 		unsigned int m_bNone : 1;
@@ -119,7 +119,7 @@ struct tHandlingData
 		unsigned int m_bOldPhysics : 1;
 		unsigned int m_bNone3 : 1;
 		unsigned int m_bNone4 : 1;
-	}              m_hFlags;									// 0F0-0F4
+	} m_hFlags;													// 0F0-0F4
 	uint8_t pad2[0x1C];											// 0F4-110
 };
 

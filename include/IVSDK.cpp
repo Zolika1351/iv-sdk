@@ -165,6 +165,18 @@ namespace plugin
 			Addresses::nms_WeaponInfo = gBaseAddress + 0x1140A20;
 			Addresses::nGetWeaponInfo = gBaseAddress + 0x524E80;
 			Addresses::nMakeDirty = gBaseAddress + 0x5D3E90;
+			Addresses::nGetVehicleLightsStatus = gBaseAddress + 0x5C63D0;
+			Addresses::nms_nGameClockForcedMinutes = 0xDD52F0;
+			Addresses::nms_nGameClockForcedHours = 0xDD5308;
+			Addresses::nCurrentDay = 0xDD5310;
+			Addresses::nms_nGameClockSeconds = 0xDD530C;
+			Addresses::nms_nGameClockMinutes = 0xDD52FC;
+			Addresses::nms_nGameClockHours = 0xDD5300;
+			Addresses::nms_nGameClockDays = 0xDD5314;
+			Addresses::nms_nGameClockMonth = 0xDD52F8;
+			Addresses::nms_nMillisecondsPerGameMinute = 0xDD5304;
+			Addresses::nCutsceneMgrms_running = 0xDE45F0;
+			Addresses::nCutsceneMgrIsRunning = 0x45F210;
 			break;
 		case VERSION_1080:
 			Addresses::nProcessScriptsEvent = gBaseAddress + 0x95141;
@@ -237,6 +249,18 @@ namespace plugin
 			Addresses::nms_WeaponInfo = gBaseAddress + 0xE4A600;
 			Addresses::nGetWeaponInfo = gBaseAddress + 0x4DDEB0;
 			Addresses::nMakeDirty = gBaseAddress + 0x4FE1E0;
+			Addresses::nGetVehicleLightsStatus = gBaseAddress + 0x4F0340;
+			Addresses::nms_nGameClockForcedMinutes = 0xD51684;
+			Addresses::nms_nGameClockForcedHours = 0xD5169C;
+			Addresses::nCurrentDay = 0xD516A4;
+			Addresses::nms_nGameClockSeconds = 0xD516A0;
+			Addresses::nms_nGameClockMinutes = 0xD51690;
+			Addresses::nms_nGameClockHours = 0xD51694;
+			Addresses::nms_nGameClockDays = 0xD516A8;
+			Addresses::nms_nGameClockMonth = 0xD5168C;
+			Addresses::nms_nMillisecondsPerGameMinute = 0xD51698;
+			Addresses::nCutsceneMgrms_running = 0xD515D0;
+			Addresses::nCutsceneMgrIsRunning = 0x3F02B0;
 			break;
 		default:
 			break;

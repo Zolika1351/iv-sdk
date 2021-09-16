@@ -172,6 +172,10 @@ public:
 	{
 		((void(__thiscall*)(CVehicle*))(Addresses::nMakeDirty))(this);
 	}
+	void GetVehicleLightsStatus()
+	{
+		((void(__thiscall*)(CVehicle*))(Addresses::nGetVehicleLightsStatus))(this);
+	}
 };
 VALIDATE_SIZE(CVehicle, 0x20D0);
 VALIDATE_OFFSET(CVehicle, m_nDoorLock, 0x1320);

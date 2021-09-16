@@ -52,3 +52,5 @@ namespace plugin
 #include "CNetwork.h"
 #include "CShadows.h"
 #include "CWeaponInfo.h"
+#include "CClock.h"
+#include "CCutsceneMgr.h"
