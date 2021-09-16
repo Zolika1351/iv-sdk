@@ -41,4 +41,18 @@ namespace Addresses
 	uint32_t nCdStreamAddImage;
 	uint32_t nms_disableStreaming;
 	uint32_t nms_modelInfoPtrs;
+	uint32_t nms_RadarTrace;
+	uint32_t nms_pCameraPool;
+	uint32_t nms_ExplosionInfo;
+	uint32_t nms_HudColour;
+	uint32_t nms_vehicleColourTable;
+	uint32_t nWorldRemove;
+	uint32_t nm_pedLodDistanceHigh;
+	uint32_t nm_pedInCarLodDistanceHigh;
+	uint32_t nm_pedLodDistanceMed;
+	uint32_t nm_pedLodDistanceLow;
+	uint32_t nm_pedLodDistanceVlow;
+	uint32_t nm_pedLodDistanceSlod;
+	uint32_t nm_carLodDistanceHigh;
+	uint32_t nm_carLodDistanceMed;
 }

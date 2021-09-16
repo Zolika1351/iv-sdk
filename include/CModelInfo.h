@@ -81,6 +81,8 @@ public:
 	uint8_t pad2[0x6C];								// 070-13C
 	uint32_t m_nLiveryHashes[4];					// 13C-14C
 	uint8_t pad3[0x284];							// 14C-3D0
+
+	static inline CRGBA* ms_vehicleColourTable; // ms_vehicleColourTable[196]
 };
 VALIDATE_SIZE(CVehicleModelInfo, 0x3D0);
 VALIDATE_OFFSET(CVehicleModelInfo, m_sGameName, 0x60);

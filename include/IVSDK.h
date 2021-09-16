@@ -17,6 +17,7 @@ namespace plugin
 	void gameLoadEvent();
 }
 
+#include "CRGBA.h"
 #include "CKeyGen.h"
 #include "CVector.h"
 #include "CQuaternion.h"
@@ -24,6 +25,8 @@ namespace plugin
 #include "CPlayerInfo.h"
 #include "CWorld.h"
 #include "CPad.h"
+#include "CEntity.h"
+#include "CDynamicEntity.h"
 #include "CPhysical.h"
 #include "CObject.h"
 #include "CPed.h"
@@ -42,3 +45,7 @@ namespace plugin
 #include "CFileLoader.h"
 #include "CdStream.h"
 #include "CGame.h"
+#include "CCam.h"
+#include "CExplosion.h"
+#include "CHudColours.h"
+#include "CVisibilityPlugins.h"

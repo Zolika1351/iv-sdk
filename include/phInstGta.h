@@ -11,7 +11,7 @@ public:
 VALIDATE_OFFSET(phArchetypeGta, m_pBounds, 0xC);
 VALIDATE_OFFSET(phArchetypeGta, m_fMaxSpeed, 0x28);
 
-class fragDrawable
+class rmcDrawable
 {
 public:
 	uint8_t pad[0x8];													// 000-050
@@ -22,17 +22,17 @@ public:
 	float m_fLodDistanceVLow;											// 058-05C
 	float m_fLodDistanceVLow2;											// 05C-060
 };
-VALIDATE_OFFSET(fragDrawable, m_pShaderGroup, 0x8);
-VALIDATE_OFFSET(fragDrawable, m_fLodDistanceHigh, 0x50);
-VALIDATE_OFFSET(fragDrawable, m_fLodDistanceLow, 0x54);
+VALIDATE_OFFSET(rmcDrawable, m_pShaderGroup, 0x8);
+VALIDATE_OFFSET(rmcDrawable, m_fLodDistanceHigh, 0x50);
+VALIDATE_OFFSET(rmcDrawable, m_fLodDistanceLow, 0x54);
 
 class gtaFragType
 {
 public:
 	uint8_t pad[0xB4];													// 000-0B4
-	fragDrawable* m_pfragDrawable;										// 0B4-0B8
+	rmcDrawable* m_pDrawable;											// 0B4-0B8
 };
-VALIDATE_OFFSET(gtaFragType, m_pfragDrawable, 0xB4); 
+VALIDATE_OFFSET(gtaFragType, m_pDrawable, 0xB4); 
 
 class phInstGta
 {
@@ -41,7 +41,7 @@ public:
 	phArchetypeGta* m_pArchetype;										// 04-08 peds have phArchetypeGta, cars have phArchetypeDamp
 	int16_t m_nRigidBodyIndex;											// 08-0A
 	uint8_t pad1[0x2];													// 0A-0C
-	CPhysical* m_pEntity;												// 0C-10
+	CEntity* m_pEntity;													// 0C-10
 	uint8_t pad2[0x30];													// 10-40
 	CVector m_vPos;														// 40-4C
 	uint8_t pad3[0x10];													// 4C-5C

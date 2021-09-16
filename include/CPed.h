@@ -3,10 +3,28 @@ class CPedIntelligenceNY;
 class CPlayerInfo;
 class CPedDataNY;
 class CObject;
-class CPedMoveBlendOnFoot;
 class CVehicle;
-class gtaDrawable;
+class rmcDrawable;
 class CCustomShaderEffectPedBoneDamageFX;
+
+struct CPedMoveBlendOnFoot
+{
+	char pad[0x8];														// 00-08
+	float m_fMoveState;													// 08-0C 3 - sprint, 2 - run, 1 - walk
+	char pad1[0x10];													// 0C-1C
+	float m_fMoveLeanAmount;											// 1C-20 3 is normal, less than 3 leans left, more than 3 leans right
+	char pad2[0x8];														// 20-28
+	float m_fMoveTurn;													// 28-2C
+	char pad3[0x24];													// 2C-50
+	int m_nUnkFlags;													// 50-54
+	char pad4[0x18];													// 54-6C
+	float m_fMoveAnimSpeed;												// 6C-70
+	float m_fMaxMoveBlendRatio;											// 70-74 caps m_fMoveState
+};
+VALIDATE_OFFSET(CPedMoveBlendOnFoot, m_fMoveLeanAmount, 0x1C);
+VALIDATE_OFFSET(CPedMoveBlendOnFoot, m_fMoveAnimSpeed, 0x6C);
+VALIDATE_OFFSET(CPedMoveBlendOnFoot, m_fMoveState, 0x8);
+VALIDATE_OFFSET(CPedMoveBlendOnFoot, m_fMoveTurn, 0x28);
 
 struct PedWeaponSlot
 {
@@ -42,7 +60,7 @@ VALIDATE_OFFSET(tPedDrawableInfo, m_nTextures, 0x67);
 
 struct tPedComponentModels
 {
-	gtaDrawable* m_pDrawables[11];								// 00-2C
+	rmcDrawable* m_pDrawables[11];								// 00-2C
 	uint8_t pad[0x2C];											// 2C-58
 	CCustomShaderEffectPedBoneDamageFX* m_pPedBoneDamageFX;		// 58-5C
 	uint8_t pad2[0x6];											// 5C-62
@@ -87,7 +105,7 @@ public:																	// 000-210
 	uint8_t m_nShootRate;												// 388-389
 	uint8_t m_nAccuracy;												// 389-38A
 	uint8_t pad8[0xFA];													// 38A-484
-	CPhysical* m_pStandingOnEntity;										// 484-488
+	CEntity* m_pStandingOnEntity;										// 484-488
 	uint8_t pad9[0x194];												// 488-61C
 	uint32_t m_nVoiceHash;												// 61C-620
 	uint8_t pad10[0x1A8];												// 620-7C8

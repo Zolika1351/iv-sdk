@@ -134,6 +134,20 @@ namespace plugin
 			Addresses::nCdStreamAddImage = gBaseAddress + 0x497730;
 			Addresses::nms_disableStreaming = gBaseAddress + 0xE1DFAA;
 			Addresses::nms_modelInfoPtrs = gBaseAddress + 0x11F73B0;
+			Addresses::nms_RadarTrace = gBaseAddress + 0xD9ED50;
+			Addresses::nms_pCameraPool = gBaseAddress + 0x1218020;
+			Addresses::nms_ExplosionInfo = gBaseAddress + 0x11C0778;
+			Addresses::nms_HudColour = gBaseAddress + 0xDE4D40;
+			Addresses::nms_vehicleColourTable = gBaseAddress + 0x12D65A8;
+			Addresses::nWorldRemove = gBaseAddress + 0x4173C0;
+			Addresses::nm_pedLodDistanceHigh = gBaseAddress + 0xB36D8C;
+			Addresses::nm_pedInCarLodDistanceHigh = gBaseAddress + 0xB36D90;
+			Addresses::nm_pedLodDistanceMed = gBaseAddress + 0xB36D94;
+			Addresses::nm_pedLodDistanceLow = gBaseAddress + 0xB36D98;
+			Addresses::nm_pedLodDistanceVlow = gBaseAddress + 0xB36D9C;
+			Addresses::nm_pedLodDistanceSlod = gBaseAddress + 0xB36DA0;
+			Addresses::nm_carLodDistanceHigh = gBaseAddress + 0xB33A44;
+			Addresses::nm_carLodDistanceMed = gBaseAddress + 0xB33A48;
 			break;
 		case VERSION_1080:
 			Addresses::nProcessScriptsEvent = gBaseAddress + 0x95141;
@@ -175,6 +189,20 @@ namespace plugin
 			Addresses::nCdStreamAddImage = gBaseAddress + 0x622BE0;
 			Addresses::nms_disableStreaming = gBaseAddress + 0xF997D2;
 			Addresses::nms_modelInfoPtrs = gBaseAddress + 0xE2C168;
+			Addresses::nms_RadarTrace = gBaseAddress + 0xDE83A0;
+			Addresses::nms_pCameraPool = gBaseAddress + 0xF68158;
+			Addresses::nms_ExplosionInfo = gBaseAddress + 0xEFD0B8;
+			Addresses::nms_HudColour = gBaseAddress + 0xDE8038;
+			Addresses::nms_vehicleColourTable = gBaseAddress + 0x1001BE0;
+			Addresses::nWorldRemove = gBaseAddress + 0x3CC6B0;
+			Addresses::nm_pedLodDistanceHigh = gBaseAddress + 0xB5C98C;
+			Addresses::nm_pedInCarLodDistanceHigh = gBaseAddress + 0xB5C990;
+			Addresses::nm_pedLodDistanceMed = gBaseAddress + 0xB5C994;
+			Addresses::nm_pedLodDistanceLow = gBaseAddress + 0xB5C998;
+			Addresses::nm_pedLodDistanceVlow = gBaseAddress + 0xB5C99C;
+			Addresses::nm_pedLodDistanceSlod = gBaseAddress + 0xB5C9A0;
+			Addresses::nm_carLodDistanceHigh = gBaseAddress + 0xB4149C;
+			Addresses::nm_carLodDistanceMed = gBaseAddress + 0xB414A0;
 			break;
 		default:
 			break;

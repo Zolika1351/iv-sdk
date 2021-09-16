@@ -1,3 +1,5 @@
+class grmShaderGroup;
+
 enum eVehicleType
 {
 	VEHICLE_TYPE_AUTOMOBILE,
@@ -23,6 +25,40 @@ struct tDoors
 {
 	tDoor m_sDoors[6];
 };
+
+
+struct CCustomShaderEffectVehicleFX
+{
+	char pad[0x10];														// 000-010
+	//4 - E0
+	//5 - 02
+	//6 - CD
+	//7 - CD
+	//8 - CDCDCDCD
+	//C - CDCDCDCD
+	CRGBFloat m_fPrimaryColor;											// 010-01C
+	CRGBA m_nPrimaryColor;												// 01C-020
+	CRGBFloat m_fSecondaryColor;										// 020-02C
+	CRGBA m_nSecondaryColor;											// 02C-030
+	CRGBFloat m_fTertiaryColor;											// 030-03C independent of spec color
+	CRGBA m_nTertiaryColor;												// 03C-040
+	CRGBFloat m_fQuaternaryColor;										// 040-04C
+	CRGBA m_nQuaternaryColor;											// 04C-050
+	CRGBFloat m_fQuinaryColor;											// 050-04C everything non colorable
+	CRGBA m_nQuinaryColor;												// 05C-060
+	CRGBFloat m_fSpecularColor;											// 060-06C
+	CRGBA m_nSpecularColor;												// 06C-070
+	grmShaderGroup* m_pShaderGroup;										// 070-074
+	char pad6[0x64];													// 074-0D8
+	int32_t m_nLivery;													// 0D8-0DC
+};
+VALIDATE_OFFSET(CCustomShaderEffectVehicleFX, m_fPrimaryColor, 0x10);
+VALIDATE_OFFSET(CCustomShaderEffectVehicleFX, m_fSecondaryColor, 0x20);
+VALIDATE_OFFSET(CCustomShaderEffectVehicleFX, m_fTertiaryColor, 0x30);
+VALIDATE_OFFSET(CCustomShaderEffectVehicleFX, m_fQuaternaryColor, 0x40);
+VALIDATE_OFFSET(CCustomShaderEffectVehicleFX, m_fQuinaryColor, 0x50);
+VALIDATE_OFFSET(CCustomShaderEffectVehicleFX, m_fSpecularColor, 0x60);
+VALIDATE_OFFSET(CCustomShaderEffectVehicleFX, m_nLivery, 0xD8);
 
 class CVehicle : public CPhysical
 {
