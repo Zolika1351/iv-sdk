@@ -54,3 +54,4 @@ namespace plugin
 #include "CWeaponInfo.h"
 #include "CClock.h"
 #include "CCutsceneMgr.h"
+#include "CDraw.h"

@@ -53,6 +53,6 @@ public:
 	static bool ProcessLineOfSight(CVector* source, CVector* target, uint32_t* pUnk, tLineOfSightResults* pResults, uint32_t nFlags, uint32_t nUnk1, uint32_t nUnk2, uint32_t nUnk3, uint32_t nUnk4)
 	{
 		// zmenu uses CWorld::ProcessLineOfSight(v, v2, 0, &ret, 142, 1, 0, 2, 4)
-		return ((uint32_t(__cdecl*)(CVector*, CVector*, uint32_t*, tLineOfSightResults*, int, int, int, int, __int16))(Addresses::nProcessLineOfSight))(source, target, pUnk, pResults, nFlags, nUnk1, nUnk2, nUnk3, nUnk4);
+		return ((uint32_t(__cdecl*)(CVector*, CVector*, uint32_t*, tLineOfSightResults*, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t))(Addresses::nProcessLineOfSight))(source, target, pUnk, pResults, nFlags, nUnk1, nUnk2, nUnk3, nUnk4);
 	}
 };

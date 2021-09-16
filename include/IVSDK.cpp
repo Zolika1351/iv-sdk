@@ -178,6 +178,7 @@ namespace plugin
 			Addresses::nCutsceneMgrms_running = gBaseAddress + 0xDE45F0;
 			Addresses::nCutsceneMgrIsRunning = gBaseAddress + 0x45F210;
 			Addresses::nProcessLineOfSight = gBaseAddress + 0x596D80;
+			Addresses::nCalculateAspectRatio = gBaseAddress + 0x3B4110;
 			break;
 		case VERSION_1080:
 			Addresses::nProcessScriptsEvent = gBaseAddress + 0x95141;
@@ -263,6 +264,7 @@ namespace plugin
 			Addresses::nCutsceneMgrms_running = gBaseAddress + 0xD515D0;
 			Addresses::nCutsceneMgrIsRunning = gBaseAddress + 0x3F02B0;
 			Addresses::nProcessLineOfSight = gBaseAddress + 0x52A400;
+			Addresses::nCalculateAspectRatio = gBaseAddress + 0x49BA00;
 			break;
 		default:
 			break;
