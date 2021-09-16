@@ -177,6 +177,7 @@ namespace plugin
 			Addresses::nms_nMillisecondsPerGameMinute = gBaseAddress + 0xDD5304;
 			Addresses::nCutsceneMgrms_running = gBaseAddress + 0xDE45F0;
 			Addresses::nCutsceneMgrIsRunning = gBaseAddress + 0x45F210;
+			Addresses::nProcessLineOfSight = gBaseAddress + 0x596D80;
 			break;
 		case VERSION_1080:
 			Addresses::nProcessScriptsEvent = gBaseAddress + 0x95141;
@@ -261,6 +262,7 @@ namespace plugin
 			Addresses::nms_nMillisecondsPerGameMinute = gBaseAddress + 0xD51698;
 			Addresses::nCutsceneMgrms_running = gBaseAddress + 0xD515D0;
 			Addresses::nCutsceneMgrIsRunning = gBaseAddress + 0x3F02B0;
+			Addresses::nProcessLineOfSight = gBaseAddress + 0x52A400;
 			break;
 		default:
 			break;

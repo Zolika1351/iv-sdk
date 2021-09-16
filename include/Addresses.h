@@ -84,4 +84,5 @@ namespace Addresses
 	uint32_t nms_nMillisecondsPerGameMinute;
 	uint32_t nCutsceneMgrms_running;
 	uint32_t nCutsceneMgrIsRunning;
+	uint32_t nProcessLineOfSight;
 }

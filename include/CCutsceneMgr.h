@@ -5,6 +5,6 @@ public:
 
 	bool IsRunning()
 	{
-		((bool(__cdecl*)())(Addresses::nCutsceneMgrIsRunning))();
+		return ((bool(__cdecl*)())(Addresses::nCutsceneMgrIsRunning))();
 	}
 };
