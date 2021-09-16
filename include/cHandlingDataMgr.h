@@ -1,59 +1,57 @@
 struct tHandlingData
 {
-	char m_sName[16]; // 00-10
-	float m_fMass; // 10-14
-	float m_fDragMult; // 14-18
-	float unk1; // 18-1C always 0
-	float unk2; // 1C-20 always 0
-	CVector m_vCenterOfMass; // 20-2C
-	uint32_t vector3pad; // 2C-30
-	int m_nPercentSubmerged; // 30-34
-	float m_fPercentSubmerged; // 34-38 100.0 / m_nPercentSubmerged
-	float m_fDriveBiasF; // 38-3C
-	float m_fDriveBiasR; // 3C-40
-	int m_nDriveGears; // 40-44
-	float m_fDriveForce; // 44-48
-	float m_fDriveInertia; // 48-4C
-	float m_fV_times12; // 50 m_fV * 1.2
-	float m_fV; // 50-54
-	float m_fV_gearR; // 54
-	float m_fV_gear1; // 58
-	float m_fV_gear2; // 5C
-	float m_fV_gear3; // 60
-	float m_fV_gear4; // 64
-	float m_fV_gear5; // 68
-	float m_fV_gear6; // 6C
-	float m_fV_gear7; // 70
-	float m_fBrakeForce; // 74-78
-	float m_fBrakeForceF; // 78-7C
-	float m_fBrakeForceR; // 7C-80
-	float m_fHBias; // 80
-	float m_fSteeringLock; // 84
-	float m_fSteeringLockPercent; // 88 1.0 / m_fSteeringLock
-	float m_fTractionCurveMax; // 8C-90
-	float m_fTractionCurveMaxPercent; // 90-94 1.0 / m_fTractionCurveMaxPercent
-	float m_fTractionCurveMin; // 94-98
-	float m_fTractionCurvePercent; // 98
-	float m_fTractionCurveLateral; // 9C
-	float m_fTractionCurveLateralPercent; // A0-A4 1.0 / m_fTractionCurveLateral
-	float m_fTractionSpringDeltaMax; // A4-A8
-	float m_fTractionSpringDeltaMaxPercent; // A8-AC 1.0 / m_fTractionSpringDeltaMax
-	float m_fTractionBiasF; // AC
-	float m_fTractionBiasR; // B0
-	float m_fSuspensionForce; // B4-B8
-	float m_fSuspensionCompDamp; // B8-BC
-	float m_fSuspensionReboundDamp; // BC-C0
-	float m_fSuspensionUpperLimit; // C0-C4
-	float m_fSuspensionLowerLimit; // C4-C8
-	float m_fSuspensionRaise; // C8-CC
-	float m_fSuspensionBiasF; // CC-D0
-	float m_fSuspensionBiasR; // D0-D4
-	float m_fCollisionDamageMult; // D4-D8
-	float m_fWeaponDamageMult; // D8-DC
-	float m_fDeformationDamageMult; // DC-E0
-	float m_fEngineDamageMult; // E0-E4
-	float m_fSeatOffsetDist; // E4-E8
-	int m_nMonetaryValue; // E8-EC
+	char m_sName[16];											// 000-010
+	float m_fMass;												// 010-014
+	float m_fDragMult;											// 014-018
+	uint8_t pad[0x8];											// 018-020 always 0
+	CVector_pad m_vCenterOfMass;								// 020-02C
+	int m_nPercentSubmerged;									// 030-034
+	float m_fPercentSubmerged;									// 034-038 100.0 / m_nPercentSubmerged
+	float m_fDriveBiasF;										// 038-03C
+	float m_fDriveBiasR;										// 03C-040
+	int m_nDriveGears;											// 040-044
+	float m_fDriveForce;										// 044-048
+	float m_fDriveInertia;										// 048-04C
+	float m_fV_times12;											// 04C-050 m_fV * 1.2
+	float m_fV;													// 050-054
+	float m_fV_gearR;											// 054-058
+	float m_fV_gear1;											// 058-05C
+	float m_fV_gear2;											// 05C-060
+	float m_fV_gear3;											// 060-064
+	float m_fV_gear4;											// 064-068
+	float m_fV_gear5;											// 068-06C
+	float m_fV_gear6;											// 06C-070
+	float m_fV_gear7;											// 070-074
+	float m_fBrakeForce;										// 074-078
+	float m_fBrakeForceF;										// 078-07C
+	float m_fBrakeForceR;										// 07C-080
+	float m_fHBias;												// 080-084
+	float m_fSteeringLock;										// 084-088
+	float m_fSteeringLockPercent;								// 088-08C 1.0 / m_fSteeringLock
+	float m_fTractionCurveMax;									// 08C-090
+	float m_fTractionCurveMaxPercent;							// 090-094 1.0 / m_fTractionCurveMaxPercent
+	float m_fTractionCurveMin;									// 094-098
+	float m_fTractionCurvePercent;								// 098-09C
+	float m_fTractionCurveLateral;								// 09C-0A0
+	float m_fTractionCurveLateralPercent;						// 0A0-0A4 1.0 / m_fTractionCurveLateral
+	float m_fTractionSpringDeltaMax;							// 0A4-0A8
+	float m_fTractionSpringDeltaMaxPercent;						// 0A8-0AC 1.0 / m_fTractionSpringDeltaMax
+	float m_fTractionBiasF;										// 0AC-0B0
+	float m_fTractionBiasR;										// 0B0-0B4
+	float m_fSuspensionForce;									// 0B4-0B8
+	float m_fSuspensionCompDamp;								// 0B8-0BC
+	float m_fSuspensionReboundDamp;								// 0BC-0C0
+	float m_fSuspensionUpperLimit;								// 0C0-0C4
+	float m_fSuspensionLowerLimit;								// 0C4-0C8
+	float m_fSuspensionRaise;									// 0C8-0CC
+	float m_fSuspensionBiasF;									// 0CC-0D0
+	float m_fSuspensionBiasR;									// 0D0-0D4
+	float m_fCollisionDamageMult;								// 0D4-0D8
+	float m_fWeaponDamageMult;									// 0D8-0DC
+	float m_fDeformationDamageMult;								// 0DC-0E0
+	float m_fEngineDamageMult;									// 0E0-0E4
+	float m_fSeatOffsetDist;									// 0E4-0E8
+	int m_nMonetaryValue;										// 0E8-0EC
 	struct {
 		unsigned int m_bIsVan : 1;
 		unsigned int m_bIsBus : 1;
@@ -87,7 +85,7 @@ struct tHandlingData
 		unsigned int m_bDoubleRWheels : 1;
 		unsigned int m_bForceGroundClearance : 1;
 		unsigned int m_bIsHatchback : 1;
-	}              m_mFlags; // EC-F0
+	}              m_mFlags;									// 0EC-0F0
 	struct {
 		unsigned int m_bSmoothCompresn : 1;
 		unsigned int m_bNone : 1;
@@ -121,8 +119,8 @@ struct tHandlingData
 		unsigned int m_bOldPhysics : 1;
 		unsigned int m_bNone3 : 1;
 		unsigned int m_bNone4 : 1;
-	}              m_hFlags; // F0-F4
-	uint8_t padend[0x1C];	// F4-110
+	}              m_hFlags;									// 0F0-0F4
+	uint8_t pad2[0x1C];											// 0F4-110
 };
 
 VALIDATE_SIZE(tHandlingData, 0x110);
