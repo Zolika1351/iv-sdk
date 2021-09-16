@@ -125,8 +125,6 @@ struct tHandlingData
 	uint8_t padend[0x1C];	// F4-110
 };
 
-tHandlingData* m_aHandlingData; // m_aHandlingData[160]
-
 VALIDATE_SIZE(tHandlingData, 0x110);
 VALIDATE_OFFSET(tHandlingData, m_fMass, 0x10);
 VALIDATE_OFFSET(tHandlingData, m_fDragMult, 0x14);

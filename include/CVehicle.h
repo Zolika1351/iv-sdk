@@ -167,6 +167,11 @@ public:
 	float m_fPlanePropSpeed;											// 1F3C-1F40
 	uint8_t pad22[0x190];												// 1F40-20D0
 	//0x260->0xB03 - gps voice (byte ptr, 0-4)
+
+	void MakeDirty()
+	{
+		((void(__thiscall*)(CVehicle*))(Addresses::nMakeDirty))(this);
+	}
 };
 VALIDATE_SIZE(CVehicle, 0x20D0);
 VALIDATE_OFFSET(CVehicle, m_nDoorLock, 0x1320);

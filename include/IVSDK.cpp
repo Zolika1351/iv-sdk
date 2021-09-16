@@ -164,6 +164,7 @@ namespace plugin
 			Addresses::nms_aWeaponNames = gBaseAddress + 0xB27A88;
 			Addresses::nms_WeaponInfo = gBaseAddress + 0x1140A20;
 			Addresses::nGetWeaponInfo = gBaseAddress + 0x524E80;
+			Addresses::nMakeDirty = gBaseAddress + 0x5D3E90;
 			break;
 		case VERSION_1080:
 			Addresses::nProcessScriptsEvent = gBaseAddress + 0x95141;
@@ -235,6 +236,7 @@ namespace plugin
 			Addresses::nms_aWeaponNames = gBaseAddress + 0xB3ECA8;
 			Addresses::nms_WeaponInfo = gBaseAddress + 0xE4A600;
 			Addresses::nGetWeaponInfo = gBaseAddress + 0x4DDEB0;
+			Addresses::nMakeDirty = gBaseAddress + 0x4FE1E0;
 			break;
 		default:
 			break;
