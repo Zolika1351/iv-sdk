@@ -28,6 +28,14 @@ namespace DirtyAddressSetter
 	DIRTYSETADDRFUNCTION(CTimer::ms_fTimeScale2, ms_fTimeScale2)
 	DIRTYSETADDRFUNCTION(CTimer::ms_fTimeScale3, ms_fTimeScale3)
 	DIRTYSETADDRFUNCTION(CStreaming::ms_disableStreaming, ms_disableStreaming)
+	DIRTYSETADDRFUNCTION(CVisibilityPlugins::m_pedLodDistanceHigh, m_pedLodDistanceHigh)
+	DIRTYSETADDRFUNCTION(CVisibilityPlugins::m_pedInCarLodDistanceHigh, m_pedInCarLodDistanceHigh)
+	DIRTYSETADDRFUNCTION(CVisibilityPlugins::m_pedLodDistanceMed, m_pedLodDistanceMed)
+	DIRTYSETADDRFUNCTION(CVisibilityPlugins::m_pedLodDistanceLow, m_pedLodDistanceLow)
+	DIRTYSETADDRFUNCTION(CVisibilityPlugins::m_pedLodDistanceVlow, m_pedLodDistanceVlow)
+	DIRTYSETADDRFUNCTION(CVisibilityPlugins::m_pedLodDistanceSlod, m_pedLodDistanceSlod)
+	DIRTYSETADDRFUNCTION(CVisibilityPlugins::m_carLodDistanceHigh, m_carLodDistanceHigh)
+	DIRTYSETADDRFUNCTION(CVisibilityPlugins::m_carLodDistanceMed, m_carLodDistanceMed)
 	void SetAll()
 	{
 		DIRTYSETADDR(PlayerInFocus, Addresses::nPlayerInFocus)
@@ -49,5 +57,13 @@ namespace DirtyAddressSetter
 		DIRTYSETADDR(ms_fTimeScale2, Addresses::nms_fTimeScale2)
 		DIRTYSETADDR(ms_fTimeScale3, Addresses::nms_fTimeScale3)
 		DIRTYSETADDR(ms_disableStreaming, Addresses::nms_disableStreaming)
+		DIRTYSETADDR(m_pedLodDistanceHigh, Addresses::nm_pedLodDistanceHigh)
+		DIRTYSETADDR(m_pedInCarLodDistanceHigh, Addresses::nm_pedInCarLodDistanceHigh)
+		DIRTYSETADDR(m_pedLodDistanceMed, Addresses::nm_pedLodDistanceMed)
+		DIRTYSETADDR(m_pedLodDistanceLow, Addresses::nm_pedLodDistanceLow)
+		DIRTYSETADDR(m_pedLodDistanceVlow, Addresses::nm_pedLodDistanceVlow)
+		DIRTYSETADDR(m_pedLodDistanceSlod, Addresses::nm_pedLodDistanceSlod)
+		DIRTYSETADDR(m_carLodDistanceHigh, Addresses::nm_carLodDistanceHigh)
+		DIRTYSETADDR(m_carLodDistanceMed, Addresses::nm_carLodDistanceMed)
 	}
 }
