@@ -12,4 +12,9 @@ public:
 	static inline float& ms_fTimeScale = *(float*)nullptr; // set by scripts
 	static inline float& ms_fTimeScale2 = *(float*)nullptr; // set by scripts
 	static inline float& ms_fTimeScale3 = *(float*)nullptr; // changes for death camera
+
+	static bool GetIsPaused()
+	{
+		return ((uint32_t(__cdecl*)())(Addresses::nGetIsPaused))();
+	}
 };

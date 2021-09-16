@@ -36,6 +36,8 @@ namespace DirtyAddressSetter
 	DIRTYSETADDRFUNCTION(CVisibilityPlugins::m_pedLodDistanceSlod, m_pedLodDistanceSlod)
 	DIRTYSETADDRFUNCTION(CVisibilityPlugins::m_carLodDistanceHigh, m_carLodDistanceHigh)
 	DIRTYSETADDRFUNCTION(CVisibilityPlugins::m_carLodDistanceMed, m_carLodDistanceMed)
+	DIRTYSETADDRFUNCTION(CNetwork::m_bNetworkSession, m_bNetworkSession)
+	DIRTYSETADDRFUNCTION(CNetwork::m_nNetworkStatus, m_nNetworkStatus)
 	void SetAll()
 	{
 		DIRTYSETADDR(PlayerInFocus, Addresses::nPlayerInFocus)
@@ -65,5 +67,7 @@ namespace DirtyAddressSetter
 		DIRTYSETADDR(m_pedLodDistanceSlod, Addresses::nm_pedLodDistanceSlod)
 		DIRTYSETADDR(m_carLodDistanceHigh, Addresses::nm_carLodDistanceHigh)
 		DIRTYSETADDR(m_carLodDistanceMed, Addresses::nm_carLodDistanceMed)
+		DIRTYSETADDR(m_bNetworkSession, Addresses::nm_bNetworkSession)
+		DIRTYSETADDR(m_nNetworkStatus, Addresses::nm_nNetworkStatus)
 	}
 }

@@ -27,8 +27,9 @@ struct tDoors
 };
 
 
-struct CCustomShaderEffectVehicleFX
+class CCustomShaderEffectVehicleFX
 {
+public:
 	char pad[0x10];														// 000-010
 	//4 - E0
 	//5 - 02
@@ -148,24 +149,27 @@ public:
 	uint8_t m_nLights[0xD];												// 11E0-11ED
 	uint8_t pad15[0x3];													// 11ED-11F0
 	uint8_t m_nSirens[0x8];												// 11F0-11F8
-	uint8_t pad16[0x134];												// 11F8-132C
+	uint8_t pad16[0x128];												// 11F8-1320
+	uint32_t m_nDoorLock;												// 1320-1324
+	uint8_t pad17[0x8];													// 1324-132C
 	float m_fDeformationMult;											// 132C-1330
 	float m_fLightMult;													// 1330-1334
-	uint8_t pad17[0x8];													// 1334-133C
+	uint8_t pad18[0x8];													// 1334-133C
 	uint32_t m_nHornCounter;											// 133C-1340
-	uint8_t pad18[0x14];												// 1340-1354
+	uint8_t pad19[0x14];												// 1340-1354
 	uint32_t m_nVehicleType;											// 1354-1358
-	uint8_t pad19[0xBA8];												// 1358-20D0
+	uint8_t pad20[0xBA8];												// 1358-20D0
 	float m_fPlaneTurn;													// 1F00-1F04
 	float m_fPlaneUpDown;												// 1F04-1F08
 	float m_fPlaneRotate;												// 1F08-1F0C
 	float m_fPlaneThrust;												// 1F0C-1F10
-	uint8_t pad20[0x2C];												// 1F10-1F3C
+	uint8_t pad21[0x2C];												// 1F10-1F3C
 	float m_fPlanePropSpeed;											// 1F3C-1F40
-	uint8_t pad21[0x190];												// 1F40-20D0
+	uint8_t pad22[0x190];												// 1F40-20D0
 	//0x260->0xB03 - gps voice (byte ptr, 0-4)
 };
 VALIDATE_SIZE(CVehicle, 0x20D0);
+VALIDATE_OFFSET(CVehicle, m_nDoorLock, 0x1320);
 VALIDATE_OFFSET(CVehicle, m_nVehicleType, 0x1354);
 VALIDATE_OFFSET(CVehicle, m_fLightMult, 0x1330);
 VALIDATE_OFFSET(CVehicle, m_nHornCounter, 0x133C);

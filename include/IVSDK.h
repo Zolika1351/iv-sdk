@@ -49,3 +49,6 @@ namespace plugin
 #include "CExplosion.h"
 #include "CHudColours.h"
 #include "CVisibilityPlugins.h"
+#include "CNetwork.h"
+#include "CShadows.h"
+#include "CWeaponInfo.h"

@@ -148,6 +148,22 @@ namespace plugin
 			Addresses::nm_pedLodDistanceSlod = gBaseAddress + 0xB36DA0;
 			Addresses::nm_carLodDistanceHigh = gBaseAddress + 0xB33A44;
 			Addresses::nm_carLodDistanceMed = gBaseAddress + 0xB33A48;
+			Addresses::nFindPlayerCentreOfWorld = gBaseAddress + 0x418100;
+			Addresses::nRemoveFallenPeds = gBaseAddress + 0x419270;
+			Addresses::nRemoveFallenCars = gBaseAddress + 0x4194F0;
+			Addresses::nRemoveFallenObjects = gBaseAddress + 0x419750;
+			Addresses::nGetIsPaused = gBaseAddress + 0x44370;
+			Addresses::nIsNetworkGameRunning = gBaseAddress + 0x62F90;
+			Addresses::nIsNetworkSession = gBaseAddress + 0x3B79E0;
+			Addresses::nm_bNetworkSession = gBaseAddress + 0xCF806C;
+			Addresses::nm_nCurrentEpisode = gBaseAddress + 0xCF8044;
+			Addresses::nm_nCurrentEpisodeMenu = gBaseAddress + 0xCF8078;
+			Addresses::nKillPlayerOutsideWorld = gBaseAddress + 0x478F7D;
+			Addresses::nm_nNetworkStatus = gBaseAddress + 0x13E49B8;
+			Addresses::nStoreStaticShadow = gBaseAddress + 0x4C60E0;
+			Addresses::nms_aWeaponNames = gBaseAddress + 0xB27A88;
+			Addresses::nms_WeaponInfo = gBaseAddress + 0x1140A20;
+			Addresses::nGetWeaponInfo = gBaseAddress + 0x524E80;
 			break;
 		case VERSION_1080:
 			Addresses::nProcessScriptsEvent = gBaseAddress + 0x95141;
@@ -203,6 +219,22 @@ namespace plugin
 			Addresses::nm_pedLodDistanceSlod = gBaseAddress + 0xB5C9A0;
 			Addresses::nm_carLodDistanceHigh = gBaseAddress + 0xB4149C;
 			Addresses::nm_carLodDistanceMed = gBaseAddress + 0xB414A0;
+			Addresses::nFindPlayerCentreOfWorld = gBaseAddress + 0x3CD3F0;
+			Addresses::nRemoveFallenPeds = gBaseAddress + 0x3CE740;
+			Addresses::nRemoveFallenCars = gBaseAddress + 0x3CE9C0;
+			Addresses::nRemoveFallenObjects = gBaseAddress + 0x3CEC20;
+			Addresses::nGetIsPaused = gBaseAddress + 0xAD0B0;
+			Addresses::nIsNetworkGameRunning = gBaseAddress + 0x2C1A10;
+			Addresses::nIsNetworkSession = gBaseAddress + 0x3D4590;
+			Addresses::nm_bNetworkSession = gBaseAddress + 0xD2D77C;
+			Addresses::nm_nCurrentEpisode = gBaseAddress + 0xD2D754;
+			Addresses::nm_nCurrentEpisodeMenu = gBaseAddress + 0xD2D788;
+			Addresses::nKillPlayerOutsideWorld = gBaseAddress + 0x4B59D0;
+			Addresses::nm_nNetworkStatus = gBaseAddress + 0x1395524;
+			Addresses::nStoreStaticShadow = gBaseAddress + 0x62E5F0;
+			Addresses::nms_aWeaponNames = gBaseAddress + 0xB3ECA8;
+			Addresses::nms_WeaponInfo = gBaseAddress + 0xE4A600;
+			Addresses::nGetWeaponInfo = gBaseAddress + 0x4DDEB0;
 			break;
 		default:
 			break;

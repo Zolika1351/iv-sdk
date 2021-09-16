@@ -7,8 +7,9 @@ class CVehicle;
 class rmcDrawable;
 class CCustomShaderEffectPedBoneDamageFX;
 
-struct CPedMoveBlendOnFoot
+class CPedMoveBlendOnFoot
 {
+public:
 	char pad[0x8];														// 00-08
 	float m_fMoveState;													// 08-0C 3 - sprint, 2 - run, 1 - walk
 	char pad1[0x10];													// 0C-1C

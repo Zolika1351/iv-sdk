@@ -48,6 +48,10 @@ public:
 	{
 		return ((CPlayerInfo*(__cdecl*)(uint32_t))(Addresses::nGetPlayerInfo))(nPlayerId);
 	}
+	void KillPlayerOutsideWorld()
+	{
+		((void(__thiscall*)(CPlayerInfo*))(Addresses::nKillPlayerOutsideWorld))(this);
+	}
 };
 VALIDATE_SIZE(CPlayerInfo, 0x5C0);
 VALIDATE_OFFSET(CPlayerInfo, m_fStamina, 0x414);
@@ -63,3 +67,7 @@ VALIDATE_OFFSET(CPlayerInfo, m_nTeam, 0x574);
 VALIDATE_OFFSET(CPlayerInfo, m_pPlayerPed, 0x58C);
 VALIDATE_OFFSET(CPlayerInfo, m_nControlFlags, 0x4BC);
 
+CVector& FindPlayerCentreOfWorld(CVector* v)
+{
+	return ((CVector&(__cdecl*)(CVector*))(Addresses::nFindPlayerCentreOfWorld))(v);
+}

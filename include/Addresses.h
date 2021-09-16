@@ -55,4 +55,20 @@ namespace Addresses
 	uint32_t nm_pedLodDistanceSlod;
 	uint32_t nm_carLodDistanceHigh;
 	uint32_t nm_carLodDistanceMed;
+	uint32_t nFindPlayerCentreOfWorld;
+	uint32_t nRemoveFallenPeds;
+	uint32_t nRemoveFallenCars;
+	uint32_t nRemoveFallenObjects;
+	uint32_t nGetIsPaused;
+	uint32_t nIsNetworkGameRunning;
+	uint32_t nIsNetworkSession;
+	uint32_t nm_bNetworkSession;
+	uint32_t nm_nCurrentEpisode;
+	uint32_t nm_nCurrentEpisodeMenu;
+	uint32_t nKillPlayerOutsideWorld;
+	uint32_t nm_nNetworkStatus;
+	uint32_t nStoreStaticShadow;
+	uint32_t nms_aWeaponNames;
+	uint32_t nms_WeaponInfo;
+	uint32_t nGetWeaponInfo;
 }

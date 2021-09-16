@@ -11,5 +11,7 @@ namespace CleanAddressSetter
 		CExplosion::ms_ExplosionInfo = (tExplosionInfo*)Addresses::nms_ExplosionInfo;
 		CHudColours::ms_HudColour = (CHudColour*)Addresses::nms_HudColour;
 		CVehicleModelInfo::ms_vehicleColourTable = (CRGBA*)Addresses::nms_vehicleColourTable;
+		CWeaponInfo::ms_aWeaponNames = (char**)Addresses::nms_aWeaponNames;
+		CWeaponInfo::ms_WeaponInfo = (CWeaponInfo*)Addresses::nms_WeaponInfo;
 	}
 }
