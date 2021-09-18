@@ -19,7 +19,7 @@ void PoolExample1()
 void PoolExample2()
 {
 	int index;
-	auto mdlinfo = (CVehicleModelInfo*)CModelInfo::GetModelInfo(CKeyGen::GetKey("rom"), &index);
+	auto mdlinfo = (CVehicleModelInfo*)CModelInfo::GetModelInfo(rage::atStringHash("rom"), &index);
 
 	auto pool = CPools::ms_pVehiclePool;
 	for (int i = 0; i < pool->m_dwCount; i++)
