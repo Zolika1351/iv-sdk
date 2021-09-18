@@ -47,6 +47,9 @@ namespace DirtyAddressSetter
 	DIRTYSETADDRFUNCTION(CClock::ms_nGameClockDays, ms_nGameClockDays)
 	DIRTYSETADDRFUNCTION(CClock::ms_nGameClockMonth, ms_nGameClockMonth)
 	DIRTYSETADDRFUNCTION(CClock::ms_nMillisecondsPerGameMinute, ms_nMillisecondsPerGameMinute)
+	DIRTYSETADDRFUNCTION(CGame::m_nCurrentEpisode, m_nCurrentEpisode)
+	DIRTYSETADDRFUNCTION(CGame::m_nCurrentEpisodeMenu, m_nCurrentEpisodeMenu)
+	DIRTYSETADDRFUNCTION(Scene, _Scene)
 	void SetAll()
 	{
 		DIRTYSETADDR(PlayerInFocus, Addresses::nPlayerInFocus)
@@ -87,5 +90,8 @@ namespace DirtyAddressSetter
 		DIRTYSETADDR(ms_nGameClockDays, Addresses::nms_nGameClockDays)
 		DIRTYSETADDR(ms_nGameClockMonth, Addresses::nms_nGameClockMonth)
 		DIRTYSETADDR(ms_nMillisecondsPerGameMinute, Addresses::nms_nMillisecondsPerGameMinute)
+		DIRTYSETADDR(m_nCurrentEpisode, Addresses::nm_nCurrentEpisode)
+		DIRTYSETADDR(m_nCurrentEpisodeMenu, Addresses::nm_nCurrentEpisodeMenu)
+		DIRTYSETADDR(_Scene, Addresses::nScene)
 	}
 }

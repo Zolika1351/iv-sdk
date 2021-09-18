@@ -118,7 +118,7 @@ private:
 
 	static bool Invoke(unsigned int uiHash, IVNativeCallContext* pNativeContext)
 	{
-		auto NativeFunc = (NativeCall)CRunningScript::FindNativeAddress(uiHash);
+		auto NativeFunc = (NativeCall)CTheScripts::FindNativeAddress(uiHash);
 		if (NativeFunc != NULL)
 		{
 			NativeFunc(pNativeContext);
