@@ -1,3 +1,5 @@
+class grcTexture;
+
 struct sRadarTraceProperties
 {
 	uint8_t pad[0x4];									// 00-04
@@ -40,4 +42,6 @@ class CRadar
 public:
 	static inline sRadarTrace** ms_RadarTrace = (sRadarTrace**)AddressSetter::Get(0xD9ED50, 0xDE83A0); // ms_RadarTrace[1500]
 	static inline float& m_radarRange = AddressSetter::GetRef<float>(0xD9ED40, 0xDE8390);
+	static inline grcTexture& m_pRadarRingBack = AddressSetter::GetRef<grcTexture>(0xB1C9B0, 0xB35F50);
+	static inline grcTexture& m_pRadarRingFront = AddressSetter::GetRef<grcTexture>(0xB1C9B4, 0xB35F54);
 };

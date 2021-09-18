@@ -56,4 +56,6 @@ namespace plugin
 #include "CCutsceneMgr.h"
 #include "CRenderPhase.h"
 #include "CDraw.h"
+#include "grcTexture.h"
+#include "pgDictionary.h"
 #include "CTxdStore.h"
