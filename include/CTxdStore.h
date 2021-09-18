@@ -6,6 +6,10 @@ public:
 
 	static inline pgDictionary<grcTexture>*& ms_pStoredTxd = AddressSetter::GetRef<pgDictionary<grcTexture>*>(0x15ACACC, 0x15CE510);
 
+	static void AddRef(int slot)
+	{
+		((void(__cdecl*)(int))(AddressSetter::Get(0x1ED00, 0x8ECA0)))(slot);
+	}
 	static int AddTxdSlot(char* sName)
 	{
 		return ((int(__cdecl*)(char*))(AddressSetter::Get(0x1EC20, 0x8EBC0)))(sName);
