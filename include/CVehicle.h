@@ -16,14 +16,15 @@ struct tDoor
 {
 	uint32_t m_nBoneID;		// in the order from tVehicleStruct
 	uint8_t pad;
-	uint8_t m_nBoneIndex;	// group for detach, needs to be higher than 0
+	uint8_t m_nGroupID;		// group for detach, needs to be higher than 0
 	uint8_t pad2[0x2E];
 };
 VALIDATE_SIZE(tDoor, 0x34);
+VALIDATE_OFFSET(tDoor, m_nGroupID, 0x5);
 
 struct tDoors
 {
-	tDoor m_sDoors[6];
+	tDoor m_sDoors[6];													// 000-??? check m_nDoorCount
 };
 
 

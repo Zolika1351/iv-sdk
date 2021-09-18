@@ -181,6 +181,9 @@ namespace plugin
 			Addresses::nCalculateAspectRatio = gBaseAddress + 0x3B4110;
 			Addresses::nScene = gBaseAddress + 0xCF47E0;
 			Addresses::nIsPlayerOnAMission = gBaseAddress + 0x403E00;
+			Addresses::nDetachFragmentGroup = gBaseAddress + 0x117D30;
+			Addresses::nPushCurrentTxd = gBaseAddress + 0x4204F0;
+			Addresses::nPopCurrentTxd = gBaseAddress + 0x420960;
 			break;
 		case VERSION_1080:
 			Addresses::nProcessScriptsEvent = gBaseAddress + 0x95141;
@@ -269,6 +272,9 @@ namespace plugin
 			Addresses::nCalculateAspectRatio = gBaseAddress + 0x49BA00;
 			Addresses::nScene = gBaseAddress + 0xDF8280;
 			Addresses::nIsPlayerOnAMission = gBaseAddress + 0x4AE3E0;
+			Addresses::nDetachFragmentGroup = gBaseAddress + 0x245C10;
+			Addresses::nPushCurrentTxd = gBaseAddress + 0x4CC410;
+			Addresses::nPopCurrentTxd = gBaseAddress + 0x4CC880;
 			break;
 		default:
 			break;

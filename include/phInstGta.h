@@ -48,6 +48,13 @@ public:
 	uint32_t* m_pUnkImportant;											// 5C-60
 	uint8_t pad4[0x0C];													// 60-6C
 	gtaFragType m_pFragType;											// 6C-70
+
+	// this is what's used to detach car parts, groupId is in the same order as groups are in the .oft file
+	// use tDoor->m_nGroupID for vehicle doors, haven't found a way to see the rest of the bones, or anything for other entity types other than guessing
+	phInstGta* DetachFragmentGroup(uint32_t groupId)
+	{
+		return ((phInstGta * (__thiscall*)(phInstGta*, signed int))(Addresses::nDetachFragmentGroup))(this, groupId);
+	}
 };
 VALIDATE_OFFSET(phInstGta, m_nRigidBodyIndex, 0x8);
 VALIDATE_OFFSET(phInstGta, m_pEntity, 0xC);
