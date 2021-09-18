@@ -5,7 +5,7 @@ public:
 	{
 		__try
 		{
-			uint32_t funcPtr = Addresses::nFindNativeAddress;
+			uint32_t funcPtr = AddressSetter::Get(0x1A76D0, 0x226AF0);
 			uint32_t nativePtr;
 			_asm
 			{
@@ -25,6 +25,6 @@ public:
 	}
 	static bool IsPlayerOnAMission()
 	{
-		return ((bool(__cdecl*)())(Addresses::nIsPlayerOnAMission))();
+		return ((bool(__cdecl*)())(AddressSetter::Get(0x403E00, 0x4AE3E0)))();
 	}
 };

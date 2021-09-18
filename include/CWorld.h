@@ -27,32 +27,32 @@ struct tLineOfSightResults
 class CWorld
 {
 public:
-	static inline CPlayerInfo** Players; // Players[32]
-	static inline int32_t& PlayerInFocus = *(int32_t*)nullptr;
+	static inline CPlayerInfo** Players = (CPlayerInfo**)AddressSetter::Get(0xDA7008, 0xD00498); // Players[32]
+	static inline int32_t& PlayerInFocus = AddressSetter::GetRef<int32_t>(0xB1CC68, 0xB2E0B4);
 
 	static void Remove(CEntity* entity, bool bUnk)
 	{
-		((void(__cdecl*)(CEntity*, bool))(Addresses::nWorldRemove))(entity, bUnk);
+		((void(__cdecl*)(CEntity*, bool))(AddressSetter::Get(0x4173C0, 0x3CC6B0)))(entity, bUnk);
 	}
 
 	static void RemoveFallenPeds()
 	{
-		((void(__cdecl*)())(Addresses::nRemoveFallenPeds))();
+		((void(__cdecl*)())(AddressSetter::Get(0x419270, 0x3CE740)))();
 	}
 
 	static void RemoveFallenCars()
 	{
-		((void(__cdecl*)())(Addresses::nRemoveFallenCars))();
+		((void(__cdecl*)())(AddressSetter::Get(0x4194F0, 0x3CE9C0)))();
 	}
 
 	static void RemoveFallenObjects()
 	{
-		((void(__cdecl*)())(Addresses::nRemoveFallenObjects))();
+		((void(__cdecl*)())(AddressSetter::Get(0x419750, 0x3CEC20)))();
 	}
 
 	static bool ProcessLineOfSight(CVector* source, CVector* target, uint32_t* pUnk, tLineOfSightResults* pResults, uint32_t nFlags, uint32_t nUnk1, uint32_t nUnk2, uint32_t nUnk3, uint32_t nUnk4)
 	{
 		// zmenu uses CWorld::ProcessLineOfSight(v, v2, 0, &ret, 142, 1, 0, 2, 4)
-		return ((uint32_t(__cdecl*)(CVector*, CVector*, uint32_t*, tLineOfSightResults*, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t))(Addresses::nProcessLineOfSight))(source, target, pUnk, pResults, nFlags, nUnk1, nUnk2, nUnk3, nUnk4);
+		return ((uint32_t(__cdecl*)(CVector*, CVector*, uint32_t*, tLineOfSightResults*, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t))(AddressSetter::Get(0x596D80, 0x52A400)))(source, target, pUnk, pResults, nFlags, nUnk1, nUnk2, nUnk3, nUnk4);
 	}
 };

@@ -130,7 +130,7 @@ public:																	// 000-210
 
 	CPad* GetPadFromPlayer()
 	{
-		return ((CPad * (__thiscall*)(CPed*))(Addresses::nGetPadFromPlayer))(this);
+		return ((CPad * (__thiscall*)(CPed*))(AddressSetter::Get(0x5BE5D0, 0x596F80)))(this);
 	}
 };
 

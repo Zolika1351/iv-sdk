@@ -53,7 +53,7 @@ public:
 	// use tDoor->m_nGroupID for vehicle doors, haven't found a way to see the rest of the bones, or anything for other entity types other than guessing
 	phInstGta* DetachFragmentGroup(uint32_t groupId)
 	{
-		return ((phInstGta * (__thiscall*)(phInstGta*, signed int))(Addresses::nDetachFragmentGroup))(this, groupId);
+		return ((phInstGta * (__thiscall*)(phInstGta*, signed int))(AddressSetter::Get(0x117D30, 0x245C10)))(this, groupId);
 	}
 };
 VALIDATE_OFFSET(phInstGta, m_nRigidBodyIndex, 0x8);

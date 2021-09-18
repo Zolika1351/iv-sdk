@@ -38,6 +38,6 @@ VALIDATE_OFFSET(sRadarTrace, m_pProperties, 0x5C);
 class CRadar
 {
 public:
-	static inline sRadarTrace** ms_RadarTrace; // ms_RadarTrace[1500]
-	static inline float& m_radarRange = *(float*)nullptr;
+	static inline sRadarTrace** ms_RadarTrace = (sRadarTrace**)AddressSetter::Get(0xD9ED50, 0xDE83A0); // ms_RadarTrace[1500]
+	static inline float& m_radarRange = AddressSetter::GetRef<float>(0xD9ED40, 0xDE8390);
 };

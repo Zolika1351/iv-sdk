@@ -29,5 +29,5 @@ VALIDATE_OFFSET(CStoredCar, m_nMatrixUp, 0x43);
 class CGarage
 {
 public:
-	static inline CStoredCar* m_sStoredCars; // m_sStoredCars[20]
+	static inline CStoredCar* m_sStoredCars = (CStoredCar*)AddressSetter::Get(0xF54A88, 0xECBE00); // m_sStoredCars[20]
 };

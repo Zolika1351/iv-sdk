@@ -30,7 +30,7 @@ public:
 
 	phConstrainedCollider* GetConstrainedCollider()
 	{
-		return ((phConstrainedCollider*(__thiscall*)(CPhysical*))(Addresses::nGetConstrainedCollider))(this);
+		return ((phConstrainedCollider*(__thiscall*)(CPhysical*))(AddressSetter::Get(0x5E7080, 0x505110)))(this);
 	}
 };
 

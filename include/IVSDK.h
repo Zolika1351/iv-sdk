@@ -4,7 +4,6 @@
 
 namespace plugin
 {
-	uint32_t gBaseAddress;
 	enum eGameVersion
 	{
 		VERSION_NONE,
@@ -17,6 +16,7 @@ namespace plugin
 	void gameLoadEvent();
 }
 
+#include "NewAddressSet.h"
 #include "CRGBA.h"
 #include "CKeyGen.h"
 #include "CVector.h"

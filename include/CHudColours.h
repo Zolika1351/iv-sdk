@@ -9,5 +9,5 @@ public:
 class CHudColours
 {
 public:
-	static inline CHudColour* ms_HudColour; // ms_HudColour[73]
+	static inline CHudColour* ms_HudColour = (CHudColour*)AddressSetter::Get(0xDE4D40, 0xDE8038); // ms_HudColour[73]
 };

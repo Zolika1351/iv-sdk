@@ -151,5 +151,5 @@ VALIDATE_OFFSET(tHandlingData, m_hFlags, 0xF0);
 class cHandlingDataMgr
 {
 public:
-	static inline tHandlingData* HandlingData; // HandlingData[160]
+	static inline tHandlingData* HandlingData = (tHandlingData*)AddressSetter::Get(0x11E3BF0, 0x12773B0); // HandlingData[160]
 };

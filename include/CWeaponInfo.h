@@ -84,12 +84,12 @@ public:
 	uint32_t m_nShotsFired;									// 100-104
 	uint8_t pad4[0xC];										// 104-110
 
-	static inline char** ms_aWeaponNames;
-	static inline CWeaponInfo* ms_WeaponInfo; // ms_WeaponInfo[60]
+	static inline char** ms_aWeaponNames = (char**)AddressSetter::Get(0xB27A88, 0xB3ECA8);
+	static inline CWeaponInfo* ms_WeaponInfo = (CWeaponInfo*)AddressSetter::Get(0x1140A20, 0xE4A600); // ms_WeaponInfo[60]
 
 	static CWeaponInfo* GetWeaponInfo(uint32_t type)
 	{
-		return ((CWeaponInfo*(__cdecl*)(uint32_t))(Addresses::nGetWeaponInfo))(type);
+		return ((CWeaponInfo*(__cdecl*)(uint32_t))(AddressSetter::Get(0x524E80, 0x4DDEB0)))(type);
 	}
 };
 VALIDATE_SIZE(CWeaponInfo, 0x110);

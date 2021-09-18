@@ -44,7 +44,7 @@ public:
 
 	static CPad* GetPad()
 	{
-		return ((CPad*(__cdecl*)())(Addresses::nGetPad))();
+		return ((CPad*(__cdecl*)())(AddressSetter::Get(0x3C3900, 0x46A110)))();
 	}
 };
 VALIDATE_SIZE(CPad, 0x3A84);

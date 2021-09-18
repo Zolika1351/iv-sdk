@@ -171,11 +171,11 @@ public:
 
 	void MakeDirty()
 	{
-		((void(__thiscall*)(CVehicle*))(Addresses::nMakeDirty))(this);
+		((void(__thiscall*)(CVehicle*))(AddressSetter::Get(0x5D3E90, 0x4FE1E0)))(this);
 	}
 	void GetVehicleLightsStatus()
 	{
-		((void(__thiscall*)(CVehicle*))(Addresses::nGetVehicleLightsStatus))(this);
+		((void(__thiscall*)(CVehicle*))(AddressSetter::Get(0x5C63D0, 0x4F0340)))(this);
 	}
 };
 VALIDATE_SIZE(CVehicle, 0x20D0);

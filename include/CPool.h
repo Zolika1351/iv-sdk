@@ -13,11 +13,11 @@ public:
 	// TODO: make these return proper types
 	void* GetAt(uint32_t nHandle)
 	{
-		return ((void*(__thiscall*)(CPool*, uint32_t))(Addresses::nPoolGetAt))(this, nHandle);
+		return ((void*(__thiscall*)(CPool*, uint32_t))(AddressSetter::Get(0x26700, 0x92E00)))(this, nHandle);
 	}
 	uint32_t GetIndex(void* pObject)
 	{
-		return ((uint32_t(__thiscall*)(CPool*, void*))(Addresses::nPoolGetIndex))(this, pObject);
+		return ((uint32_t(__thiscall*)(CPool*, void*))(AddressSetter::Get(0x47230, 0xAFF10)))(this, pObject);
 	}
 };
 VALIDATE_SIZE(CPool, 0x1C);

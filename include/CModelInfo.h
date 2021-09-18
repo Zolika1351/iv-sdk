@@ -82,7 +82,7 @@ public:
 	uint32_t m_nLiveryHashes[4];					// 13C-14C
 	uint8_t pad3[0x284];							// 14C-3D0
 
-	static inline CRGBA* ms_vehicleColourTable; // ms_vehicleColourTable[196]
+	static inline CRGBA* ms_vehicleColourTable = (CRGBA*)AddressSetter::Get(0x12D65A8, 0x1001BE0); // ms_vehicleColourTable[196]
 };
 VALIDATE_SIZE(CVehicleModelInfo, 0x3D0);
 VALIDATE_OFFSET(CVehicleModelInfo, m_sGameName, 0x60);
@@ -94,9 +94,9 @@ VALIDATE_OFFSET(CVehicleModelInfo, m_nVehicleFlags, 0x94);
 class CModelInfo
 {
 public:
-	static inline CBaseModelInfo** ms_modelInfoPtrs; // ms_modelInfoPtrs[31000]
+	static inline CBaseModelInfo** ms_modelInfoPtrs = (CBaseModelInfo**)AddressSetter::Get(0x11F73B0, 0xE2C168); // ms_modelInfoPtrs[31000]
 	static CBaseModelInfo* GetModelInfo(uint32_t hashKey, int* index)
 	{
-		return ((CBaseModelInfo*(__cdecl*)(uint32_t, int*))(Addresses::nGetModelInfo))(hashKey, index);
+		return ((CBaseModelInfo*(__cdecl*)(uint32_t, int*))(AddressSetter::Get(0x58AAE0, 0x4DD2D0)))(hashKey, index);
 	}
 };

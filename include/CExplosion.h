@@ -34,5 +34,5 @@ VALIDATE_SIZE(tExplosionInfo, 0x70);
 class CExplosion
 {
 public:
-	static inline tExplosionInfo* ms_ExplosionInfo; // ms_ExplosionInfo[25]
+	static inline tExplosionInfo* ms_ExplosionInfo = (tExplosionInfo*)AddressSetter::Get(0x11C0778, 0xEFD0B8); // ms_ExplosionInfo[25]
 };

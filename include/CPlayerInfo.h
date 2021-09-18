@@ -46,11 +46,11 @@ public:
 
 	static CPlayerInfo* GetPlayerInfo(uint32_t nPlayerId)
 	{
-		return ((CPlayerInfo*(__cdecl*)(uint32_t))(Addresses::nGetPlayerInfo))(nPlayerId);
+		return ((CPlayerInfo*(__cdecl*)(uint32_t))(AddressSetter::Get(0x417F20, 0x3CD210)))(nPlayerId);
 	}
 	void KillPlayerOutsideWorld()
 	{
-		((void(__thiscall*)(CPlayerInfo*))(Addresses::nKillPlayerOutsideWorld))(this);
+		((void(__thiscall*)(CPlayerInfo*))(AddressSetter::Get(0x478F7D, 0x4B59D0)))(this);
 	}
 };
 VALIDATE_SIZE(CPlayerInfo, 0x5C0);
@@ -69,5 +69,5 @@ VALIDATE_OFFSET(CPlayerInfo, m_nControlFlags, 0x4BC);
 
 CVector& FindPlayerCentreOfWorld(CVector* v)
 {
-	return ((CVector&(__cdecl*)(CVector*))(Addresses::nFindPlayerCentreOfWorld))(v);
+	return ((CVector&(__cdecl*)(CVector*))(AddressSetter::Get(0x418100, 0x3CD3F0)))(v);
 }
