@@ -14,6 +14,19 @@ void plugin::processScriptsEvent()
 		CRadar::m_pRadarRingBack.SetTexture("A_BUTT");
 
 		CTxdStore::PopCurrentTxd();
+
+		// make the front of the radar an IV logo
+		CTxdStore::PushCurrentTxd();
+		slot = CTxdStore::AddTxdSlot("net");
+		CTxdStore::AddRef(slot);
+		if (CTxdStore::LoadTxd(slot, "platform:/textures/network"))
+		{
+			CTxdStore::SetCurrentTxd(slot);
+
+			CRadar::m_pRadarRingFront.SetTexture("icon_gta");
+		}
+		CTxdStore::PopCurrentTxd();
+
 		bFirstFrame = false;
 	}
 }
