@@ -1,8 +1,3 @@
-// this is absolutely abhorrent but it's the only way I've found to get this to work
-
-#define DIRTYSETADDRFUNCTION(ptr, funcName) void __declspec(naked) funcName() { __asm { mov eax, ptr } }
-#define DIRTYSETADDR(funcName, addr) *(uint32_t*)(GetAddressFromMoveEAXFunction((uint32_t)&funcName)) = addr;
-
 namespace AddressSetter
 {
 	uint32_t gBaseAddress;
