@@ -1,5 +1,8 @@
-class grcTexture
+namespace rage
 {
-public:
+	class grcTexture
+	{
+	public:
 
-};
+	};
+}

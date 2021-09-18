@@ -4,7 +4,7 @@ public:
 	// txds are rage::pgDictionary<rage::grcTexture>
 	// see 0x487460, loads fonts and buttons
 
-	static inline pgDictionary<grcTexture>*& ms_pStoredTxd = AddressSetter::GetRef<pgDictionary<grcTexture>*>(0x15ACACC, 0x15CE510);
+	static inline rage::pgDictionary<rage::grcTexture>*& ms_pStoredTxd = AddressSetter::GetRef<rage::pgDictionary<rage::grcTexture>*>(0x15ACACC, 0x15CE510);
 
 	static void AddRef(int slot)
 	{

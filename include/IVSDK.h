@@ -18,7 +18,7 @@ namespace plugin
 
 #include "NewAddressSet.h"
 #include "CRGBA.h"
-#include "CKeyGen.h"
+#include "rage.h"
 #include "CVector.h"
 #include "CQuaternion.h"
 #include "CMatrix.h"

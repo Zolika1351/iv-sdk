@@ -1,10 +1,13 @@
-class grcTexture;
-template<typename T>
-class pgDictionary
+namespace rage
 {
-public:
-	T* find(uint32_t nHash)
+	class grcTexture;
+	template<typename T>
+	class pgDictionary
 	{
-		return ((T*(__thiscall*)(pgDictionary*, uint32_t))(AddressSetter::Get(0x24B60, 0x3A490)))(this, nHash);
-	}
-};
+	public:
+		T* find(uint32_t nHash)
+		{
+			return ((T * (__thiscall*)(pgDictionary*, uint32_t))(AddressSetter::Get(0x24B60, 0x3A490)))(this, nHash);
+		}
+	};
+}
