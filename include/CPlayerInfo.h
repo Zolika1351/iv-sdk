@@ -71,3 +71,8 @@ CVector& FindPlayerCentreOfWorld(CVector* v)
 {
 	return ((CVector&(__cdecl*)(CVector*))(AddressSetter::Get(0x418100, 0x3CD3F0)))(v);
 }
+
+CPed* FindPlayerPed()
+{
+	return ((CPed*(__cdecl*)())(AddressSetter::Get(0x417F40, 0x3CD230)))();
+}
