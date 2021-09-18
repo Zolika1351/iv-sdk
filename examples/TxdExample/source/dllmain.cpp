@@ -8,7 +8,7 @@ void plugin::processScriptsEvent()
 	{
 		// make the back of the radar an A button
 		CTxdStore::PushCurrentTxd();
-		int slot = CTxdStore::FindTxdSlot(CKeyGen::GetKey("buttons"));
+		int slot = CTxdStore::FindTxdSlot(rage::atStringHash("buttons"));
 		CTxdStore::SetCurrentTxd(slot);
 
 		CRadar::m_pRadarRingBack.SetTexture("A_BUTT");
