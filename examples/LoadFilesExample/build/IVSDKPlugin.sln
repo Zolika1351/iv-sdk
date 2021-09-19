@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IVSDKPlugin", "IVSDKPlugin.vcxproj", "{B01EC44A-9C17-E39C-C549-C821B1A1C2A8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B01EC44A-9C17-E39C-C549-C821B1A1C2A8}.Debug|Win32.ActiveCfg = Release|Win32
+		{B01EC44A-9C17-E39C-C549-C821B1A1C2A8}.Debug|Win32.Build.0 = Release|Win32
+		{B01EC44A-9C17-E39C-C549-C821B1A1C2A8}.Release|Win32.ActiveCfg = Release|Win32
+		{B01EC44A-9C17-E39C-C549-C821B1A1C2A8}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {200D9A91-A569-46C9-8E19-352CF8531366}
+	EndGlobalSection
+EndGlobal
