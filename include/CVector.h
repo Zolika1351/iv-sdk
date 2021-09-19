@@ -6,5 +6,6 @@ public:
 // i wonder if anyone will one day find out what the fuck this value is for
 class CVector_pad : public CVector
 {
+public:
 	unsigned int __pad;
 };
