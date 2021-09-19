@@ -36,6 +36,16 @@ public:
 	uint8_t m_nAlpha;													// 063-064
 	uint8_t pad5[0x8];													// 064-06C
 	CNetworkObject* m_pNetworkObject;									// 06C-070
+
+	void Teleport(CMatrix* mat, bool bDontUpdatePhysicsMatrix, bool bImmediately)
+	{
+		((void(__thiscall*)(CEntity*, CMatrix*, bool, bool))(*(void***)this)[1])(this, mat, bDontUpdatePhysicsMatrix, bImmediately);
+	}
+
+	void Teleport(CVector* v, bool bDontUpdatePhysicsMatrix, bool bImmediately)
+	{
+		((void(__thiscall*)(CEntity*, CVector*, bool, bool))(*(void***)this)[2])(this, v, bDontUpdatePhysicsMatrix, bImmediately);
+	}
 };
 
 VALIDATE_SIZE(CEntity, 0x70);
