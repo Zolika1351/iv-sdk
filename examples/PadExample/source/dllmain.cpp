@@ -7,7 +7,7 @@ void PadExample1()
 	if (ped)
 	{
 		auto pad = ped->GetPadFromPlayer(); // can also use CPad::GetPad()
-		int value = pad->m_aValues[CONTROL_JUMP].m_nCurrentValue;
+		int value = pad->m_aValues[INPUT_JUMP].m_nCurrentValue;
 		// while SET_CHAR_VELOCITY would be better suited for this, the buggy velocity by using the collider is too good
 		if (auto collider = ped->GetConstrainedCollider())
 		{
