@@ -53,6 +53,5 @@ void plugin::gameStartupEvent()
 // right after gta.dat loads, put any extra loading related things here
 void plugin::gameLoadEvent()
 {
-	CFileLoader::LoadLevel("test.dat", 0);
-	CdStreamAddImage("mods/mods.img", 0, -1);
+	
 }
