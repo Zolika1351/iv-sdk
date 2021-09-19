@@ -177,6 +177,10 @@ public:
 	{
 		((void(__thiscall*)(CVehicle*))(AddressSetter::Get(0x5C63D0, 0x4F0340)))(this);
 	}
+	void Fix()
+	{
+		((void(__thiscall*)(CVehicle*))(*(void***)this)[101])(this);
+	}
 };
 VALIDATE_SIZE(CVehicle, 0x20D0);
 VALIDATE_OFFSET(CVehicle, m_nDoorLock, 0x1320);
