@@ -6,7 +6,6 @@ class CViewportMobilePhone;
 class ProceduralTextureRenderTargetDef;
 class grcRenderTargetPC;
 class grmShaderFx;
-class grcTexturePC;
 
 class grcVertexBufferD3D
 {
@@ -18,11 +17,11 @@ class SkyhatPerlinNoise
 {
 public:
 	uint8_t pad[0x24];												// 00-24
-	grcTexturePC* m_pTexture[2];									// 24-2C
+	CSprite2d m_pSprite[2];											// 24-2C
 	uint8_t pad2[0x4];												// 2C-30
 };
 VALIDATE_SIZE(SkyhatPerlinNoise, 0x30);
-VALIDATE_OFFSET(SkyhatPerlinNoise, m_pTexture, 0x24);
+VALIDATE_OFFSET(SkyhatPerlinNoise, m_pSprite, 0x24);
 
 struct tGlobalScene
 {
