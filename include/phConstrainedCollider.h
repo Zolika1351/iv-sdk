@@ -40,6 +40,11 @@ public:
 	CVector_pad m_vUnk4;												// 120-130
 	uint8_t pad4[0x170];												// 130-2A0
 	tUnkColliderParams* m_pUnkParameters;								// 2A0-2A4
+
+	void SetVelocity(CVector *v)
+	{
+		((void(__thiscall*)(phConstrainedCollider*, CVector*))(*(void***)this)[42])(this, v);
+	}
 };
 VALIDATE_OFFSET(phConstrainedCollider, m_pSleep, 0x18);
 VALIDATE_OFFSET(phConstrainedCollider, m_vPos2, 0x90);
