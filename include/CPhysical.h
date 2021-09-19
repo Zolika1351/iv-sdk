@@ -32,6 +32,11 @@ public:
 	{
 		return ((phConstrainedCollider*(__thiscall*)(CPhysical*))(AddressSetter::Get(0x5E7080, 0x505110)))(this);
 	}
+
+	CVector* GetVelocity(CVector* v)
+	{
+		return ((CVector*(__thiscall*)(CPhysical*, CVector*))(*(void***)this)[59])(this, v);
+	}
 };
 
 VALIDATE_SIZE(CPhysical, 0x210);
