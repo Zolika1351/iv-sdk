@@ -181,6 +181,10 @@ public:
 	{
 		((void(__thiscall*)(CVehicle*))(*(void***)this)[101])(this);
 	}
+	static bool UsesSiren(int32_t id)
+	{
+		return ((bool(__cdecl*)(int32_t))(AddressSetter::Get(0x5C5F50, 0x4EFEC0)))(id);
+	}
 };
 VALIDATE_SIZE(CVehicle, 0x20D0);
 VALIDATE_OFFSET(CVehicle, m_nDoorLock, 0x1320);
