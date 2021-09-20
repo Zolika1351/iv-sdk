@@ -34,4 +34,8 @@ public:
 	{
 		((void(__cdecl*)())(AddressSetter::Get(0x420960, 0x4CC880)))();
 	}
+	static CSprite2d GetTexture(char* sName)
+	{
+		return ((CSprite2d(__stdcall*)(char*))(AddressSetter::Get(0x21DA10, 0xD300)))(sName);
+	}
 };

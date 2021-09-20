@@ -72,3 +72,4 @@ namespace plugin
 #include "CDraw.h"
 #include "pgDictionary.h"
 #include "CTxdStore.h"
+#include "CFileMgr.h"
