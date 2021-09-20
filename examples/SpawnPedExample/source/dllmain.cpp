@@ -10,7 +10,7 @@ void plugin::processScriptsEvent()
 		auto mdl = CModelInfo::GetModelInfo(rage::atStringHash("m_y_multiplayer"), &index);
 		CStreaming::ScriptRequestModel(rage::atStringHash("m_y_multiplayer"));
 		CStreaming::LoadAllRequestedModels(0);
-		tUnkSpawnData data = { 0, 0 };
+		tSpawnData data = { 0, 0 };
 		CMatrix mat = *FindPlayerPed()->m_pMatrix;
 		mat.pos.x += 2;
 		CPed* ped = PedFactory->CreatePed(&data, index, &mat, 1, 1);
