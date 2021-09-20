@@ -30,6 +30,11 @@ public:
 	static inline CPlayerInfo** Players = (CPlayerInfo**)AddressSetter::Get(0xDA7008, 0xD00498); // Players[32]
 	static inline int32_t& PlayerInFocus = AddressSetter::GetRef<int32_t>(0xB1CC68, 0xB2E0B4);
 
+	static void Add(CEntity* entity, bool bUnk)
+	{
+		((void(__cdecl*)(CEntity*, bool))(AddressSetter::Get(0x417350, 0x3CC640)))(entity, bUnk);
+	}
+	
 	static void Remove(CEntity* entity, bool bUnk)
 	{
 		((void(__cdecl*)(CEntity*, bool))(AddressSetter::Get(0x4173C0, 0x3CC6B0)))(entity, bUnk);

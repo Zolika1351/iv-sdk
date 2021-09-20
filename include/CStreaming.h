@@ -3,9 +3,9 @@ class CStreaming
 public:
 	static inline uint8_t& ms_disableStreaming = AddressSetter::GetRef<uint8_t>(0xE1DFAA, 0xF997D2);
 	// this is easier to use until RequestModel is fully documented
-	static void ScriptRequestModel(int32_t modelIndex, uint32_t* pRunningThread = nullptr)
+	static void ScriptRequestModel(int32_t nHash, uint32_t* pRunningThread = nullptr)
 	{
-		((void(__cdecl*)(int32_t, uint32_t*))(AddressSetter::Get(0x76C3D0, 0x7191D0)))(modelIndex, pRunningThread);
+		((void(__cdecl*)(int32_t, uint32_t*))(AddressSetter::Get(0x76C3D0, 0x7191D0)))(nHash, pRunningThread);
 	}
 	//ScriptRequestModel: CStreaming::RequestModel(v4, dword_11F73A0, dword_12C38A8 | 0xC);
 	// todo: look into this
