@@ -60,28 +60,11 @@ namespace AddressSetter
 		}
 	}
 
-	void PickAddressesByVersion()
-	{
-		gBaseAddress = (uint32_t)GetModuleHandle(NULL);
-		switch (plugin::gameVer)
-		{
-		case plugin::VERSION_1070:
-			Addresses::nProcessScriptsEvent = gBaseAddress + 0x21601;
-			Addresses::nGameLoadEvent = gBaseAddress + 0x4ADB38;
-			break;
-		case plugin::VERSION_1080:
-			Addresses::nProcessScriptsEvent = gBaseAddress + 0x95141;
-			Addresses::nGameLoadEvent = gBaseAddress + 0x770748;
-			break;
-		default:
-			break;
-		}
-	}
-
 	void Init()
 	{
 		DetermineVersion();
-		PickAddressesByVersion();
+		gBaseAddress = (uint32_t)GetModuleHandle(NULL);
+		bAddressesRead = true;
 	}
 
 	// note that the base address is added here and 0x400000 is not subtracted, so rebase your .idb to 0x0 or subtract it yourself

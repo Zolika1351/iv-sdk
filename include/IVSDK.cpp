@@ -38,8 +38,8 @@ namespace plugin
 	}
 	void InitHooks()
 	{
-		Addresses::nProcessScriptsEventRet = DoHook(Addresses::nProcessScriptsEvent, processScriptsEventHook);
-		Addresses::nGameLoadEventRet = DoHook(Addresses::nGameLoadEvent, gameLoadEventHook);
+		Addresses::nProcessScriptsEventRet = DoHook(AddressSetter::Get(0x21601, 0x95141), processScriptsEventHook);
+		Addresses::nGameLoadEventRet = DoHook(AddressSetter::Get(0x4ADB38, 0x770748), gameLoadEventHook);
 	}
 	void Init()
 	{
