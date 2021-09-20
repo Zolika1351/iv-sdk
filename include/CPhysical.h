@@ -7,14 +7,16 @@ public:
 	struct
 	{
 		unsigned int flag1 : 6;
-		unsigned int m_bBulletProof : 1;
-		unsigned int m_bFireProof : 1;
-		unsigned int m_bCollisionProof : 1;
-		unsigned int m_bMeleeProof : 1;
-		unsigned int m_bInvincible : 1;
-		unsigned int m_bOnlyDamagedByPlayer : 1;
-		unsigned int m_bExplosionProof : 1;
-		unsigned int flag14 : 19;
+		unsigned int bBulletProof : 1;
+		unsigned int bFireProof : 1;
+		unsigned int bCollisionProof : 1;
+		unsigned int bMeleeProof : 1;
+		unsigned int bInvincible : 1;
+		unsigned int bOnlyDamagedByPlayer : 1;
+		unsigned int bExplosionProof : 1;
+		unsigned int flag14 : 3;
+		unsigned int bDestroyed : 1;
+		unsigned int flag18 : 15;
 	} m_nPhysicalFlags;													// 118-11C
 	uint8_t pad9[0xA0];													// 11C-1BC
 	CEntity* m_pAttachedToEntity;										// 1BC-1C0

@@ -21,15 +21,15 @@ VALIDATE_OFFSET(CCustomShaderEffectPedBoneDamageFX, m_fDamage, 0x20);
 class CPedMoveBlendOnFoot
 {
 public:
-	char pad[0x8];														// 00-08
+	uint8_t pad[0x8];													// 00-08
 	float m_fMoveState;													// 08-0C 3 - sprint, 2 - run, 1 - walk
-	char pad1[0x10];													// 0C-1C
+	uint8_t pad1[0x10];													// 0C-1C
 	float m_fMoveLeanAmount;											// 1C-20 3 is normal, less than 3 leans left, more than 3 leans right
-	char pad2[0x8];														// 20-28
+	uint8_t pad2[0x8];													// 20-28
 	float m_fMoveTurn;													// 28-2C
-	char pad3[0x24];													// 2C-50
-	int m_nUnkFlags;													// 50-54
-	char pad4[0x18];													// 54-6C
+	uint8_t pad3[0x24];													// 2C-50
+	uint32_t m_nUnkFlags;												// 50-54
+	uint8_t pad4[0x18];													// 54-6C
 	float m_fMoveAnimSpeed;												// 6C-70
 	float m_fMaxMoveBlendRatio;											// 70-74 caps m_fMoveState
 };
@@ -121,8 +121,8 @@ public:																	// 000-210
 	uint8_t pad9[0x194];												// 488-61C
 	uint32_t m_nVoiceHash;												// 61C-620
 	uint8_t pad10[0x1A8];												// 620-7C8
-	int m_nRagdollStatus;												// 7C8-7CC
-	int m_nRagdollTime;													// 7CC-7D0
+	uint32_t m_nRagdollStatus;											// 7C8-7CC
+	uint32_t m_nRagdollTime;											// 7CC-7D0
 	uint8_t pad11[0x21];												// 7D0-7F1
 	uint8_t m_nWeaponObjectVisible;										// 7F1-7F2
 	uint8_t pad12[0x27E];												// 7F2-A90

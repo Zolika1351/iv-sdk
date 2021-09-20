@@ -52,7 +52,8 @@ public:
 	CRGBA m_nSpecularColor;												// 06C-070
 	grmShaderGroup* m_pShaderGroup;										// 070-074
 	float m_fDirtLevel;													// 074-078
-	uint8_t pad6[0x60];													// 078-0D8
+	uint8_t m_bWrecked;													// 078-07C
+	uint8_t pad6[0x5C];													// 07C-0D8
 	int32_t m_nLivery;													// 0D8-0DC
 };
 VALIDATE_OFFSET(CCustomShaderEffectVehicleFX, m_fPrimaryColor, 0x10);
@@ -63,6 +64,7 @@ VALIDATE_OFFSET(CCustomShaderEffectVehicleFX, m_fQuinaryColor, 0x50);
 VALIDATE_OFFSET(CCustomShaderEffectVehicleFX, m_fSpecularColor, 0x60);
 VALIDATE_OFFSET(CCustomShaderEffectVehicleFX, m_nLivery, 0xD8);
 VALIDATE_OFFSET(CCustomShaderEffectVehicleFX, m_fDirtLevel, 0x74);
+VALIDATE_OFFSET(CCustomShaderEffectVehicleFX, m_bWrecked, 0x78);
 
 class CVehicle : public CPhysical
 {
