@@ -43,6 +43,7 @@ namespace plugin
 #include "CTaskSimpleNMJumpRollFromRoadVehicle.h"
 #include "CPed.h"
 #include "CPedFactoryNY.h"
+#include "CVehicleFactoryNY.h"
 #include "CRadar.h"
 #include "CGarage.h"
 #include "cHandlingDataMgr.h"
