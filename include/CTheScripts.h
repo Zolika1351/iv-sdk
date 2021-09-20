@@ -1,6 +1,7 @@
 class CTheScripts
 {
 public:
+	static inline uint32_t& m_pCurrentThread = AddressSetter::GetRef<uint32_t>(0x1449AE0, 0x1394FB4);
 	static uint32_t FindNativeAddress(uint32_t nativeHash)
 	{
 		__try
@@ -26,5 +27,9 @@ public:
 	static bool IsPlayerOnAMission()
 	{
 		return ((bool(__cdecl*)())(AddressSetter::Get(0x403E00, 0x4AE3E0)))();
+	}
+	static void GivePedScriptedTask(int handle, CTask* task, int unk)
+	{
+		((void(__cdecl*)(int, CTask*, int))(AddressSetter::Get(0x4067A0, 0x4B0DF0)))(handle, task, unk);
 	}
 };

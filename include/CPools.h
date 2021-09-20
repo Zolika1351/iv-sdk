@@ -6,4 +6,5 @@ public:
 	static inline CPool*& ms_pBuildingPool = AddressSetter::GetRef<CPool*>(0x128FED0, 0xE4A5E8);
 	static inline CPool*& ms_pObjectPool = AddressSetter::GetRef<CPool*>(0xF50CE0, 0xE52B48);
 	static inline CPool*& ms_pCameraPool = AddressSetter::GetRef<CPool*>(0x1218020, 0xF68158);
+	static inline CPool*& ms_pTaskPool = AddressSetter::GetRef<CPool*>(0x124B01C, 0x126FE3C);
 };

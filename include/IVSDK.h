@@ -32,6 +32,8 @@ namespace plugin
 #include "CPhysical.h"
 #include "CCustomShaderEffectBase.h"
 #include "CObject.h"
+#include "CTask.h"
+#include "CTaskComplexWander.h"
 #include "CPed.h"
 #include "CRadar.h"
 #include "CGarage.h"

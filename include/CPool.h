@@ -19,5 +19,9 @@ public:
 	{
 		return ((uint32_t(__thiscall*)(CPool*, void*))(AddressSetter::Get(0x47230, 0xAFF10)))(this, pObject);
 	}
+	void* New()
+	{
+		return ((void*(__thiscall*)(CPool*))(AddressSetter::Get(0x39CB0, 0x9F3A0)))(this);
+	}
 };
 VALIDATE_SIZE(CPool, 0x1C);
