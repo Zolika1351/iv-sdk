@@ -5,7 +5,18 @@ class CPedDataNY;
 class CObject;
 class CVehicle;
 class rmcDrawable;
-class CCustomShaderEffectPedBoneDamageFX;
+
+class CCustomShaderEffectPedBoneDamageFX : public CCustomShaderEffectBase
+{
+public:
+	uint8_t pad[0x20];													// 000-020
+	float m_fDamage[64];												// 020-??? todo: check CCustomShaderEffectPedBoneDamageFX::Update to get a count
+	uint8_t pad2[0x250];												// 120-370
+
+	// nop the Update function to test the damage values
+};
+VALIDATE_SIZE(CCustomShaderEffectPedBoneDamageFX, 0x370);
+VALIDATE_OFFSET(CCustomShaderEffectPedBoneDamageFX, m_fDamage, 0x20);
 
 class CPedMoveBlendOnFoot
 {

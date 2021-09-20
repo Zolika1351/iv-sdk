@@ -30,6 +30,7 @@ namespace plugin
 #include "CEntity.h"
 #include "CDynamicEntity.h"
 #include "CPhysical.h"
+#include "CCustomShaderEffectBase.h"
 #include "CObject.h"
 #include "CPed.h"
 #include "CRadar.h"
