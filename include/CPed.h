@@ -135,9 +135,11 @@ public:																	// 000-210
 	float m_fDesiredHeading;											// AB4-AB8
 	uint8_t pad15[0x88];												// AB8-B40
 	CVehicle* m_pVehicle;												// B40-B44
-	uint8_t pad16[0x364];												// B44-EA8
+	uint8_t pad16[0x33C];												// B44-E80
+	uint32_t m_nUnkPlayerSettingsRelated;								// E80-E84 used in CTaskComplexPlayerSettingsTask, initialized as *(dword_14CB008 + 32)
+	uint8_t pad17[0x24];												// E84-EA8
 	tPedComponentModels* m_pComponentModels;							// EA8-EAC
-	uint8_t pad17[0x54];												// EAC-F00
+	uint8_t pad18[0x54];												// EAC-F00
 
 	CPad* GetPadFromPlayer()
 	{
@@ -170,3 +172,4 @@ VALIDATE_OFFSET(CPed, m_pComponentModels, 0xEA8);
 VALIDATE_OFFSET(CPed, m_nVoiceHash, 0x61C);
 VALIDATE_OFFSET(CPed, m_pStandingOnEntity, 0x484);
 VALIDATE_OFFSET(CPed, m_pWeaponData, 0x2B0);
+VALIDATE_OFFSET(CPed, m_nUnkPlayerSettingsRelated, 0xE80);
