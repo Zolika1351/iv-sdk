@@ -52,7 +52,7 @@ VALIDATE_OFFSET(tGlobalScene, m_sSkyhatNoise, 0x200);
 // the order seems to be dynamic
 struct tRenderPhases
 {
-	CRenderPhase* m_aRenderPhases;									// ???-??? array, of size m_nNumRenderPhases
+	CRenderPhase* m_aRenderPhases[32];								// 000-??? array, of size m_nNumRenderPhases
 };
 
 class CDraw
