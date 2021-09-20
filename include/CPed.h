@@ -132,6 +132,10 @@ public:																	// 000-210
 	{
 		return ((CPad * (__thiscall*)(CPed*))(AddressSetter::Get(0x5BE5D0, 0x596F80)))(this);
 	}
+	CVehicle* GetVehicle()
+	{
+		return ((CVehicle * (__thiscall*)(CPed*))(AddressSetter::Get(0x26AB0, 0x9FBA0)))(this);
+	}
 };
 
 VALIDATE_SIZE(CPed, 0xF00);
