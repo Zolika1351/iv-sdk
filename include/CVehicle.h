@@ -28,7 +28,7 @@ struct tDoors
 };
 
 
-class CCustomShaderEffectVehicleFX
+class CCustomShaderEffectVehicleFX : public CCustomShaderEffectBase
 {
 public:
 	char pad[0x10];														// 000-010
@@ -51,7 +51,8 @@ public:
 	CRGBFloat m_fSpecularColor;											// 060-06C
 	CRGBA m_nSpecularColor;												// 06C-070
 	grmShaderGroup* m_pShaderGroup;										// 070-074
-	char pad6[0x64];													// 074-0D8
+	float m_fDirtLevel;													// 074-078
+	uint8_t pad6[0x60];													// 078-0D8
 	int32_t m_nLivery;													// 0D8-0DC
 };
 VALIDATE_OFFSET(CCustomShaderEffectVehicleFX, m_fPrimaryColor, 0x10);
@@ -61,6 +62,7 @@ VALIDATE_OFFSET(CCustomShaderEffectVehicleFX, m_fQuaternaryColor, 0x40);
 VALIDATE_OFFSET(CCustomShaderEffectVehicleFX, m_fQuinaryColor, 0x50);
 VALIDATE_OFFSET(CCustomShaderEffectVehicleFX, m_fSpecularColor, 0x60);
 VALIDATE_OFFSET(CCustomShaderEffectVehicleFX, m_nLivery, 0xD8);
+VALIDATE_OFFSET(CCustomShaderEffectVehicleFX, m_fDirtLevel, 0x74);
 
 class CVehicle : public CPhysical
 {
