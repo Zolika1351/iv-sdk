@@ -152,4 +152,13 @@ class cHandlingDataMgr
 {
 public:
 	static inline tHandlingData* HandlingData = (tHandlingData*)AddressSetter::Get(0x11E3BF0, 0x12773B0); // HandlingData[160]
+
+	static void Initialise()
+	{
+		((void(__cdecl*)())(AddressSetter::Get(0x571FC0, 0x7A2C10)))();
+	}
+	static void LoadHandlingData(char* sPath)
+	{
+		((void(__cdecl*)(char*))(AddressSetter::Get(0x571D60, 0x7A29B0)))(sPath);
+	}
 };
