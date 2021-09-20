@@ -147,6 +147,10 @@ public:																	// 000-210
 	{
 		return ((CVehicle * (__thiscall*)(CPed*))(AddressSetter::Get(0x26AB0, 0x9FBA0)))(this);
 	}
+	void SetHealth(float health, int unk)
+	{
+		((void(__thiscall*)(CPed*, float, int))(*(void***)this)[61])(this, health, unk);
+	}
 };
 
 VALIDATE_SIZE(CPed, 0xF00);

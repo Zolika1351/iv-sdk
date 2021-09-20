@@ -34,6 +34,7 @@ namespace plugin
 #include "CObject.h"
 #include "CTask.h"
 #include "CTaskComplexWander.h"
+#include "CTaskComplexDie.h"
 #include "CPed.h"
 #include "CRadar.h"
 #include "CGarage.h"
