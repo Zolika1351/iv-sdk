@@ -62,6 +62,7 @@ namespace plugin
 #include "CdStream.h"
 #include "CGame.h"
 #include "CCam.h"
+#include "CCamera.h"
 #include "CExplosion.h"
 #include "CHudColours.h"
 #include "CVisibilityPlugins.h"
@@ -78,3 +79,4 @@ namespace plugin
 #include "CTxdStore.h"
 #include "CFileMgr.h"
 #include "CFont.h"
+#include "audRadioAudioEntity.h"
