@@ -28,7 +28,9 @@ public:
 	uint8_t pad12[0x4];													// 1E8-1EC
 	int32_t m_nLastDamageWeapon;										// 1EC-1F0
 	float m_fHealth;													// 1F0-1F4
-	uint8_t pad13[0x1C];												// 1F4-210
+	uint8_t pad12[0x4];													// 1F4-1F8
+	CEntity* m_pEntityIgnoredCollision;									// 1F8-1FC
+	uint8_t pad13[0x14];												// 1FC-210
 
 	phConstrainedCollider* GetConstrainedCollider()
 	{
@@ -49,3 +51,4 @@ VALIDATE_OFFSET(CPhysical, m_nPhysicalFlags, 0x118);
 VALIDATE_OFFSET(CPhysical, m_pAttachedToEntity, 0x1BC);
 VALIDATE_OFFSET(CPhysical, m_vAttachOffset, 0x1C0);
 VALIDATE_OFFSET(CPhysical, m_qAttachOffset, 0x1D0);
+VALIDATE_OFFSET(CPhysical, m_pEntityIgnoredCollision, 0x1F8);
