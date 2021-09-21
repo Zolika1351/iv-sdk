@@ -4,6 +4,16 @@ class phArchetypeGta;
 class gtaFragType;
 struct tDrawableStruct;
 
+enum eModelInfoType
+{
+	MODEL_INFO_INSTANCE = 1,
+	MODEL_INFO_MLO = 2,
+	MODEL_INFO_TIME = 3,
+	MODEL_INFO_WEAPON = 4,
+	MODEL_INFO_VEHICLE = 5,
+	MODEL_INFO_PED = 6,
+};
+
 class CBaseModelInfo
 {
 public:
@@ -21,6 +31,11 @@ public:
 	uint8_t pad2[0xE];								// 48-56
 	int8_t m_nAnimIndex;							// 56-58
 	uint8_t pad3[0x8];								// 58-60
+
+	uint8_t GetModelType()
+	{
+		return ((uint8_t(__thiscall*)(CBaseModelInfo*))(*(void***)this)[3])(this);
+	}
 };
 VALIDATE_SIZE(CBaseModelInfo, 0x60);
 VALIDATE_OFFSET(CBaseModelInfo, m_pFragType, 0x8);
