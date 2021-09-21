@@ -1,7 +1,7 @@
 class CSprite2d
 {
 public:
-	rage::grcTexturePC* m_pTexture;
+	rage::grcTexturePC* m_pTexture = nullptr;
 
 	void SetTexture(char* sName)
 	{
