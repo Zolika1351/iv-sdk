@@ -28,9 +28,9 @@ public:
 	uint8_t pad12[0x4];													// 1E8-1EC
 	int32_t m_nLastDamageWeapon;										// 1EC-1F0
 	float m_fHealth;													// 1F0-1F4
-	uint8_t pad12[0x4];													// 1F4-1F8
+	uint8_t pad13[0x4];													// 1F4-1F8
 	CEntity* m_pEntityIgnoredCollision;									// 1F8-1FC
-	uint8_t pad13[0x14];												// 1FC-210
+	uint8_t pad14[0x14];												// 1FC-210
 
 	phConstrainedCollider* GetConstrainedCollider()
 	{
