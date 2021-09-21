@@ -18,3 +18,11 @@ void __declspec(naked) gameLoadEventHook()
 		jmp Addresses::nGameLoadEventRet
 	}
 }
+
+namespace Overrides
+{
+	void GetTexture(CSprite2d(__stdcall* funcPtr)(char*))
+	{
+		injector::MakeJMP(AddressSetter::Get(0x21DA10, 0xD300), funcPtr);
+	}
+}
