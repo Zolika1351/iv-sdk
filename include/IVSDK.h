@@ -73,3 +73,4 @@ namespace plugin
 #include "pgDictionary.h"
 #include "CTxdStore.h"
 #include "CFileMgr.h"
+#include "CFont.h"
