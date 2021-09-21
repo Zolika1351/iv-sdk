@@ -4,6 +4,7 @@
 #include <windows.h>
 #include <stdint.h>
 #include <string>
+#include <d3dx9.h>
 #include "injector/injector.hpp"
 
 #include "Addresses.h"

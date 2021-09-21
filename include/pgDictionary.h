@@ -1,6 +1,5 @@
 namespace rage
 {
-	class grcTexture;
 	template<typename T>
 	class pgDictionary
 	{
