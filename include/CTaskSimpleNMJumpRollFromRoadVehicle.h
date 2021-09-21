@@ -1,4 +1,4 @@
-class CTaskSimpleNMJumpRollFromRoadVehicle : public CTaskComplex
+class CTaskSimpleNMJumpRollFromRoadVehicle : public CTaskSimple
 {
 public:
 	void New(uint32_t time, uint32_t time2)
