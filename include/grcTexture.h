@@ -9,6 +9,6 @@ namespace rage
 	{
 	public:
 		uint8_t pad[0x18];								// 00-18
-		IDirect3DBaseTexture9* m_pBaseTexture;			// 18-1C
+		LPDIRECT3DTEXTURE9 m_pD3DTexture;				// 18-1C
 	};
 }
