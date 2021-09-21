@@ -27,6 +27,7 @@ namespace plugin
 #include "CPool.h"
 #include "CPools.h"
 #include "CPad.h"
+#include "CSimpleTransform.h"
 #include "CEntity.h"
 #include "CDynamicEntity.h"
 #include "CBuilding.h"

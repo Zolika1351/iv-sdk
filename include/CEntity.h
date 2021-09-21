@@ -14,8 +14,7 @@ class CEntity
 {
 public:
 	uint8_t pad[0x10];													// 000-010
-	CVector m_vPosition;												// 010-01C
-	float m_fHeading;													// 01C-020
+	CSimpleTransform m_placement;										// 010-020
 	CMatrix* m_pMatrix;													// 020-024
 	struct
 	{
@@ -45,6 +44,11 @@ public:
 	void Teleport(CVector* v, bool bDontUpdatePhysicsMatrix, bool bImmediately)
 	{
 		((void(__thiscall*)(CEntity*, CVector*, bool, bool))(*(void***)this)[2])(this, v, bDontUpdatePhysicsMatrix, bImmediately);
+	}
+
+	void PreRender(int nUnk, int nUnk2, char alpha, int nUnkNeg1)
+	{
+		((void(__thiscall*)(CEntity*, int, int, char, int))(*(void***)this)[35])(this, nUnk, nUnk2, alpha, nUnkNeg1);
 	}
 };
 
