@@ -6374,6 +6374,7 @@ namespace Scripting
 	static u32 GET_PLAYERSETTINGS_MODEL_CHOICE() { return NativeInvoke::Invoke< u32>(NATIVE_GET_PLAYERSETTINGS_MODEL_CHOICE); }
 	static u32 GET_PLAYER_RADIO_MODE() { return NativeInvoke::Invoke< u32>(NATIVE_GET_PLAYER_RADIO_MODE); }
 	static u32 GET_PLAYER_RADIO_STATION_INDEX() { return NativeInvoke::Invoke< u32>(NATIVE_GET_PLAYER_RADIO_STATION_INDEX); }
+	static char* GET_PLAYER_RADIO_STATION_NAME() { return NativeInvoke::Invoke< char*>(NATIVE_GET_PLAYER_RADIO_STATION_NAME); }
 	static u32 GET_ROUTE_SIZE() { return NativeInvoke::Invoke< u32>(NATIVE_GET_ROUTE_SIZE); }
 	static u32 GET_SCREEN_FADE_ALPHA() { return NativeInvoke::Invoke< u32>(NATIVE_GET_SCREEN_FADE_ALPHA); }
 	static u32 GET_SIMPLE_BLIP_ID() { return NativeInvoke::Invoke< u32>(NATIVE_GET_SIMPLE_BLIP_ID); }
