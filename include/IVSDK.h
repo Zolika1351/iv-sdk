@@ -29,6 +29,8 @@ namespace plugin
 #include "CPad.h"
 #include "CEntity.h"
 #include "CDynamicEntity.h"
+#include "CBuilding.h"
+#include "CInteriorInst.h"
 #include "CPhysical.h"
 #include "CCustomShaderEffectBase.h"
 #include "CObject.h"
