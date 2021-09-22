@@ -5328,6 +5328,8 @@ namespace Scripting
 	static void UNPAUSE_GAME() { NativeInvoke::Invoke< ScriptVoid>(NATIVE_UNPAUSE_GAME); }
 	static char* GET_STRING_FROM_TEXT_FILE(const char* gxtentry) { return NativeInvoke::Invoke<char*>(NATIVE_GET_STRING_FROM_TEXT_FILE, gxtentry); }
 	static const char* GET_DISPLAY_NAME_FROM_VEHICLE_MODEL(unsigned int model) { return NativeInvoke::Invoke< char*>(NATIVE_GET_DISPLAY_NAME_FROM_VEHICLE_MODEL, model); }
+	static const char* GET_NAME_OF_INFO_ZONE(f32 x, f32 y, f32 z) { return NativeInvoke::Invoke< char*>(NATIVE_GET_NAME_OF_INFO_ZONE, x, y, z); }
+	static const char* GET_NAME_OF_ZONE(f32 x, f32 y, f32 z) { return NativeInvoke::Invoke< char*>(NATIVE_GET_NAME_OF_ZONE, x, y, z); }
 	static void USE_PREVIOUS_FONT_SETTINGS() { NativeInvoke::Invoke< ScriptVoid>(NATIVE_USE_PREVIOUS_FONT_SETTINGS); }
 	static int CREATE_CHECKPOINT(int type, float x, float y, float z, float Unk709, float Unk710) { return NativeInvoke::Invoke<int, int, float, float, float, float, float>(NATIVE_CREATE_CHECKPOINT, type, x, y, z, Unk709, Unk710); }
 	static void DELETE_CHECKPOINT(unsigned int checkpoint) { NativeInvoke::Invoke< ScriptVoid>(NATIVE_DELETE_CHECKPOINT, checkpoint); }
