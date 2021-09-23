@@ -73,6 +73,7 @@ namespace plugin
 #include "CCutsceneMgr.h"
 #include "CRenderPhase.h"
 #include "grcTexture.h"
+#include "grcTextureFactory.h"
 #include "CSprite2d.h"
 #include "CDraw.h"
 #include "pgDictionary.h"
