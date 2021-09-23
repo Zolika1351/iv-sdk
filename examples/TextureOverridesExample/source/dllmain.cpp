@@ -1,15 +1,16 @@
 #include "../../../include/IVSDK.cpp"
 
-CSprite2d RainbowSprite;
+LPDIRECT3DTEXTURE9 rainbowTex = nullptr;
 
 // absolute worst case scenario here: returning the custom texture for every single call
-// if you only want to replace specific textures, you're free to create a CSprite2d, use SetTexture on it and then return that by default
+// if you only want to replace specific textures, you're free to use SetTexture on the CSprite2d and then return that by default
 CSprite2d __stdcall LoadRainbowTexture(char* sName)
 {
+	CSprite2d RainbowSprite;
+	RainbowSprite.m_pTexture = new rage::grcTexturePC("test1");
+	RainbowSprite.m_pTexture->m_pD3DTexture = rainbowTex;
 	return RainbowSprite;
 }
-
-LPDIRECT3DTEXTURE9 rainbowTex = nullptr;
 
 int RainbowStage;
 float RainbowR;
@@ -65,16 +66,6 @@ void CreateRainbowTexture()
 void plugin::processScriptsEvent()
 {
 	// all this is hilariously unstable but it's a proof of concept anyway
-	if (!rainbowTex)
-	{
-		// no texture constructor yet, we're stealing one
-		RainbowSprite.m_pTexture = (rage::grcTexturePC*)malloc(sizeof(rage::grcTexturePC));
-		*RainbowSprite.m_pTexture = *CRadar::m_pRadarRingBack.m_pTexture;
-
-		CreateRainbowTexture();
-	}
-	if (RainbowSprite.m_pTexture) RainbowSprite.m_pTexture->m_pD3DTexture = rainbowTex;
-	Overrides::GetTexture(LoadRainbowTexture);
 	AdvanceRainbow();
 	if (auto tex = rainbowTex)
 	{
@@ -99,11 +90,14 @@ void plugin::processScriptsEvent()
 // basically just DllMain but fancier and with the sdk initialized
 void plugin::gameStartupEvent()
 {
-
+	Overrides::GetTexture(LoadRainbowTexture);
 }
 
 // right after gta.dat loads, put any extra loading related things here
 void plugin::gameLoadEvent()
 {
-
+	if (!rainbowTex)
+	{
+		CreateRainbowTexture();
+	}
 }
