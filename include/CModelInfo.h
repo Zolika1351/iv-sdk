@@ -49,6 +49,13 @@ VALIDATE_OFFSET(CBaseModelInfo, m_nIDEFlags, 0x40);
 
 struct tVehicleStruct
 {
+	/*
+		v15 = rmcDrawable->0xC
+        sUnk = sub_4F510(v15, sName);
+        if ( sUnk )
+        {
+          *(mdlinfo->m_pVehicleStruct.m_nBones[nID]) = sUnk->0x14;
+        }*/
 	uint8_t m_nBones[0x18C];						// 000-18C
 	uint8_t pad[0x80];								// 18C-20C
 };

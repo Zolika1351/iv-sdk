@@ -8,4 +8,5 @@ public:
 	static inline CPool*& ms_pCameraPool = AddressSetter::GetRef<CPool*>(0x1218020, 0xF68158);
 	static inline CPool*& ms_pTaskPool = AddressSetter::GetRef<CPool*>(0x124B01C, 0x126FE3C);
 	static inline CPool*& ms_pInteriorInstPool = AddressSetter::GetRef<CPool*>(0x125D2E4, 0xE54D74);
+	static inline CPool*& ms_pVehicleStructPool = AddressSetter::GetRef<CPool*>(0x12D6594, 0x1001BCC);
 };
