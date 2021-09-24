@@ -4,7 +4,7 @@ class CPlayerInfo;
 class CPedDataNY;
 class CObject;
 class CVehicle;
-class rmcDrawable;
+namespace rage { class rmcDrawable; }
 
 class CCustomShaderEffectPedBoneDamageFX : public CCustomShaderEffectBase
 {
@@ -72,7 +72,7 @@ VALIDATE_OFFSET(tPedDrawableInfo, m_nTextures, 0x67);
 
 struct tPedComponentModels
 {
-	rmcDrawable* m_pDrawables[11];								// 00-2C
+	rage::rmcDrawable* m_pDrawables[11];						// 00-2C
 	uint8_t pad[0x2C];											// 2C-58
 	CCustomShaderEffectPedBoneDamageFX* m_pPedBoneDamageFX;		// 58-5C
 	uint8_t pad2[0x6];											// 5C-62

@@ -1,4 +1,4 @@
-class grmShaderGroup;
+namespace rage { class grmShaderGroup; }
 
 enum eVehicleType
 {
@@ -58,7 +58,7 @@ public:
 	CRGBA m_nQuinaryColor;												// 05C-060
 	CRGBFloat m_fSpecularColor;											// 060-06C
 	CRGBA m_nSpecularColor;												// 06C-070
-	grmShaderGroup* m_pShaderGroup;										// 070-074
+	rage::grmShaderGroup* m_pShaderGroup;								// 070-074
 	float m_fDirtLevel;													// 074-078
 	uint8_t m_bWrecked;													// 078-07C
 	uint8_t pad6[0x5C];													// 07C-0D8

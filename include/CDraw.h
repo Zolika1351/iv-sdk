@@ -3,25 +3,26 @@ class CViewportPrimaryOrtho;
 class CViewportGame;
 class CViewportRadar;
 class CViewportMobilePhone;
-class ProceduralTextureRenderTargetDef;
-class grcRenderTargetPC;
-class grmShaderFx;
-
-class grcVertexBufferD3D
+namespace rage
 {
-	uint8_t pad[0x40];												// 00-40
-};
-VALIDATE_SIZE(grcVertexBufferD3D, 0x40);
-
-class SkyhatPerlinNoise
-{
-public:
-	uint8_t pad[0x24];												// 00-24
-	CSprite2d m_pSprite[2];											// 24-2C
-	uint8_t pad2[0x4];												// 2C-30
-};
-VALIDATE_SIZE(SkyhatPerlinNoise, 0x30);
-VALIDATE_OFFSET(SkyhatPerlinNoise, m_pSprite, 0x24);
+	class ProceduralTextureRenderTargetDef;
+	class grcRenderTargetPC;
+	class grmShaderFx;
+	class grcVertexBufferD3D
+	{
+		uint8_t pad[0x40];												// 00-40
+	};
+	VALIDATE_SIZE(grcVertexBufferD3D, 0x40);
+	class SkyhatPerlinNoise
+	{
+	public:
+		uint8_t pad[0x24];												// 00-24
+		CSprite2d m_pSprite[2];											// 24-2C
+		uint8_t pad2[0x4];												// 2C-30
+	};
+	VALIDATE_SIZE(SkyhatPerlinNoise, 0x30);
+	VALIDATE_OFFSET(SkyhatPerlinNoise, m_pSprite, 0x24);
+}
 
 struct tGlobalScene
 {
@@ -30,15 +31,15 @@ struct tGlobalScene
 	CViewportRadar* m_pRadarViewport;								// 008-00C
 	CViewportMobilePhone* m_pPhoneViewport;							// 00C-010
 	uint8_t pad[0x70];												// 010-080
-	ProceduralTextureRenderTargetDef* m_pRenderTargetTexture;		// 080-084
+	rage::ProceduralTextureRenderTargetDef* m_pRenderTargetTexture;	// 080-084
 	uint8_t pad2[0x7C];												// 084-100
-	grcRenderTargetPC* m_pRenderTarget;								// 100-104
+	rage::grcRenderTargetPC* m_pRenderTarget;						// 100-104
 	uint8_t pad3[0x7C];												// 104-180
-	grmShaderFx* m_pUnkShaderFx[2];									// 180-188
+	rage::grmShaderFx* m_pUnkShaderFx[2];							// 180-188
 	uint8_t pad4[0x78];												// 188-200
-	SkyhatPerlinNoise m_sSkyhatNoise;								// 200-230
+	rage::SkyhatPerlinNoise m_sSkyhatNoise;							// 200-230
 	uint8_t pad5[0x10];												// 230-240
-	grcVertexBufferD3D m_sVertexBuffer[2];							// 240-2C0
+	rage::grcVertexBufferD3D m_sVertexBuffer[2];					// 240-2C0
 };
 VALIDATE_OFFSET(tGlobalScene, m_pPrimaryViewport, 0x0);
 VALIDATE_OFFSET(tGlobalScene, m_pGameViewport, 0x4);

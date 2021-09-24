@@ -81,3 +81,4 @@ namespace plugin
 #include "CFileMgr.h"
 #include "CFont.h"
 #include "audRadioAudioEntity.h"
+#include "SkyDome.h"

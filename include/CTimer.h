@@ -9,7 +9,7 @@ public:
 	static inline float& ms_fMaxTimeStep = AddressSetter::GetRef<float>(0xB1D9E8, 0xB2E0A0);
 	static inline float& ms_fTimeStep = AddressSetter::GetRef<float>(0xDDDE7C, 0xCFCB74);
 	static inline float& ms_fTimeStepNonClipped = AddressSetter::GetRef<float>(0xDDDEBC, 0xCFCBB4);
-	static inline float& ms_fTimeScale = AddressSetter::GetRef<float>(0xB1D9D8, 0xB2E090);// set by scripts
+	static inline float& ms_fTimeScale = AddressSetter::GetRef<float>(0xB1D9D8, 0xB2E090); // set by scripts
 	static inline float& ms_fTimeScale2 = AddressSetter::GetRef<float>(0xB1D9DC, 0xB2E094); // set by scripts
 	static inline float& ms_fTimeScale3 = AddressSetter::GetRef<float>(0xB1D9E0, 0xB2E098); // changes for death camera
 

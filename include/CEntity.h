@@ -1,11 +1,11 @@
 class CNetworkObject;
 class phInstGta;
 class CPhysical;
-class rmcDrawable;
+namespace rage { class rmcDrawable; }
 
 struct tObjectDrawable
 {
-	rmcDrawable* m_pDrawable;											// 000-004
+	rage::rmcDrawable* m_pDrawable;											// 000-004
 	uint32_t* m_pShaderEffect;											// 004-008 CCustomShaderEffect pointer
 	CEntity* m_pEntityPtr;												// 008-00C
 };
@@ -31,7 +31,7 @@ public:
 	uint8_t pad3[0x10];													// 03C-04C
 	uint32_t m_unkDeletePtr;											// 04C-050
 	float m_fDrawDistance;												// 050-054
-	uint8_t pad4_[0xF];													// 054-063
+	uint8_t pad4[0xF];													// 054-063
 	uint8_t m_nAlpha;													// 063-064
 	uint8_t pad5[0x8];													// 064-06C
 	CNetworkObject* m_pNetworkObject;									// 06C-070
