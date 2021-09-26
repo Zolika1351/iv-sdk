@@ -13,36 +13,36 @@ VALIDATE_OFFSET(phArchetypeGta, m_fMaxSpeed, 0x28);
 
 namespace rage
 {
-	struct tBoneData
+	struct crSkeletonData
 	{
 		char* m_sName;									// 00-04
 		uint8_t pad[0x10];								// 04-14
 		uint16_t m_nBoneID;								// 14-16
 		uint8_t pad2[0xCA];								// 16-E0
 	};
-	VALIDATE_SIZE(tBoneData, 0xE0);
-	VALIDATE_OFFSET(tBoneData, m_nBoneID, 0x14);
+	VALIDATE_SIZE(crSkeletonData, 0xE0);
+	VALIDATE_OFFSET(crSkeletonData, m_nBoneID, 0x14);
 
-	class CFragBones
+	class crSkeleton
 	{
 	public:
-		tBoneData* m_aBoneData;							// 00-04 array
+		crSkeletonData* m_aData;						// 00-04 array
 		uint8_t pad[0x10];								// 04-14
 		uint16_t m_nBoneCount;							// 14-18
-		tBoneData* GetBoneDataByName(char* sName)
+		crSkeletonData* GetBoneDataByName(char* sName)
 		{
-			return ((tBoneData*(__thiscall*)(CFragBones*, char*))(AddressSetter::Get(0x2434F0, 0x4F510)))(this, sName);
+			return ((crSkeletonData *(__thiscall*)(crSkeleton*, char*))(AddressSetter::Get(0x2434F0, 0x4F510)))(this, sName);
 		}
 	};
-	VALIDATE_OFFSET(CFragBones, m_aBoneData, 0x0);
-	VALIDATE_OFFSET(CFragBones, m_nBoneCount, 0x14);
+	VALIDATE_OFFSET(crSkeleton, m_aData, 0x0);
+	VALIDATE_OFFSET(crSkeleton, m_nBoneCount, 0x14);
 
 	class rmcDrawable
 	{
 	public:
 		uint8_t pad[0x8];													// 000-050
 		grmShaderGroup* m_pShaderGroup;										// 008-00C
-		CFragBones* m_pBones;												// 00C-010
+		crSkeleton* m_pSkeleton;											// 00C-010
 		uint8_t pad2[0x40];													// 010-050
 		float m_fLodDistanceHigh;											// 050-054
 		float m_fLodDistanceLow;											// 054-058
@@ -50,7 +50,7 @@ namespace rage
 		float m_fLodDistanceVLow2;											// 05C-060
 	};
 	VALIDATE_OFFSET(rmcDrawable, m_pShaderGroup, 0x8);
-	VALIDATE_OFFSET(rmcDrawable, m_pBones, 0xC);
+	VALIDATE_OFFSET(rmcDrawable, m_pSkeleton, 0xC);
 	VALIDATE_OFFSET(rmcDrawable, m_fLodDistanceHigh, 0x50);
 	VALIDATE_OFFSET(rmcDrawable, m_fLodDistanceLow, 0x54);
 
