@@ -120,65 +120,75 @@ public:
 		unsigned int m_bNone3 : 1;
 		unsigned int m_bNone4 : 1;
 	}              m_nHandlingFlags; // 0E1C-0E20
-	uint8_t pad2[0x150];												// 0E20-0F70
+	uint8_t pad2[0x144];													// 0E20-0F64
+	struct
+	{
+		unsigned int pad : 3;
+		unsigned int bEngineOn : 1;
+		unsigned int bEngineStarting : 1;
+		unsigned int pad2 : 2;
+		unsigned int bIsHandbrakeOn : 1;
+		unsigned int pad3 : 24;
+	} m_nVehicleFlags;													// 0F64-0F68
+	uint8_t pad3[0x8];													// 0F68-0F70
 	struct
 	{
 		unsigned int pad : 2;
 		unsigned int m_bCanBeVisiblyDamaged : 1;
 		unsigned int pad2 : 29;
-	} m_nVehicleFlags;													// 0F70-0F74
-	uint8_t pad3[0x2C];													// 0F74-0FA0
+	} m_nVehicleFlags2;													// 0F70-0F74
+	uint8_t pad4[0x2C];													// 0F74-0FA0
 	CPed* m_pDriver;													// 0FA0-0FA4
 	CPed* m_pPassengers[8];												// 0FA4-0FC4
-	uint8_t pad4[0x14];													// 0FC4-0FD8
+	uint8_t pad5[0x14];													// 0FC4-0FD8
 	tDoors* m_pDoors;													// 0FD8-0FDC
 	uint32_t m_nDoorCount;												// 0FDC-0FE0
-	uint8_t pad5[0x4];													// 0FE0-0FE4
+	uint8_t pad6[0x4];													// 0FE0-0FE4
 	uint8_t m_nPrimaryColor;											// 0FE4-0FE5
 	uint8_t m_nSecondaryColor;											// 0FE5-0FE6
 	uint8_t m_nTertiaryColor;											// 0FE6-0FE7
 	uint8_t m_nQuaternaryColor;											// 0FE7-0FE8
-	uint8_t pad6[0xD8];													// 0FE8-10C0
+	uint8_t pad7[0xD8];													// 0FE8-10C0
 	uint8_t m_nMaxPassengers;											// 10C0-10C1
-	uint8_t pad7[0x7];													// 10C1-10C8
+	uint8_t pad8[0x7];													// 10C1-10C8
 	float m_fGasPedal;													// 10C8-10CC
 	float m_fBrakePedal;												// 10CC-10D0
 	float m_fSteerDesired;												// 10D0-10D4
 	float m_fSteerBias;													// 10D4-10D8
 	float m_fSteerActual;												// 10D8-10DC
-	uint8_t pad8[0x4];													// 10DC-10E0
+	uint8_t pad9[0x4];													// 10DC-10E0
 	uint8_t m_nCurrentGear;												// 10E0-10E2
-	uint8_t pad9[0x1A];													// 10E2-10FC
+	uint8_t pad10[0x1A];												// 10E2-10FC
 	float m_fEngineHealth;												// 10FC-1100
-	uint8_t pad10[0x8];													// 1100-1108
+	uint8_t pad11[0x8];													// 1100-1108
 	uint8_t m_nCreatedBy;												// 1108-1109
-	uint8_t pad11[0xB];													// 1109-1118
+	uint8_t pad12[0xB];													// 1109-1118
 	uint8_t m_nRespotTimer;												// 1114-1116
-	uint8_t pad12[0x2];													// 1116-1118
+	uint8_t pad13[0x2];													// 1116-1118
 	float m_fDirtLevel;													// 1118-111C
-	uint8_t pad13[0xC];													// 111C-1128
+	uint8_t pad14[0xC];													// 111C-1128
 	float m_fPetrolTankHealth;											// 1128-112C
-	uint8_t pad14[0xB4];												// 112C-11E0
+	uint8_t pad15[0xB4];												// 112C-11E0
 	uint8_t m_nLights[0xD];												// 11E0-11ED
-	uint8_t pad15[0x3];													// 11ED-11F0
+	uint8_t pad16[0x3];													// 11ED-11F0
 	uint8_t m_nSirens[0x8];												// 11F0-11F8
-	uint8_t pad16[0x128];												// 11F8-1320
+	uint8_t pad17[0x128];												// 11F8-1320
 	uint32_t m_nDoorLock;												// 1320-1324
-	uint8_t pad17[0x8];													// 1324-132C
+	uint8_t pad18[0x8];													// 1324-132C
 	float m_fDeformationMult;											// 132C-1330
 	float m_fLightMult;													// 1330-1334
-	uint8_t pad18[0x8];													// 1334-133C
+	uint8_t pad19[0x8];													// 1334-133C
 	uint32_t m_nHornCounter;											// 133C-1340
-	uint8_t pad19[0x14];												// 1340-1354
+	uint8_t pad20[0x14];												// 1340-1354
 	uint32_t m_nVehicleType;											// 1354-1358
-	uint8_t pad20[0xBA8];												// 1358-20D0
+	uint8_t pad21[0xBA8];												// 1358-20D0
 	float m_fPlaneTurn;													// 1F00-1F04
 	float m_fPlaneUpDown;												// 1F04-1F08
 	float m_fPlaneRotate;												// 1F08-1F0C
 	float m_fPlaneThrust;												// 1F0C-1F10
-	uint8_t pad21[0x2C];												// 1F10-1F3C
+	uint8_t pad22[0x2C];												// 1F10-1F3C
 	float m_fPlanePropSpeed;											// 1F3C-1F40
-	uint8_t pad22[0x190];												// 1F40-20D0
+	uint8_t pad23[0x190];												// 1F40-20D0
 	//0x260->0xB03 - gps voice (byte ptr, 0-4)
 
 	void MakeDirty()
@@ -203,7 +213,8 @@ VALIDATE_OFFSET(CVehicle, m_nDoorLock, 0x1320);
 VALIDATE_OFFSET(CVehicle, m_nVehicleType, 0x1354);
 VALIDATE_OFFSET(CVehicle, m_fLightMult, 0x1330);
 VALIDATE_OFFSET(CVehicle, m_nHornCounter, 0x133C);
-VALIDATE_OFFSET(CVehicle, m_nVehicleFlags, 0xF70);
+VALIDATE_OFFSET(CVehicle, m_nVehicleFlags, 0xF64);
+VALIDATE_OFFSET(CVehicle, m_nVehicleFlags2, 0xF70);
 VALIDATE_OFFSET(CVehicle, m_nCreatedBy, 0x1108);
 VALIDATE_OFFSET(CVehicle, m_pVehicleFragInst, 0xE14);
 VALIDATE_OFFSET(CVehicle, m_nRespotTimer, 0x1114);
