@@ -1,4 +1,4 @@
-class phConstrainedCollider;
+namespace rage { class phConstrainedCollider; }
 
 class CPhysical : public CDynamicEntity
 {
@@ -32,9 +32,9 @@ public:
 	CEntity* m_pEntityIgnoredCollision;									// 1F8-1FC
 	uint8_t pad14[0x14];												// 1FC-210
 
-	phConstrainedCollider* GetConstrainedCollider()
+	rage::phConstrainedCollider* GetConstrainedCollider()
 	{
-		return ((phConstrainedCollider*(__thiscall*)(CPhysical*))(AddressSetter::Get(0x5E7080, 0x505110)))(this);
+		return ((rage::phConstrainedCollider*(__thiscall*)(CPhysical*))(AddressSetter::Get(0x5E7080, 0x505110)))(this);
 	}
 
 	CVector* GetVelocity(CVector* v)
