@@ -1,6 +1,7 @@
 class CTheScripts
 {
 public:
+	static inline uint32_t*& m_aGlobalVariables = AddressSetter::GetRef<uint32_t*>(0x1449AEC, 0x1394FC0); // m_aGlobalVariables[65535]?
 	static inline uint32_t& m_pCurrentThread = AddressSetter::GetRef<uint32_t>(0x1449AE0, 0x1394FB4);
 	static uint32_t FindNativeAddress(uint32_t nativeHash)
 	{
