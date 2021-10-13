@@ -4,6 +4,7 @@
 #include <windows.h>
 #include <stdint.h>
 #include <string>
+#include <list>
 #include <d3dx9.h>
 #include "injector/injector.hpp"
 
@@ -39,8 +40,8 @@ namespace plugin
 	}
 	void InitHooks()
 	{
-		Addresses::nProcessScriptsEventRet = DoHook(AddressSetter::Get(0x21601, 0x95141), processScriptsEventHook);
-		Addresses::nGameLoadEventRet = DoHook(AddressSetter::Get(0x4ADB38, 0x770748), gameLoadEventHook);
+		processScriptsEvent::returnAddress = DoHook(AddressSetter::Get(0x21601, 0x95141), processScriptsEvent::MainHook);
+		gameLoadEvent::returnAddress = DoHook(AddressSetter::Get(0x4ADB38, 0x770748), gameLoadEvent::MainHook);
 	}
 	void Init()
 	{

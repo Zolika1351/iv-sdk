@@ -63,7 +63,7 @@ void CreateRainbowTexture()
 }
 
 // every frame while in-game
-void plugin::processScriptsEvent()
+void RainbowTexturesLoop()
 {
 	// all this is hilariously unstable but it's a proof of concept anyway
 	AdvanceRainbow();
@@ -87,17 +87,19 @@ void plugin::processScriptsEvent()
 	}
 }
 
-// basically just DllMain but fancier and with the sdk initialized
-void plugin::gameStartupEvent()
-{
-	Overrides::GetTexture(LoadRainbowTexture);
-}
-
 // right after gta.dat loads, put any extra loading related things here
-void plugin::gameLoadEvent()
+void InitRainbowStuff()
 {
 	if (!rainbowTex)
 	{
 		CreateRainbowTexture();
 	}
+}
+
+// ran after the sdk initializes, add all your hooks/events/etc here
+void plugin::gameStartupEvent()
+{
+	Overrides::GetTexture(LoadRainbowTexture);
+	plugin::processScriptsEvent::Add(RainbowTexturesLoop);
+	plugin::gameLoadEvent::Add(InitRainbowStuff);
 }

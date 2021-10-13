@@ -18,20 +18,8 @@ void PadExample1()
 	}
 }
 
-// every frame while in-game
-void plugin::processScriptsEvent()
-{
-	PadExample1();
-}
-
-// basically just DllMain but fancier and with the sdk initialized
+// ran after the sdk initializes, add all your hooks/events/etc here
 void plugin::gameStartupEvent()
 {
-	
-}
-
-// right after gta.dat loads, put any extra loading related things here
-void plugin::gameLoadEvent()
-{
-	
+	plugin::processScriptsEvent::Add(PadExample1);
 }

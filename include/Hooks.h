@@ -1,28 +1,66 @@
-void __declspec(naked) processScriptsEventHook()
+namespace plugin
 {
-	__asm
+	namespace processScriptsEvent
 	{
-		pushad
-		call plugin::processScriptsEvent
-		popad
-		jmp Addresses::nProcessScriptsEventRet
-	}
-}
-void __declspec(naked) gameLoadEventHook()
-{
-	__asm
-	{
-		pushad
-		call plugin::gameLoadEvent
-		popad
-		jmp Addresses::nGameLoadEventRet
-	}
-}
+		uintptr_t returnAddress;
+		std::list<void(*)()> funcPtrs;
 
-namespace Overrides
-{
-	void GetTexture(CSprite2d(__stdcall* funcPtr)(char*))
+		void Run()
+		{
+			for (auto& f : funcPtrs)
+			{
+				f();
+			}
+		}
+		void __declspec(naked) MainHook()
+		{
+			__asm
+			{
+				pushad
+				call Run
+				popad
+				jmp returnAddress
+			}
+		}
+		void Add(void(*funcPtr)())
+		{
+			funcPtrs.emplace_back(funcPtr);
+		}
+	};
+
+	namespace gameLoadEvent
 	{
-		injector::MakeJMP(AddressSetter::Get(0x21DA10, 0xD300), funcPtr);
+		uintptr_t returnAddress;
+		std::list<void(*)()> funcPtrs;
+
+		void Run()
+		{
+			for (auto& f : funcPtrs)
+			{
+				f();
+			}
+		}
+		void __declspec(naked) MainHook()
+		{
+			__asm
+			{
+				pushad
+				call Run
+				popad
+				jmp returnAddress
+			}
+		}
+		void Add(void(*funcPtr)())
+		{
+			funcPtrs.emplace_back(funcPtr);
+		}
+	};
+
+	namespace Overrides
+	{
+		void GetTexture(CSprite2d(__stdcall* funcPtr)(char*))
+		{
+			injector::MakeJMP(AddressSetter::Get(0x21DA10, 0xD300), funcPtr);
+		}
 	}
-}
+};
