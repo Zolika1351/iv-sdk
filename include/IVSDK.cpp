@@ -35,13 +35,16 @@ namespace plugin
 	uint32_t DoHook(uint32_t address, void(*Function)())
 	{
 		uint32_t origcall = (uint32_t)injector::ReadRelativeOffset(address + 1);
+
 		injector::MakeCALL(address, Function);
+
 		return origcall;
 	}
 	void InitHooks()
 	{
 		processScriptsEvent::returnAddress = DoHook(AddressSetter::Get(0x21601, 0x95141), processScriptsEvent::MainHook);
 		gameLoadEvent::returnAddress = DoHook(AddressSetter::Get(0x4ADB38, 0x770748), gameLoadEvent::MainHook);
+		processAutomobileEvent::callAddress = DoHook(AddressSetter::Get(0x7FE9C6, 0x652C26), processAutomobileEvent::MainHook);
 	}
 	void Init()
 	{

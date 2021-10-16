@@ -56,6 +56,37 @@ namespace plugin
 		}
 	};
 
+	namespace processAutomobileEvent
+	{
+		CVehicle* thisParam;
+		uintptr_t callAddress;
+		std::list<void(*)(CVehicle*)> funcPtrs;
+
+		void Run()
+		{
+			for (auto& f : funcPtrs)
+			{
+				f(thisParam);
+			}
+		}
+		void __declspec(naked) MainHook()
+		{
+			__asm
+			{
+				mov [thisParam], ecx
+				call callAddress
+				pushad
+				call Run
+				popad
+				ret
+			}
+		}
+		void Add(void(*funcPtr)(CVehicle*))
+		{
+			funcPtrs.emplace_back(funcPtr);
+		}
+	}
+
 	namespace Overrides
 	{
 		void GetTexture(CSprite2d(__stdcall* funcPtr)(char*))
