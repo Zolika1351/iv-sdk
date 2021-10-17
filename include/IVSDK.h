@@ -43,6 +43,8 @@ namespace plugin
 #include "CTaskComplexMobileMakeCall.h"
 #include "CTaskSimpleNMJumpRollFromRoadVehicle.h"
 #include "CTaskSimpleSidewaysDive.h"
+#include "CTaskSimpleNMHighFall.h"
+#include "CTaskComplexNM.h"
 #include "CPed.h"
 #include "CPedFactoryNY.h"
 #include "CVehicleFactoryNY.h"
