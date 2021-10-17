@@ -4999,6 +4999,8 @@ namespace Scripting
 	static void GET_GAME_CAM(int* camera) { NativeInvoke::Invoke< ScriptVoid>(NATIVE_GET_GAME_CAM, camera); }
 	static void GET_GAME_CAM_CHILD(Camera* camera) { NativeInvoke::Invoke< ScriptVoid>(NATIVE_GET_GAME_CAM_CHILD, camera); }
 	static void GET_GAME_VIEWPORT_ID(int* viewportid) { NativeInvoke::Invoke< ScriptVoid>(NATIVE_GET_GAME_VIEWPORT_ID, viewportid); }
+	static void GET_GROUND_Z_FOR_3D_COORD(f32 x, f32 y, f32 z, f32* pGroundZ) { NativeInvoke::Invoke< ScriptVoid>(NATIVE_GET_GROUND_Z_FOR_3D_COORD, x, y, z, pGroundZ); }
+	static float GET_STRING_WIDTH_WITH_STRING(const ch* gxt, const ch* str) { return NativeInvoke::Invoke< float>(NATIVE_GET_STRING_WIDTH_WITH_STRING, gxt, str); }
 	static void GET_KEY_FOR_VIEWPORT_IN_ROOM(int viewportid, int* roomkey) { NativeInvoke::Invoke< ScriptVoid>(NATIVE_GET_KEY_FOR_VIEWPORT_IN_ROOM, viewportid, roomkey); }
 	static void GET_RADAR_VIEWPORT_ID(int* viewport) { NativeInvoke::Invoke< ScriptVoid>(NATIVE_GET_RADAR_VIEWPORT_ID, viewport); }
 	static void GET_ROOT_CAM(Cam* rootcam) { NativeInvoke::Invoke< ScriptVoid>(NATIVE_GET_ROOT_CAM, rootcam); }
@@ -6129,6 +6131,7 @@ namespace Scripting
 	static b8 GET_AMMO_IN_CLIP(Ped ped, unsigned int weapon, unsigned int* pAmmo) { return NativeInvoke::Invoke< b8>(NATIVE_GET_AMMO_IN_CLIP, ped, weapon, pAmmo); }
 	static b8 GET_CURRENT_CHAR_WEAPON(Ped ped, unsigned int* pWeapon) { return NativeInvoke::Invoke< b8>(NATIVE_GET_CURRENT_CHAR_WEAPON, ped, pWeapon); }
 	static b8 GET_MAX_AMMO(Ped ped, unsigned int weapon, unsigned int* pMaxAmmo) { return NativeInvoke::Invoke< b8>(NATIVE_GET_MAX_AMMO, ped, weapon, pMaxAmmo); }
+	static Texture _GET_TEXTURE_FROM_STREAMED_TXD(const ch* txdName, const ch* textureName) { return NativeInvoke::Invoke< Texture>(NATIVE_GET_TEXTURE_FROM_STREAMED_TXD, txdName, textureName); }
 	static b8 HAS_CHAR_BEEN_DAMAGED_BY_WEAPON(Ped ped, unsigned int weapon) { return NativeInvoke::Invoke< b8>(NATIVE_HAS_CHAR_BEEN_DAMAGED_BY_WEAPON, ped, weapon); }
 	static b8 HAS_CHAR_GOT_WEAPON(Ped ped, unsigned int weapon) { return NativeInvoke::Invoke< b8>(NATIVE_HAS_CHAR_GOT_WEAPON, ped, weapon); }
 	static b8 HAS_COLLISION_FOR_MODEL_LOADED(unsigned int model) { return NativeInvoke::Invoke< b8>(NATIVE_HAS_COLLISION_FOR_MODEL_LOADED, model); }

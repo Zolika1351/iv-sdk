@@ -82,9 +82,9 @@ VALIDATE_OFFSET(tPedComponentModels, m_pPedBoneDamageFX, 0x58);
 class CPed : public CPhysical
 {
 public:																	// 000-210
-	uint8_t m_nDoDeathCamera;											// 210-211
-	uint8_t m_nReceiveDamage;											// 211-212
-	uint8_t m_nDoDeath;													// 212-213
+	uint8_t m_bDead;													// 210-211
+	uint8_t m_bInjured;													// 211-212
+	uint8_t m_bFatallyInjured;											// 212-213
 	uint8_t pad1;														// 213-214
 	float m_fPedHealth;													// 214-218
 	uint8_t m_nPlayerIndex;												// 218-219
@@ -127,19 +127,21 @@ public:																	// 000-210
 	uint8_t m_nWeaponObjectVisible;										// 7F1-7F2
 	uint8_t pad12[0x27E];												// 7F2-A90
 	uint8_t m_nCreatedBy;												// A70-A74
-	uint8_t pad13[0x1C];												// A74-A90
+	uint8_t pad13[0x10];												// A74-A84
+	uint32_t m_nDeathState;												// A84-A88
+	uint8_t pad14[0x8];													// A88-A90
 	CPedMoveBlendOnFoot* m_pPedMoveBlendOnFoot;							// A90-A94
 	float m_fMaxHealth;													// A94-A98
-	uint8_t pad14[0x18];												// A98-AB0
+	uint8_t pad15[0x18];												// A98-AB0
 	float m_fCurrentHeading;											// AB0-AB4
 	float m_fDesiredHeading;											// AB4-AB8
-	uint8_t pad15[0x88];												// AB8-B40
+	uint8_t pad16[0x88];												// AB8-B40
 	CVehicle* m_pVehicle;												// B40-B44
-	uint8_t pad16[0x33C];												// B44-E80
+	uint8_t pad17[0x33C];												// B44-E80
 	uint32_t m_nUnkPlayerSettingsRelated;								// E80-E84 used in CTaskComplexPlayerSettingsTask, initialized as *(dword_14CB008 + 32)
-	uint8_t pad17[0x24];												// E84-EA8
+	uint8_t pad18[0x24];												// E84-EA8
 	tPedComponentModels* m_pComponentModels;							// EA8-EAC
-	uint8_t pad18[0x54];												// EAC-F00
+	uint8_t pad19[0x54];												// EAC-F00
 
 	CPad* GetPadFromPlayer()
 	{
@@ -156,6 +158,7 @@ public:																	// 000-210
 };
 
 VALIDATE_SIZE(CPed, 0xF00);
+VALIDATE_OFFSET(CPed, m_nDeathState, 0xA84);
 VALIDATE_OFFSET(CPed, m_nCreatedBy, 0xA70);
 VALIDATE_OFFSET(CPed, m_nPlayerIndex, 0x218);
 VALIDATE_OFFSET(CPed, m_nRagdollStatus, 0x7C8);
