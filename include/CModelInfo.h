@@ -49,13 +49,6 @@ VALIDATE_OFFSET(CBaseModelInfo, m_nIDEFlags, 0x40);
 
 struct tVehicleStruct
 {
-	/*
-		v15 = rmcDrawable->0xC
-        sUnk = sub_4F510(v15, sName);
-        if ( sUnk )
-        {
-          *(mdlinfo->m_pVehicleStruct.m_nBones[nID]) = sUnk->0x14;
-        }*/
 	uint8_t m_nBones[0x18C];						// 000-18C
 	uint8_t pad[0x80];								// 18C-20C
 };
@@ -103,6 +96,12 @@ public:
 	uint8_t pad2[0x6C];								// 070-13C
 	uint32_t m_nLiveryHashes[4];					// 13C-14C
 	uint8_t pad3[0x284];							// 14C-3D0
+
+	// sets center of mass and mass in the phBound based on the center of mass param and fMass off handling
+	void SetHandlingParams(tHandlingData* pHandling, CVector* pCenterOfMass)
+	{
+		((void(__thiscall*)(CBaseModelInfo*, tHandlingData*, CVector*))(AddressSetter::Get(0x7E7D70, 0x6477B0)))(this, pHandling, pCenterOfMass);
+	}
 
 	static inline CRGBA* ms_vehicleColourTable = (CRGBA*)AddressSetter::Get(0x12D65A8, 0x1001BE0); // ms_vehicleColourTable[196]
 };

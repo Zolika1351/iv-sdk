@@ -53,6 +53,7 @@ namespace plugin
 #include "cHandlingDataMgr.h"
 #include "CVehicle.h"
 #include "CModelInfo.h"
+#include "phBound.h"
 #include "phInstGta.h"
 #include "CTheScripts.h"
 #include "phConstrainedCollider.h"

@@ -4,7 +4,7 @@ class phArchetypeGta
 {
 public:
 	uint8_t pad[0xC];													// 00-0C
-	uint32_t* m_pBounds;												// 0C-10 can be whatever bound type, bvh, box, sphere, etc
+	rage::phBound* m_pBounds;											// 0C-10
 	uint8_t pad1[0x18];													// 10-28
 	float m_fMaxSpeed;													// 28-2C
 };
@@ -77,8 +77,11 @@ class gtaFragType
 public:
 	uint8_t pad[0xB4];													// 000-0B4
 	rage::rmcDrawable* m_pDrawable;										// 0B4-0B8
+	uint8_t pad2[0x2C];													// 0B8-0E4
+	phArchetypeGta* m_pArchetype;										// 0E4-0E8
 };
 VALIDATE_OFFSET(gtaFragType, m_pDrawable, 0xB4); 
+VALIDATE_OFFSET(gtaFragType, m_pArchetype, 0xE4);
 
 class phInstGta : public rage::phInst
 {
@@ -86,7 +89,7 @@ public:																	// 00-50
 	uint8_t pad[0xC];													// 50-5C
 	uint32_t* m_pUnkImportant;											// 5C-60
 	uint8_t pad2[0x0C];													// 60-6C
-	gtaFragType m_pFragType;											// 6C-70
+	gtaFragType* m_pFragType;											// 6C-70
 
 	// this is what's used to detach car parts, groupId is in the same order as groups are in the .oft file
 	// use tDoor->m_nGroupID for vehicle doors, haven't found a way to see the rest of the bones, or anything for other entity types other than guessing
