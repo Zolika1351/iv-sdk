@@ -6,10 +6,10 @@ public:
 	int32_t m_nUnkNeg1;										// 18-1C
 	int32_t m_nUnkNeg1_2;									// 1C-20
 	uint32_t m_nUnkFromPed;									// 20-24 pedPtr + 0xE80
-	void New(uint32_t unkFromPed)
+	CTaskComplexPlayerSettingsTask(uint32_t unkFromPed)
 	{
 		// this was inlined
-		((void(__thiscall*)(CTaskComplex*))(AddressSetter::Get(0x628AF0, 0x703040)))(this); // CTaskComplex::New
+		((void(__thiscall*)(CTaskComplex*))(AddressSetter::Get(0x628AF0, 0x703040)))(this); // CTaskComplex::CTaskComplex
 		m_nUnk0 = 0;
 		m_nUnkNeg1 = -1;
 		m_nUnkNeg1_2 = -1;
