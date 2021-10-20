@@ -22,6 +22,7 @@ namespace plugin
 				jmp returnAddress
 			}
 		}
+		// CGame::Process
 		void Add(void(*funcPtr)())
 		{
 			funcPtrs.emplace_back(funcPtr);
@@ -50,6 +51,36 @@ namespace plugin
 				jmp returnAddress
 			}
 		}
+		// after the last LoadLevel call
+		void Add(void(*funcPtr)())
+		{
+			funcPtrs.emplace_back(funcPtr);
+		}
+	};
+	
+	namespace drawingEvent
+	{
+		uintptr_t returnAddress;
+		std::list<void(*)()> funcPtrs;
+
+		void Run()
+		{
+			for (auto& f : funcPtrs)
+			{
+				f();
+			}
+		}
+		void __declspec(naked) MainHook()
+		{
+			__asm
+			{
+				pushad
+				call Run
+				popad
+				jmp returnAddress
+			}
+		}
+		// CRenderPhasePostRenderViewport, also works in menu, runs twice when in game
 		void Add(void(*funcPtr)())
 		{
 			funcPtrs.emplace_back(funcPtr);
@@ -81,6 +112,7 @@ namespace plugin
 				ret
 			}
 		}
+		// after CAutomobile::Process, overriding steer & pedals works here
 		void Add(void(*funcPtr)(CVehicle*))
 		{
 			funcPtrs.emplace_back(funcPtr);

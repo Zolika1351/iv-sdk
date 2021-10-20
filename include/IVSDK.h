@@ -17,6 +17,7 @@ namespace plugin
 #include "NewAddressSet.h"
 #include "CRGBA.h"
 #include "rage.h"
+#include "CRect.h"
 #include "CVector.h"
 #include "CQuaternion.h"
 #include "CMatrix.h"
@@ -83,3 +84,5 @@ namespace plugin
 #include "CFont.h"
 #include "audRadioAudioEntity.h"
 #include "SkyDome.h"
+#include "CBaseDC.h"
+#include "CDrawRectDC.h"
