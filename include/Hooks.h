@@ -80,7 +80,7 @@ namespace plugin
 				jmp returnAddress
 			}
 		}
-		// CRenderPhasePostRenderViewport, also works in menu, runs twice when in game
+		// CRenderPhasePostRenderViewport, also works in menu, runs twice per frame when in game
 		void Add(void(*funcPtr)())
 		{
 			funcPtrs.emplace_back(funcPtr);
@@ -114,6 +114,38 @@ namespace plugin
 		}
 		// after CAutomobile::Process, overriding steer & pedals works here
 		void Add(void(*funcPtr)(CVehicle*))
+		{
+			funcPtrs.emplace_back(funcPtr);
+		}
+	}
+	
+	namespace processPadEvent
+	{
+		CPad* thisParam;
+		uintptr_t callAddress;
+		std::list<void(*)(CPad*)> funcPtrs;
+
+		void Run()
+		{
+			for (auto& f : funcPtrs)
+			{
+				f(thisParam);
+			}
+		}
+		void __declspec(naked) MainHook()
+		{
+			__asm
+			{
+				mov [thisParam], ecx
+				call callAddress
+				pushad
+				call Run
+				popad
+				ret
+			}
+		}
+		// set all pad controls here, called once per frame for each pad
+		void Add(void(*funcPtr)(CPad*))
 		{
 			funcPtrs.emplace_back(funcPtr);
 		}
