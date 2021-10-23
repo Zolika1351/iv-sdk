@@ -20,20 +20,28 @@ enum eVehicleCreatedBy
 
 struct tHandlingData;
 
-struct tDoor
+class CVehicleDoor
 {
-	uint32_t m_nBoneID;		// in the order from tVehicleStruct
-	uint8_t pad;
-	uint8_t m_nGroupID;		// group for detach, needs to be higher than 0
-	uint8_t pad2[0x2E];
+public:
+	uint32_t m_nBoneID;					// 00-04 in the order from tVehicleStruct
+	uint8_t pad;						// 04-05
+	uint8_t m_nGroupID;					// 05-06 group for detach, needs to be higher than 0
+	uint8_t pad2[0x2E];					// 06-34
 };
-VALIDATE_SIZE(tDoor, 0x34);
-VALIDATE_OFFSET(tDoor, m_nGroupID, 0x5);
+VALIDATE_SIZE(CVehicleDoor, 0x34);
+VALIDATE_OFFSET(CVehicleDoor, m_nGroupID, 0x5);
 
-struct tDoors
+
+class CVehicleWheel
 {
-	tDoor m_sDoors[6];													// 000-??? check m_nDoorCount
+public:
+	uint32_t m_nBoneID;					// 000-004 in the order from tVehicleStruct
+	uint8_t pad[0x5C];					// 004-060
+	CVector m_vPosition;				// 060-06C
+	uint8_t pad2[0x104];				// 06C-170
 };
+VALIDATE_SIZE(CVehicleWheel, 0x170);
+VALIDATE_OFFSET(CVehicleWheel, m_vPosition, 0x60);
 
 
 class CCustomShaderEffectVehicleFX : public CCustomShaderEffectBase
@@ -140,8 +148,10 @@ public:
 	uint8_t pad4[0x2C];													// 0F74-0FA0
 	CPed* m_pDriver;													// 0FA0-0FA4
 	CPed* m_pPassengers[8];												// 0FA4-0FC4
-	uint8_t pad5[0x14];													// 0FC4-0FD8
-	tDoors* m_pDoors;													// 0FD8-0FDC
+	uint8_t pad5[0xC];													// 0FC4-0FD0
+	CVehicleWheel* m_pWheels;											// 0FD0-0FD4
+	uint32_t m_nWheelCount;												// 0FD4-0FD8
+	CVehicleDoor* m_pDoors;												// 0FD8-0FDC
 	uint32_t m_nDoorCount;												// 0FDC-0FE0
 	uint8_t pad6[0x4];													// 0FE0-0FE4
 	uint8_t m_nPrimaryColor;											// 0FE4-0FE5
