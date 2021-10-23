@@ -5,11 +5,14 @@ class phArchetypeGta
 public:
 	uint8_t pad[0xC];													// 00-0C
 	rage::phBound* m_pBounds;											// 0C-10
-	uint8_t pad1[0x18];													// 10-28
+	uint8_t pad1[0xC];													// 10-1C
+	float m_fMass;														// 1C-20
+	uint8_t pad2[0x8];													// 20-28
 	float m_fMaxSpeed;													// 28-2C
 };
 VALIDATE_OFFSET(phArchetypeGta, m_pBounds, 0xC);
 VALIDATE_OFFSET(phArchetypeGta, m_fMaxSpeed, 0x28);
+VALIDATE_OFFSET(phArchetypeGta, m_fMass, 0x1C);
 
 namespace rage
 {

@@ -87,6 +87,35 @@ namespace plugin
 		}
 	};
 
+	namespace processCameraEvent
+	{
+		uintptr_t returnAddress;
+		std::list<void(*)()> funcPtrs;
+
+		void Run()
+		{
+			for (auto& f : funcPtrs)
+			{
+				f();
+			}
+		}
+		void __declspec(naked) MainHook()
+		{
+			__asm
+			{
+				pushad
+				call Run
+				popad
+				jmp returnAddress
+			}
+		}
+		// after CCamera::m_pFinalCam has been written to
+		void Add(void(*funcPtr)())
+		{
+			funcPtrs.emplace_back(funcPtr);
+		}
+	};
+
 	namespace processAutomobileEvent
 	{
 		CVehicle* thisParam;
@@ -118,7 +147,7 @@ namespace plugin
 			funcPtrs.emplace_back(funcPtr);
 		}
 	}
-	
+
 	namespace processPadEvent
 	{
 		CPad* thisParam;
