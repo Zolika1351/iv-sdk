@@ -86,3 +86,4 @@ namespace plugin
 #include "SkyDome.h"
 #include "CBaseDC.h"
 #include "CDrawRectDC.h"
+#include "CMenuManager.h"
