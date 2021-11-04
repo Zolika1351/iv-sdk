@@ -7,6 +7,7 @@ public:
 	static inline uint32_t& m_bClipCapture = AddressSetter::GetRef<uint32_t>(0xCC7C58, 0xCFC328);
 	static inline uint32_t& m_bHeliMouseControls = AddressSetter::GetRef<uint32_t>(0xCC7C78, 0xCFC348);
 	static inline uint32_t& m_bHudOn = AddressSetter::GetRef<uint32_t>(0xCC7A2C, 0xCFC0FC);
+	static inline uint32_t& m_nRadarMode = AddressSetter::GetRef<uint32_t>(0xCC7A3C, 0xCFC10C);
 
 	static inline uint32_t& m_nMouseSensitivity = AddressSetter::GetRef<uint32_t>(0xCC7C10, 0xCFC2E0);
 

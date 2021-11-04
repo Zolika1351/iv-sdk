@@ -142,7 +142,7 @@ public:
 	struct
 	{
 		unsigned int pad : 2;
-		unsigned int m_bCanBeVisiblyDamaged : 1;
+		unsigned int bCanBeVisiblyDamaged : 1;
 		unsigned int pad2 : 29;
 	} m_nVehicleFlags2;													// 0F70-0F74
 	uint8_t pad4[0x2C];													// 0F74-0FA0
@@ -191,14 +191,21 @@ public:
 	uint32_t m_nHornCounter;											// 133C-1340
 	uint8_t pad20[0x14];												// 1340-1354
 	uint32_t m_nVehicleType;											// 1354-1358
-	uint8_t pad21[0xBA8];												// 1358-20D0
+	uint8_t pad21[0x16C];												// 1358-14C4
+	struct
+	{
+		unsigned int pad : 3;
+		unsigned int bNotDamagedUpsideDown : 1; // unused
+		unsigned int pad2 : 28;
+	} m_nAutomobileFlags;												// 14C4-14C8
+	uint8_t pad22[0xA38];												// 14C8-1F00
 	float m_fPlaneTurn;													// 1F00-1F04
 	float m_fPlaneUpDown;												// 1F04-1F08
 	float m_fPlaneRotate;												// 1F08-1F0C
 	float m_fPlaneThrust;												// 1F0C-1F10
-	uint8_t pad22[0x2C];												// 1F10-1F3C
+	uint8_t pad23[0x2C];												// 1F10-1F3C
 	float m_fPlanePropSpeed;											// 1F3C-1F40
-	uint8_t pad23[0x190];												// 1F40-20D0
+	uint8_t pad24[0x190];												// 1F40-20D0
 	//0x260->0xB03 - gps voice (byte ptr, 0-4)
 
 	void MakeDirty()

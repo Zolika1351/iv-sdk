@@ -99,16 +99,16 @@ public:																	// 000-210
 	struct
 	{
 		unsigned int pad : 2;
-		unsigned int m_bNoHeadshots : 1;
+		unsigned int bNoHeadshots : 1;
 		unsigned int pad2 : 29;
 	} m_nPedFlags;														// 260-264
 	uint8_t pad5[0x8];													// 264-26C
 	struct
 	{
 		unsigned int pad : 3;
-		unsigned int m_inCar : 1;
+		unsigned int bInCar : 1;
 		unsigned int pad2 : 9;
-		unsigned int m_bInAir : 1;
+		unsigned int bInAir : 1;
 		unsigned int pad3 : 18;
 	} m_nPedFlags2;														// 26C-270
 	uint8_t pad6[0x40];													// 270-2C8
