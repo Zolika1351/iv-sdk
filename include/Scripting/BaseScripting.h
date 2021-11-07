@@ -5609,8 +5609,8 @@ namespace Scripting
 	static void NETWORK_VERIFY_USER_STRING(ScriptAny Unk940) { NativeInvoke::Invoke< ScriptVoid>(NATIVE_NETWORK_VERIFY_USER_STRING, Unk940); }
 	static void OBFUSCATE_INT(int Unk941, int Unk942) { NativeInvoke::Invoke< ScriptVoid>(NATIVE_OBFUSCATE_INT, Unk941, Unk942); }
 	static void OBFUSCATE_INT_ARRAY(ScriptAny Unk943, ScriptAny Unk944) { NativeInvoke::Invoke< ScriptVoid>(NATIVE_OBFUSCATE_INT_ARRAY, Unk943, Unk944); }
-	static void REGISTER_CLIENT_BROADCAST_VARIABLES(ScriptAny Unk945, ScriptAny Unk946, ScriptAny Unk947) { NativeInvoke::Invoke< ScriptVoid>(NATIVE_REGISTER_CLIENT_BROADCAST_VARIABLES, Unk945, Unk946, Unk947); }
-	static void REGISTER_HOST_BROADCAST_VARIABLES(ScriptAny Unk948, int ukn0, int ukn1) { NativeInvoke::Invoke< ScriptVoid>(NATIVE_REGISTER_HOST_BROADCAST_VARIABLES, Unk948, ukn0, ukn1); }
+	static void REGISTER_CLIENT_BROADCAST_VARIABLES(void* Unk945, int Unk946, int Unk947) { NativeInvoke::Invoke< ScriptVoid>(NATIVE_REGISTER_CLIENT_BROADCAST_VARIABLES, Unk945, Unk946, Unk947); }
+	static void REGISTER_HOST_BROADCAST_VARIABLES(void* Unk948, int ukn0, int ukn1) { NativeInvoke::Invoke< ScriptVoid>(NATIVE_REGISTER_HOST_BROADCAST_VARIABLES, Unk948, ukn0, ukn1); }
 	static void REGISTER_KILL_IN_MULTIPLAYER_GAME(Player playerIndex, int id, unsigned int ukn) { NativeInvoke::Invoke< ScriptVoid>(NATIVE_REGISTER_KILL_IN_MULTIPLAYER_GAME, playerIndex, id, ukn); }
 	static void REGISTER_MULTIPLAYER_GAME_WIN(Player playerIndex, b8 Unk949) { NativeInvoke::Invoke< ScriptVoid>(NATIVE_REGISTER_MULTIPLAYER_GAME_WIN, playerIndex, Unk949); }
 	static void REGISTER_NETWORK_BEST_GAME_SCORES(Player playerIndex, int Unk950, int Unk951) { NativeInvoke::Invoke< ScriptVoid>(NATIVE_REGISTER_NETWORK_BEST_GAME_SCORES, playerIndex, Unk950, Unk951); }
@@ -6374,6 +6374,7 @@ namespace Scripting
 	static u32 GET_MINUTES_OF_DAY() { return NativeInvoke::Invoke< u32>(NATIVE_GET_MINUTES_OF_DAY); }
 	static u32 GET_NO_LAW_VEHICLES_DESTROYED_BY_LOCAL_PLAYER() { return NativeInvoke::Invoke< u32>(NATIVE_GET_NO_LAW_VEHICLES_DESTROYED_BY_LOCAL_PLAYER); }
 	static u32 GET_NUMBER_OF_PLAYERS() { return NativeInvoke::Invoke< u32>(NATIVE_GET_NUMBER_OF_PLAYERS); }
+	static u32 GET_NUMBER_OF_INSTANCES_OF_STREAMED_SCRIPT(const ch* scriptName) { return NativeInvoke::Invoke< u32>(NATIVE_GET_NUMBER_OF_INSTANCES_OF_STREAMED_SCRIPT, scriptName); }
 	static u32 GET_NUM_STREAMING_REQUESTS() { return NativeInvoke::Invoke< u32>(NATIVE_GET_NUM_STREAMING_REQUESTS); }
 	static u32 GET_ONLINE_LAN() { return NativeInvoke::Invoke< u32>(NATIVE_GET_ONLINE_LAN); }
 	static u32 GET_PLAYERSETTINGS_MODEL_CHOICE() { return NativeInvoke::Invoke< u32>(NATIVE_GET_PLAYERSETTINGS_MODEL_CHOICE); }
