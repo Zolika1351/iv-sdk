@@ -46,7 +46,7 @@ public:
 	static inline CSprite2d& m_pRadarRingBack = AddressSetter::GetRef<CSprite2d>(0xB1C9B0, 0xB35F50);
 	static inline CSprite2d& m_pRadarRingFront = AddressSetter::GetRef<CSprite2d>(0xB1C9B4, 0xB35F54);
 	static inline CSprite2d** RadarSprites = (CSprite2d**)AddressSetter::Get(0xD9EB20, 0xDE8170); // RadarSprites[128]
-	static inline float& m_radarRange = AddressSetter::GetRef<float>(0xD9ED40, 0xCFC9EC);
+	static inline float& m_radarRange = AddressSetter::GetRef<float>(0xD9ED40, 0xDE8390);
 	static inline CVector2D& vec2DRadarOrigin = AddressSetter::GetRef<CVector2D>(0xCC831C, 0xCFC9EC);
 
 	static void DrawBlips()
