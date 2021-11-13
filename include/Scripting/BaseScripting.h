@@ -4012,7 +4012,7 @@ namespace Scripting
 	static void SET_CHAR_ONLY_DAMAGED_BY_RELATIONSHIP_GROUP(Ped ped, b8 set, int relgroup) { NativeInvoke::Invoke< ScriptVoid>(NATIVE_SET_CHAR_ONLY_DAMAGED_BY_RELATIONSHIP_GROUP, ped, set, relgroup); }
 	static void SET_CHAR_PROOFS(Ped ped, b8 unknown0, b8 fallingDamage, b8 unknown1, b8 unknown2, b8 meleeDamage) { NativeInvoke::Invoke< ScriptVoid>(NATIVE_SET_CHAR_PROOFS, ped, unknown0, fallingDamage, unknown1, unknown2, meleeDamage); }
 	static void SET_CHAR_PROP_INDEX(Ped ped, unsigned int propType, unsigned int index) { NativeInvoke::Invoke< ScriptVoid>(NATIVE_SET_CHAR_PROP_INDEX, ped, propType, index); }
-	//static void SET_CHAR_PROP_INDEX_TEXTURE(Ped ped, unsigned int propType, unsigned int index, unsigned int texture) { NativeInvoke::Invoke< ScriptVoid>(NATIVE_SET_CHAR_PROP_INDEX_TEXTURE, ped, propType, index, texture); }
+	static void SET_CHAR_PROP_INDEX_TEXTURE(Ped ped, unsigned int propType, unsigned int index, unsigned int texture) { NativeInvoke::Invoke< ScriptVoid>(NATIVE_SET_CHAR_PROP_INDEX_TEXTURE, ped, propType, index, texture); }
 	static void SET_CHAR_PROVIDE_COVERING_FIRE(Ped ped, b8 set) { NativeInvoke::Invoke< ScriptVoid>(NATIVE_SET_CHAR_PROVIDE_COVERING_FIRE, ped, set); }
 	static void SET_CHAR_RANDOM_COMPONENT_VARIATION(Ped ped) { NativeInvoke::Invoke< ScriptVoid>(NATIVE_SET_CHAR_RANDOM_COMPONENT_VARIATION, ped); }
 	static void SET_CHAR_READY_TO_BE_EXECUTED(Ped ped, b8 set) { NativeInvoke::Invoke< ScriptVoid>(NATIVE_SET_CHAR_READY_TO_BE_EXECUTED, ped, set); }
@@ -6233,6 +6233,7 @@ namespace Scripting
 	static b8 DOES_VEHICLE_EXIST_WITH_NETWORK_ID(int nedid) { return NativeInvoke::Invoke< b8>(NATIVE_DOES_VEHICLE_EXIST_WITH_NETWORK_ID, nedid); }
 	static b8 GET_CELLPHONE_RANKED() { return NativeInvoke::Invoke< b8>(NATIVE_GET_CELLPHONE_RANKED); }
 	static b8 GET_FILTER_MENU_ON() { return NativeInvoke::Invoke< b8>(NATIVE_GET_FILTER_MENU_ON); }
+	static Blip GET_FIRST_BLIP_INFO_ID(int type) { return NativeInvoke::Invoke< Blip>(NATIVE_GET_FIRST_BLIP_INFO_ID, type); }
 	static b8 GET_GFWL_IS_RETURNING_TO_SINGLE_PLAYER() { return NativeInvoke::Invoke< b8>(NATIVE_GET_GFWL_IS_RETURNING_TO_SINGLE_PLAYER); }
 	static b8 GET_HOST_MATCH_ON() { return NativeInvoke::Invoke< b8>(NATIVE_GET_HOST_MATCH_ON); }
 	static b8 GET_NETWORK_JOIN_FAIL() { return NativeInvoke::Invoke< b8>(NATIVE_GET_NETWORK_JOIN_FAIL); }

@@ -19,6 +19,7 @@ namespace plugin
 #include "rage.h"
 #include "CRect.h"
 #include "CVector.h"
+#include "CVector2D.h"
 #include "CQuaternion.h"
 #include "CMatrix.h"
 #include "CPlayerInfo.h"
