@@ -88,3 +88,4 @@ namespace plugin
 #include "CBaseDC.h"
 #include "CDrawRectDC.h"
 #include "CMenuManager.h"
+#include "CShaderLib.h"

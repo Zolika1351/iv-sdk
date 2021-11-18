@@ -224,6 +224,11 @@ public:
 	{
 		return ((bool(__cdecl*)(int32_t))(AddressSetter::Get(0x5C5F50, 0x4EFEC0)))(id);
 	}
+	// returns VehicleStruct part enum
+	int GetSeatPartId(int seat)
+	{
+		return ((int(__cdecl*)(CVehicle*, int))(AddressSetter::Get(0x5C6EF0, 0x4F0E60)))(this, seat);
+	}
 };
 VALIDATE_SIZE(CVehicle, 0x20D0);
 VALIDATE_OFFSET(CVehicle, m_nDoorLock, 0x1320);

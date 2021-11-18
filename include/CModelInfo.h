@@ -49,8 +49,8 @@ VALIDATE_OFFSET(CBaseModelInfo, m_nIDEFlags, 0x40);
 
 struct tVehicleStruct
 {
-	uint8_t m_nBones[0x18C];						// 000-18C
-	uint8_t pad[0x80];								// 18C-20C
+	uint32_t m_nBones[102];							// 000-198
+	uint8_t pad[0x74];								// 198-20C
 };
 VALIDATE_SIZE(tVehicleStruct, 0x20C);
 
@@ -59,7 +59,9 @@ class CVehicleModelInfo : public CBaseModelInfo
 public:
 	char m_sGameName[12];							// 060-06C
 	eVehicleType m_nVehicleType;					// 06C-070
-	uint8_t pad[0x24];								// 070-094
+	uint8_t pad[0x1C];								// 070-08C
+	uint32_t m_nHandlingId;							// 08C-090
+	uint8_t pad2[0x4];								// 090-094
 	struct
 	{
 		unsigned int bSmallWorker : 1;
@@ -91,11 +93,11 @@ public:
 		unsigned int bBangerExhaustFx : 1;
 		unsigned int pad : 5;
 	} m_nVehicleFlags;								// 094-098
-	uint8_t pad1[0x34];								// 098-09C
+	uint8_t pad3[0x34];								// 098-09C
 	tVehicleStruct* m_pVehicleStruct;				// 0CC-0D0
-	uint8_t pad2[0x6C];								// 070-13C
+	uint8_t pad4[0x6C];								// 070-13C
 	uint32_t m_nLiveryHashes[4];					// 13C-14C
-	uint8_t pad3[0x284];							// 14C-3D0
+	uint8_t pad5[0x284];							// 14C-3D0
 
 	// sets center of mass and mass in the phBound based on the center of mass param and fMass off handling
 	void SetHandlingParams(tHandlingData* pHandling, CVector* pCenterOfMass)
@@ -103,9 +105,20 @@ public:
 		((void(__thiscall*)(CBaseModelInfo*, tHandlingData*, CVector*))(AddressSetter::Get(0x7E7D70, 0x6477B0)))(this, pHandling, pCenterOfMass);
 	}
 
+	static int GetNumberOfSeats(int modelIndex)
+	{
+		return ((int(__cdecl*)(int))(AddressSetter::Get(0x7E6A60, 0x6464A0)))(modelIndex);
+	}
+	
+	void ChooseVehicleColour(uint8_t* color1, uint8_t* color2, uint8_t* color3, uint8_t* color4, int startingColor)
+	{
+		((void(__thiscall*)(CVehicleModelInfo*, uint8_t*, uint8_t*, uint8_t*, uint8_t*, int))(AddressSetter::Get(0x7E6930, 0x646370)))(this, color1, color2, color3, color4, startingColor);
+	}
+
 	static inline CRGBA* ms_vehicleColourTable = (CRGBA*)AddressSetter::Get(0x12D65A8, 0x1001BE0); // ms_vehicleColourTable[196]
 };
 VALIDATE_SIZE(CVehicleModelInfo, 0x3D0);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nHandlingId, 0x8C);
 VALIDATE_OFFSET(CVehicleModelInfo, m_sGameName, 0x60);
 VALIDATE_OFFSET(CVehicleModelInfo, m_nVehicleType, 0x6C);
 VALIDATE_OFFSET(CVehicleModelInfo, m_nLiveryHashes, 0x13C);

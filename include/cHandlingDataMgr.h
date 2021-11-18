@@ -161,4 +161,8 @@ public:
 	{
 		((void(__cdecl*)(char*))(AddressSetter::Get(0x571D60, 0x7A29B0)))(sPath);
 	}
+	static tHandlingData* GetHandlingData(int id)
+	{
+		return ((tHandlingData*(__cdecl*)(int))(AddressSetter::Get(0x5719C0, 0x7A2610)))(id);
+	}
 };
