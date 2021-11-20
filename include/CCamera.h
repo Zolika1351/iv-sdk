@@ -9,6 +9,11 @@ public:
 	CCam* m_pGameCam;					// 0C-10
 	CCamFollowVehicle* m_pVehicleCam;	// 10-14
 	CCam* m_pOnFootCam;					// 14-18
+
+	CCam* CreateCam(int type, CCam* unk, CCam* unk2)
+	{
+		return ((CCam*(__thiscall*)(CCamera*, int, CCam*, CCam*))(AddressSetter::Get(0x51F510, 0x5DF770)))(this, type, unk, unk2);
+	}
 };
 CCamera& TheCamera = AddressSetter::GetRef<CCamera>(0xB21A6C, 0xB488E8);
 
