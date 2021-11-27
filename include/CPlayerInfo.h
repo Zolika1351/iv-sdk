@@ -43,7 +43,11 @@ public:
 	uint8_t pad14[0x4];													// 590-594
 	CVehicle* m_pOnlyEnterThisVehicle;									// 594-598
 	uint8_t pad15[0x28];												// 598-5C0
-
+	
+	static bool IsPlayerActive(int id)
+	{
+		return ((bool(__cdecl*)(int))(AddressSetter::Get(0x75E230, 0x70B010)))(id);
+	}
 	static CPlayerInfo* GetPlayerInfo(uint32_t nPlayerId)
 	{
 		return ((CPlayerInfo*(__cdecl*)(uint32_t))(AddressSetter::Get(0x417F20, 0x3CD210)))(nPlayerId);

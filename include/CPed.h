@@ -111,37 +111,39 @@ public:																	// 000-210
 		unsigned int bInAir : 1;
 		unsigned int pad3 : 18;
 	} m_nPedFlags2;														// 26C-270
-	uint8_t pad6[0x40];													// 270-2C8
+	uint8_t pad6[0x8];													// 270-278
+	float m_fClimbAnimRate;												// 278-27C
+	uint8_t pad7[0x34];													// 27C-2B0
 	PedWeapons m_pWeaponData;											// 2B0-37C
-	uint8_t pad7[0xC];													// 37C-388
+	uint8_t pad8[0xC];													// 37C-388
 	uint8_t m_nShootRate;												// 388-389
 	uint8_t m_nAccuracy;												// 389-38A
-	uint8_t pad8[0xFA];													// 38A-484
+	uint8_t pad9[0xFA];													// 38A-484
 	CEntity* m_pStandingOnEntity;										// 484-488
-	uint8_t pad9[0x194];												// 488-61C
+	uint8_t pad10[0x194];												// 488-61C
 	uint32_t m_nVoiceHash;												// 61C-620
-	uint8_t pad10[0x1A8];												// 620-7C8
+	uint8_t pad11[0x1A8];												// 620-7C8
 	uint32_t m_nRagdollStatus;											// 7C8-7CC
 	uint32_t m_nRagdollTime;											// 7CC-7D0
-	uint8_t pad11[0x21];												// 7D0-7F1
+	uint8_t pad12[0x21];												// 7D0-7F1
 	uint8_t m_nWeaponObjectVisible;										// 7F1-7F2
-	uint8_t pad12[0x27E];												// 7F2-A90
+	uint8_t pad13[0x27E];												// 7F2-A90
 	uint8_t m_nCreatedBy;												// A70-A74
-	uint8_t pad13[0x10];												// A74-A84
+	uint8_t pad14[0x10];												// A74-A84
 	uint32_t m_nDeathState;												// A84-A88
-	uint8_t pad14[0x8];													// A88-A90
+	uint8_t pad15[0x8];													// A88-A90
 	CPedMoveBlendOnFoot* m_pPedMoveBlendOnFoot;							// A90-A94
 	float m_fMaxHealth;													// A94-A98
-	uint8_t pad15[0x18];												// A98-AB0
+	uint8_t pad16[0x18];												// A98-AB0
 	float m_fCurrentHeading;											// AB0-AB4
 	float m_fDesiredHeading;											// AB4-AB8
-	uint8_t pad16[0x88];												// AB8-B40
+	uint8_t pad17[0x88];												// AB8-B40
 	CVehicle* m_pVehicle;												// B40-B44
-	uint8_t pad17[0x33C];												// B44-E80
+	uint8_t pad18[0x33C];												// B44-E80
 	uint32_t m_nUnkPlayerSettingsRelated;								// E80-E84 used in CTaskComplexPlayerSettingsTask, initialized as *(dword_14CB008 + 32)
-	uint8_t pad18[0x24];												// E84-EA8
+	uint8_t pad19[0x24];												// E84-EA8
 	tPedComponentModels* m_pComponentModels;							// EA8-EAC
-	uint8_t pad19[0x54];												// EAC-F00
+	uint8_t pad20[0x54];												// EAC-F00
 
 	CPad* GetPadFromPlayer()
 	{
@@ -158,6 +160,7 @@ public:																	// 000-210
 };
 
 VALIDATE_SIZE(CPed, 0xF00);
+VALIDATE_OFFSET(CPed, m_fClimbAnimRate, 0x278);
 VALIDATE_OFFSET(CPed, m_nDeathState, 0xA84);
 VALIDATE_OFFSET(CPed, m_nCreatedBy, 0xA70);
 VALIDATE_OFFSET(CPed, m_nPlayerIndex, 0x218);

@@ -1,3 +1,19 @@
+struct tControlRemapInfo
+{
+	uint8_t m_nControlId;					// 00-01 see ePadControls
+	bool m_bDontShowInMenu;					// 01-02
+	uint16_t m_nBoundKey;					// 02-04 display only?
+	uint8_t pad[0x4];						// 04-08
+	wchar_t m_sControlName[24];				// 08-38
+	uint8_t pad2[0x3C];						// 38-74
+	wchar_t m_sAltControlName[24];			// 74-A4
+	uint8_t pad3[0x3E];						// A4-E2
+};
+VALIDATE_SIZE(tControlRemapInfo, 0xE2);
+VALIDATE_OFFSET(tControlRemapInfo, m_nControlId, 0x0);
+VALIDATE_OFFSET(tControlRemapInfo, m_sControlName, 0x8);
+VALIDATE_OFFSET(tControlRemapInfo, m_sAltControlName, 0x74);
+
 class CMenuManager
 {
 public:
@@ -21,4 +37,6 @@ public:
 	static inline float& m_fBrightness = AddressSetter::GetRef<float>(0xB21704, 0xB38208);
 	static inline float& m_fContrast = AddressSetter::GetRef<float>(0xB21708, 0xB3820C);
 	static inline float& m_fSaturation = AddressSetter::GetRef<float>(0xB2170C, 0xB38210);
+
+	static inline tControlRemapInfo* m_aRemapOptions = (tControlRemapInfo*)AddressSetter::Get(0xB1547A, 0xB4DF8A);
 };
