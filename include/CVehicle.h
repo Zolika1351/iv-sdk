@@ -10,6 +10,18 @@ enum eVehicleType
 	VEHICLE_TYPE_PLANE,
 };
 
+enum eVehicleCameraType
+{
+	VEHICLE_CAMERA_AUTOMOBILE,
+	VEHICLE_CAMERA_BIKE,
+	VEHICLE_CAMERA_HELI,
+	VEHICLE_CAMERA_PLANE,
+	VEHICLE_CAMERA_BOAT,
+
+	VEHICLE_CAMERA_BIKE_E1 = 7,
+	VEHICLE_CAMERA_HELI_E2,
+};
+
 enum eVehicleCreatedBy
 {
 	RANDOM_VEHICLE = 1,
@@ -208,6 +220,11 @@ public:
 	uint8_t pad24[0x190];												// 1F40-20D0
 	//0x260->0xB03 - gps voice (byte ptr, 0-4)
 
+	void Fix()
+	{
+		((void(__thiscall*)(CVehicle*))(*(void***)this)[101])(this);
+	}
+
 	void MakeDirty()
 	{
 		((void(__thiscall*)(CVehicle*))(AddressSetter::Get(0x5D3E90, 0x4FE1E0)))(this);
@@ -216,18 +233,28 @@ public:
 	{
 		((void(__thiscall*)(CVehicle*))(AddressSetter::Get(0x5C63D0, 0x4F0340)))(this);
 	}
-	void Fix()
-	{
-		((void(__thiscall*)(CVehicle*))(*(void***)this)[101])(this);
-	}
-	static bool UsesSiren(int32_t id)
-	{
-		return ((bool(__cdecl*)(int32_t))(AddressSetter::Get(0x5C5F50, 0x4EFEC0)))(id);
-	}
 	// returns VehicleStruct part enum
 	int GetSeatPartId(int seat)
 	{
 		return ((int(__cdecl*)(CVehicle*, int))(AddressSetter::Get(0x5C6EF0, 0x4F0E60)))(this, seat);
+	}
+	// see eVehicleCameraType
+	bool GetCameraType(int* type)
+	{
+		return ((bool(__stdcall*)(CVehicle*, int*))(AddressSetter::Get(0x5D68F0, 0x679B50)))(this, type);
+	}
+	void ProcessRespot(float delta)
+	{
+		((void(__thiscall*)(CVehicle*, float))(AddressSetter::Get(0x5D3A10, 0x4FDD60)))(this, delta);
+	}
+
+	static float HeightAboveCeiling(float height, int flightModel)
+	{
+		return ((float(__stdcall*)(float, int))(AddressSetter::Get(0x5C6100, 0x4F0070)))(height, flightModel);
+	}
+	static bool UsesSiren(int32_t id)
+	{
+		return ((bool(__cdecl*)(int32_t))(AddressSetter::Get(0x5C5F50, 0x4EFEC0)))(id);
 	}
 };
 VALIDATE_SIZE(CVehicle, 0x20D0);

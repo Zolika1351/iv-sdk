@@ -93,3 +93,5 @@ namespace plugin
 #include "CDrawRadioHudTextDC.h"
 #include "CMenuManager.h"
 #include "CShaderLib.h"
+#include "CTimeCycle.h"
+#include "CPickups.h"

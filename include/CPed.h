@@ -145,6 +145,10 @@ public:																	// 000-210
 	tPedComponentModels* m_pComponentModels;							// EA8-EAC
 	uint8_t pad20[0x54];												// EAC-F00
 
+	void ProcessWeaponSwitch()
+	{
+		return ((void(__thiscall*)(CPed*))(AddressSetter::Get(0x5BE7D0, 0x597180)))(this);
+	}
 	CPad* GetPadFromPlayer()
 	{
 		return ((CPad * (__thiscall*)(CPed*))(AddressSetter::Get(0x5BE5D0, 0x596F80)))(this);
