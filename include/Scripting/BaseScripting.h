@@ -5757,6 +5757,10 @@ namespace Scripting
 	static b8 CELL_CAM_IS_CHAR_VISIBLE(Ped ped) { return NativeInvoke::Invoke< b8>(NATIVE_CELL_CAM_IS_CHAR_VISIBLE, ped); }
 	static b8 CELL_CAM_IS_CHAR_VISIBLE_NO_FACE_CHECK(Ped ped) { return NativeInvoke::Invoke< b8>(NATIVE_CELL_CAM_IS_CHAR_VISIBLE_NO_FACE_CHECK, ped); }
 	static b8 DOES_CHAR_EXIST(Ped ped) { return NativeInvoke::Invoke< b8>(NATIVE_DOES_CHAR_EXIST, ped); }
+	static u32 GET_CHAR_DRAWABLE_VARIATION(Ped ped, int component) { return NativeInvoke::Invoke< ScriptAny>(NATIVE_GET_CHAR_DRAWABLE_VARIATION, ped, component); }
+	static u32 GET_CHAR_TEXTURE_VARIATION(Ped ped, unsigned int component) { return NativeInvoke::Invoke< u32>(NATIVE_GET_CHAR_TEXTURE_VARIATION, ped, component); }
+	static u32 GET_NUMBER_OF_CHAR_DRAWABLE_VARIATIONS(Ped ped, unsigned int component) { return NativeInvoke::Invoke< u32>(NATIVE_GET_NUMBER_OF_CHAR_DRAWABLE_VARIATIONS, ped, component); }
+	static u32 GET_NUMBER_OF_CHAR_TEXTURE_VARIATIONS(Ped ped, unsigned int component, u32 unknown1) { return NativeInvoke::Invoke< u32>(NATIVE_GET_NUMBER_OF_CHAR_TEXTURE_VARIATIONS, ped, component, unknown1); }
 	static b8 GET_CHAR_ANIM_IS_EVENT(Ped ped, const char* AnimName0, const char* AnimName1, b8 flag) { return NativeInvoke::Invoke< b8>(NATIVE_GET_CHAR_ANIM_IS_EVENT, ped, AnimName0, AnimName1, flag); }
 	static b8 GET_CHAR_MELEE_ACTION_FLAG0(Ped ped) { return NativeInvoke::Invoke< b8>(NATIVE_GET_CHAR_MELEE_ACTION_FLAG0, ped); }
 	static b8 GET_CHAR_MELEE_ACTION_FLAG1(Ped ped) { return NativeInvoke::Invoke< b8>(NATIVE_GET_CHAR_MELEE_ACTION_FLAG1, ped); }
@@ -6174,6 +6178,7 @@ namespace Scripting
 	static b8 IS_MOBILE_PHONE_RADIO_ACTIVE() { return NativeInvoke::Invoke< b8>(NATIVE_IS_MOBILE_PHONE_RADIO_ACTIVE); }
 	static b8 DOES_WEB_PAGE_EXIST(const char* webaddress) { return NativeInvoke::Invoke< b8>(NATIVE_DOES_WEB_PAGE_EXIST, webaddress); }
 	static b8 GET_CLOSEST_CAR_NODE(float x, float y, float z, float* pResX, float* pResY, float* pResZ) { return NativeInvoke::Invoke< b8>(NATIVE_GET_CLOSEST_CAR_NODE, x, y, z, pResX, pResY, pResZ); }
+	static b8 GET_CLOSEST_NETWORK_RESTART_NODE(Vector3 v, Vector3* ret, float* heading) { return NativeInvoke::Invoke< b8>(NATIVE_GET_CLOSEST_NETWORK_RESTART_NODE, v, ret, heading); }
 	static b8 GET_CLOSEST_CAR_NODE_FAVOUR_DIRECTION(int Unk802, float x, float y, float z, float* pX, float* pY, float* pZ, float* heading) { return NativeInvoke::Invoke< b8>(NATIVE_GET_CLOSEST_CAR_NODE_FAVOUR_DIRECTION, Unk802, x, y, z, pX, pY, pZ, heading); }
 	static b8 GET_CLOSEST_CAR_NODE_WITH_HEADING(float x, float y, float z, float* pResX, float* pResY, float* pResZ, float* pHeading) { return NativeInvoke::Invoke< b8>(NATIVE_GET_CLOSEST_CAR_NODE_WITH_HEADING, x, y, z, pResX, pResY, pResZ, pHeading); }
 	static b8 GET_CLOSEST_MAJOR_CAR_NODE(float x, float y, float z, float* pResX, float* pResY, float* pResZ) { return NativeInvoke::Invoke< b8>(NATIVE_GET_CLOSEST_MAJOR_CAR_NODE, x, y, z, pResX, pResY, pResZ); }
