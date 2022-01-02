@@ -29,6 +29,35 @@ namespace plugin
 		}
 	};
 
+	namespace gameLoadPriorityEvent
+	{
+		uintptr_t returnAddress;
+		std::list<void(*)()> funcPtrs;
+
+		void Run()
+		{
+			for (auto& f : funcPtrs)
+			{
+				f();
+			}
+		}
+		void __declspec(naked) MainHook()
+		{
+			__asm
+			{
+				pushad
+				call Run
+				popad
+				jmp returnAddress
+			}
+		}
+		// before the first LoadLevel call, use for files that need to overwrite base game files
+		void Add(void(*funcPtr)())
+		{
+			funcPtrs.emplace_back(funcPtr);
+		}
+	};
+	
 	namespace gameLoadEvent
 	{
 		uintptr_t returnAddress;
@@ -51,7 +80,7 @@ namespace plugin
 				jmp returnAddress
 			}
 		}
-		// after the last LoadLevel call
+		// after the last LoadLevel call, use for addon files that don't interfere with game files
 		void Add(void(*funcPtr)())
 		{
 			funcPtrs.emplace_back(funcPtr);

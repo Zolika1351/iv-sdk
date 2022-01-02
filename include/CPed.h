@@ -63,12 +63,15 @@ VALIDATE_OFFSET(PedWeapons, m_aWeapons, 0x3C);
 // incomplete - needs props
 struct tPedDrawableInfo
 {
-	uint8_t pad[0x5C];														// 00-5C
-	uint8_t m_nDrawables[11];												// 5C-67
-	uint8_t m_nTextures[11];												// 67-72
+	uint8_t pad[0x5C];														// 000-05C
+	uint8_t m_nDrawables[11];												// 05C-067
+	uint8_t m_nTextures[11];												// 067-072
+	uint8_t pad2[0xBA];														// 072-12C
+	uint32_t m_nPedType;													// 12C-130
 };
 VALIDATE_OFFSET(tPedDrawableInfo, m_nDrawables, 0x5C);
 VALIDATE_OFFSET(tPedDrawableInfo, m_nTextures, 0x67);
+VALIDATE_OFFSET(tPedDrawableInfo, m_nPedType, 0x12C);
 
 struct tPedComponentModels
 {
