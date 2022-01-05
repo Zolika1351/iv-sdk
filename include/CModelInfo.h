@@ -47,12 +47,12 @@ VALIDATE_OFFSET(CBaseModelInfo, m_nHash, 0x3C);
 VALIDATE_OFFSET(CBaseModelInfo, m_nAnimIndex, 0x56);
 VALIDATE_OFFSET(CBaseModelInfo, m_nIDEFlags, 0x40);
 
-struct tVehicleStruct
+struct CVehicleStructure
 {
 	uint32_t m_nBones[102];							// 000-198
 	uint8_t pad[0x74];								// 198-20C
 };
-VALIDATE_SIZE(tVehicleStruct, 0x20C);
+VALIDATE_SIZE(CVehicleStructure, 0x20C);
 
 class CVehicleModelInfo : public CBaseModelInfo
 {
@@ -94,7 +94,7 @@ public:
 		unsigned int pad : 5;
 	} m_nVehicleFlags;								// 094-098
 	uint8_t pad3[0x34];								// 098-09C
-	tVehicleStruct* m_pVehicleStruct;				// 0CC-0D0
+	CVehicleStructure* m_pVehicleStruct;			// 0CC-0D0
 	uint8_t pad4[0x6C];								// 070-13C
 	uint32_t m_nLiveryHashes[4];					// 13C-14C
 	uint8_t pad5[0x284];							// 14C-3D0

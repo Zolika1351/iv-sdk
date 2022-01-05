@@ -4,9 +4,9 @@
 void PoolExample1()
 {
 	auto pool = CPools::ms_pPedPool;
-	for (int i = 0; i < pool->m_dwCount; i++)
+	for (int i = 0; i < pool->m_nCount; i++)
 	{
-		if (auto ped = (CPed*)&pool->m_pObjects[pool->m_dwEntrySize * i])
+		if (auto ped = pool->Get(i))
 		{
 			int handle = pool->GetIndex(ped);
 			Scripting::SET_CHAR_ACCURACY(handle, 100);
@@ -22,9 +22,9 @@ void PoolExample2()
 	auto mdlinfo = (CVehicleModelInfo*)CModelInfo::GetModelInfo(rage::atStringHash("rom"), &index);
 
 	auto pool = CPools::ms_pVehiclePool;
-	for (int i = 0; i < pool->m_dwCount; i++)
+	for (int i = 0; i < pool->m_nCount; i++)
 	{
-		if (auto veh = (CVehicle*)&pool->m_pObjects[pool->m_dwEntrySize * i])
+		if (auto veh = pool->Get(i))
 		{
 			if (veh->m_nModelIndex == index)
 			{
