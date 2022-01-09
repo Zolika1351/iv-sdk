@@ -47,8 +47,9 @@ VALIDATE_OFFSET(CBaseModelInfo, m_nHash, 0x3C);
 VALIDATE_OFFSET(CBaseModelInfo, m_nAnimIndex, 0x56);
 VALIDATE_OFFSET(CBaseModelInfo, m_nIDEFlags, 0x40);
 
-struct CVehicleStructure
+class CVehicleStructure
 {
+public:
 	uint32_t m_nBones[102];							// 000-198
 	uint8_t pad[0x74];								// 198-20C
 };

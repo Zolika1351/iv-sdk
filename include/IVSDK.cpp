@@ -34,11 +34,15 @@ namespace plugin
 	}
 	uint32_t DoHook(uint32_t address, void(*Function)())
 	{
-		uint32_t origcall = (uint32_t)injector::ReadRelativeOffset(address + 1);
+		if (address)
+		{
+			uint32_t origcall = (uint32_t)injector::ReadRelativeOffset(address + 1);
 
-		injector::MakeCALL(address, Function);
+			injector::MakeCALL(address, Function);
 
-		return origcall;
+			return origcall;
+		}
+		return 0;
 	}
 	void InitHooks()
 	{

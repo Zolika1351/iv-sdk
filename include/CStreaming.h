@@ -17,4 +17,9 @@ public:
 	{
 		((void(__cdecl*)(bool))(AddressSetter::Get(0x432C20, 0x4B4BB0)))(priorityOnly);
 	}
+	// images.txt
+	static void AddImageList(char* fileName)
+	{
+		((void(__cdecl*)(char*))(AddressSetter::Get(0x4D1FB0, 0x6C6590)))(fileName);
+	}
 };

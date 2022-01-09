@@ -96,3 +96,4 @@ namespace plugin
 #include "CShaderLib.h"
 #include "CTimeCycle.h"
 #include "CPickups.h"
+#include "CGameConfigReader.h"
