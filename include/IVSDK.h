@@ -97,3 +97,4 @@ namespace plugin
 #include "CTimeCycle.h"
 #include "CPickups.h"
 #include "CGameConfigReader.h"
+#include "fiDevice.h"

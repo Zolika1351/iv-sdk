@@ -1,6 +1,8 @@
 class CFileLoader
 {
 public:
+	static inline char*& sAmbientDataPath = AddressSetter::GetRef<char*>(0x583720, 0x7E9F30); // common:/DATA/Ambient.dat
+
 	// priority? it's set to 2 and 1 for loading default.dat in TBoGT but 0 everywhere else
 	static void LoadLevel(char* levelName, int nUnk)
 	{

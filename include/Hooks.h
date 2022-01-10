@@ -87,6 +87,35 @@ namespace plugin
 		}
 	};
 	
+	namespace mountDeviceEvent
+	{
+		uintptr_t returnAddress;
+		std::list<void(*)()> funcPtrs;
+
+		void Run()
+		{
+			for (auto& f : funcPtrs)
+			{
+				f();
+			}
+		}
+		void __declspec(naked) MainHook()
+		{
+			__asm
+			{
+				pushad
+				call Run
+				popad
+				jmp returnAddress
+			}
+		}
+		// before update:/ is mounted, use this for any rage::fiDevice stuff
+		void Add(void(*funcPtr)())
+		{
+			funcPtrs.emplace_back(funcPtr);
+		}
+	};
+	
 	namespace drawingEvent
 	{
 		uintptr_t returnAddress;

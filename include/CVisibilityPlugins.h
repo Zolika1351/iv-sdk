@@ -10,5 +10,5 @@ public:
 	static inline float& m_carLodDistanceHigh = AddressSetter::GetRef<float>(0xB33A44, 0xB4149C);
 	static inline float& m_carLodDistanceMed = AddressSetter::GetRef<float>(0xB33A48, 0xB414A0);
 
-	static inline char*& sStipplePath = AddressSetter::GetRef<char*>(0x3DB970, 0x55A920);
+	static inline char*& sStipplePath = AddressSetter::GetRef<char*>(0x3DB970, 0x55A920); // platform:/textures
 };

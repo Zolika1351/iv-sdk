@@ -53,6 +53,7 @@ namespace plugin
 		processAutomobileEvent::callAddress = DoHook(AddressSetter::Get(0x7FE9C6, 0x652C26), processAutomobileEvent::MainHook);
 		processPadEvent::callAddress = DoHook(AddressSetter::Get(0x3C4002, 0x46A802), processPadEvent::MainHook);
 		processCameraEvent::returnAddress = DoHook(AddressSetter::Get(0x52C4C2, 0x694232), processCameraEvent::MainHook);
+		mountDeviceEvent::returnAddress = DoHook(AddressSetter::Get(0x3B2E4C, 0x456C4C), mountDeviceEvent::MainHook);
 	}
 	void Init()
 	{

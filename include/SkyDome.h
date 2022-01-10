@@ -31,7 +31,7 @@ namespace rage
 
 		uint8_t pad3[0x1C];									// 314-330
 
-		static inline char*& sTexturePath = AddressSetter::GetRef<char*>(0x882791, 0x8A2741);
+		static inline char*& sTexturePath = AddressSetter::GetRef<char*>(0x882791, 0x8A2741); // platform:/textures/skydome
 	};
 	VALIDATE_SIZE(SkyDome, 0x330);
 	VALIDATE_OFFSET(SkyDome, m_sSkyhatMiniNoise, 0x10);
