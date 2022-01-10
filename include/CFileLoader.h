@@ -18,4 +18,14 @@ public:
 	{
 		((void(__cdecl*)(char*))(AddressSetter::Get(0x544920, 0x5AE4C0)))(fileName);
 	}
+
+	static void LoadSpeechData(char* fileName)
+	{
+		((void(__cdecl*)(char*))(AddressSetter::Get(0x8ECC70, 0x3A9620)))(fileName);
+	}
+
+	static void MountWavePack(char* fileName, char* mount)
+	{
+		((void(__cdecl*)(char*, char*))(AddressSetter::Get(0x8EB8D0, 0x38F8D0)))(fileName, mount);
+	}
 };
