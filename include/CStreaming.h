@@ -1,7 +1,10 @@
 class CStreaming
 {
 public:
+	static inline uint32_t& m_nPedModelBudget = AddressSetter::GetRef<uint32_t>(0xB22B5C, 0xB49B94);
+	static inline uint32_t& m_nVehicleModelBudget = AddressSetter::GetRef<uint32_t>(0xB22B60, 0xB49B98);
 	static inline uint8_t& ms_disableStreaming = AddressSetter::GetRef<uint8_t>(0xE1DFAA, 0xF997D2);
+
 	// this is easier to use until RequestModel is fully documented
 	static void ScriptRequestModel(int32_t nHash, uint32_t* pRunningThread = nullptr)
 	{
