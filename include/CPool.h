@@ -11,6 +11,11 @@ public:
 	uint8_t m_bAllocated;				// 18-19
 	uint8_t pad[3];						// 19-1C
 
+	CPool(int size, char* name, int entrySize)
+	{
+		((void(__thiscall*)(CPool*, int, char*, int))(AddressSetter::Get(0x872F10, 0x3F3DB0)))(this, size, name, entrySize);
+	}
+
 	T* GetAt(uint32_t nHandle)
 	{
 		return ((T*(__thiscall*)(CPool*, uint32_t))(AddressSetter::Get(0x26700, 0x92E00)))(this, nHandle);

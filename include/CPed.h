@@ -32,7 +32,9 @@ public:
 	uint8_t pad4[0x18];													// 54-6C
 	float m_fMoveAnimSpeed;												// 6C-70
 	float m_fMaxMoveBlendRatio;											// 70-74 caps m_fMoveState
+	uint8_t pad5[0x5C];													// 74-D0
 };
+VALIDATE_SIZE(CPedMoveBlendOnFoot, 0xD0);
 VALIDATE_OFFSET(CPedMoveBlendOnFoot, m_fMoveLeanAmount, 0x1C);
 VALIDATE_OFFSET(CPedMoveBlendOnFoot, m_fMoveAnimSpeed, 0x6C);
 VALIDATE_OFFSET(CPedMoveBlendOnFoot, m_fMoveState, 0x8);
@@ -164,6 +166,8 @@ public:																	// 000-210
 	{
 		((void(__thiscall*)(CPed*, float, int))(*(void***)this)[61])(this, health, unk);
 	}
+
+	// 0x7BC some collider
 };
 
 VALIDATE_SIZE(CPed, 0xF00);
