@@ -127,28 +127,30 @@ public:																	// 000-210
 	CEntity* m_pStandingOnEntity;										// 484-488
 	uint8_t pad10[0x194];												// 488-61C
 	uint32_t m_nVoiceHash;												// 61C-620
-	uint8_t pad11[0x1A8];												// 620-7C8
+	uint8_t pad11[0x19C];												// 620-7BC
+	rage::phConstrainedCollider* m_pCollider;							// 7BC-7C0
+	uint8_t pad12[0x8];													// 7C0-7C8
 	uint32_t m_nRagdollStatus;											// 7C8-7CC
 	uint32_t m_nRagdollTime;											// 7CC-7D0
-	uint8_t pad12[0x21];												// 7D0-7F1
+	uint8_t pad13[0x21];												// 7D0-7F1
 	uint8_t m_nWeaponObjectVisible;										// 7F1-7F2
-	uint8_t pad13[0x27E];												// 7F2-A90
+	uint8_t pad14[0x27E];												// 7F2-A90
 	uint8_t m_nCreatedBy;												// A70-A74
-	uint8_t pad14[0x10];												// A74-A84
+	uint8_t pad15[0x10];												// A74-A84
 	uint32_t m_nDeathState;												// A84-A88
-	uint8_t pad15[0x8];													// A88-A90
+	uint8_t pad16[0x8];													// A88-A90
 	CPedMoveBlendOnFoot* m_pPedMoveBlendOnFoot;							// A90-A94
 	float m_fMaxHealth;													// A94-A98
-	uint8_t pad16[0x18];												// A98-AB0
+	uint8_t pad17[0x18];												// A98-AB0
 	float m_fCurrentHeading;											// AB0-AB4
 	float m_fDesiredHeading;											// AB4-AB8
-	uint8_t pad17[0x88];												// AB8-B40
+	uint8_t pad18[0x88];												// AB8-B40
 	CVehicle* m_pVehicle;												// B40-B44
-	uint8_t pad18[0x33C];												// B44-E80
+	uint8_t pad19[0x33C];												// B44-E80
 	uint32_t m_nUnkPlayerSettingsRelated;								// E80-E84 used in CTaskComplexPlayerSettingsTask, initialized as *(dword_14CB008 + 32)
-	uint8_t pad19[0x24];												// E84-EA8
+	uint8_t pad20[0x24];												// E84-EA8
 	tPedComponentModels* m_pComponentModels;							// EA8-EAC
-	uint8_t pad20[0x54];												// EAC-F00
+	uint8_t pad21[0x54];												// EAC-F00
 
 	void ProcessWeaponSwitch()
 	{
@@ -166,11 +168,10 @@ public:																	// 000-210
 	{
 		((void(__thiscall*)(CPed*, float, int))(*(void***)this)[61])(this, health, unk);
 	}
-
-	// 0x7BC some collider
 };
 
 VALIDATE_SIZE(CPed, 0xF00);
+VALIDATE_OFFSET(CPed, m_pCollider, 0x7BC);
 VALIDATE_OFFSET(CPed, m_fClimbAnimRate, 0x278);
 VALIDATE_OFFSET(CPed, m_nDeathState, 0xA84);
 VALIDATE_OFFSET(CPed, m_nCreatedBy, 0xA70);

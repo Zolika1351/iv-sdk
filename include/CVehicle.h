@@ -107,38 +107,38 @@ public:
 	phInstGta* m_pVehicleFragInst;										// 0E14-0E18
 	tHandlingData* m_pHandling;												// 0E18-0E1C
 	struct {
-		unsigned int m_bSmoothCompresn : 1;
-		unsigned int m_bNone : 1;
-		unsigned int m_bNpcAntiRoll : 1;
-		unsigned int m_bNpcNeutralHandl : 1;
-		unsigned int m_bNoHandbrake : 1;
-		unsigned int m_bSteerRearwheels : 1;
-		unsigned int m_bHbRearwheelSteer : 1;
-		unsigned int m_bAltSteerOpt : 1;
-		unsigned int m_bWheelFNarrow2 : 1;
-		unsigned int m_bWheelFNarrow : 1;
-		unsigned int m_bWheelFWide : 1;
-		unsigned int m_bWheelFWide2 : 1;
-		unsigned int m_bWheelRNarrow2 : 1;
-		unsigned int m_bWheelRNarrow : 1;
-		unsigned int m_bWheelRWide : 1;
-		unsigned int m_bWheelRWide2 : 1;
-		unsigned int m_bHydraulicGeom : 1;
-		unsigned int m_bHydraulicInst : 1;
-		unsigned int m_bHydraulicNone : 1;
-		unsigned int m_bNosInst : 1;
-		unsigned int m_bOffroadAbility : 1;
-		unsigned int m_bOffroadAbility2 : 1;
-		unsigned int m_bHalogenLights : 1;
-		unsigned int m_bProcRearwheel1st : 1;
-		unsigned int m_bUseMaxspLimit : 1;
-		unsigned int m_bLowRider : 1;
-		unsigned int m_bStreetRacer : 1;
-		unsigned int m_bNone2 : 1;
-		unsigned int m_bSwingingChassis : 1;
-		unsigned int m_bOldPhysics : 1;
-		unsigned int m_bNone3 : 1;
-		unsigned int m_bNone4 : 1;
+		unsigned int bSmoothCompresn : 1;
+		unsigned int bNone : 1;
+		unsigned int bNpcAntiRoll : 1;
+		unsigned int bNpcNeutralHandl : 1;
+		unsigned int bNoHandbrake : 1;
+		unsigned int bSteerRearwheels : 1;
+		unsigned int bHbRearwheelSteer : 1;
+		unsigned int bAltSteerOpt : 1;
+		unsigned int bWheelFNarrow2 : 1;
+		unsigned int bWheelFNarrow : 1;
+		unsigned int bWheelFWide : 1;
+		unsigned int bWheelFWide2 : 1;
+		unsigned int bWheelRNarrow2 : 1;
+		unsigned int bWheelRNarrow : 1;
+		unsigned int bWheelRWide : 1;
+		unsigned int bWheelRWide2 : 1;
+		unsigned int bHydraulicGeom : 1;
+		unsigned int bHydraulicInst : 1;
+		unsigned int bHydraulicNone : 1;
+		unsigned int bNosInst : 1;
+		unsigned int bOffroadAbility : 1;
+		unsigned int bOffroadAbility2 : 1;
+		unsigned int bHalogenLights : 1;
+		unsigned int bProcRearwheel1st : 1;
+		unsigned int bUseMaxspLimit : 1;
+		unsigned int bLowRider : 1;
+		unsigned int bStreetRacer : 1;
+		unsigned int bNone2 : 1;
+		unsigned int bSwingingChassis : 1;
+		unsigned int bOldPhysics : 1;
+		unsigned int bNone3 : 1;
+		unsigned int bNone4 : 1;
 	}              m_nHandlingFlags; // 0E1C-0E20
 	uint8_t pad2[0x144];													// 0E20-0F64
 	struct
