@@ -35,4 +35,9 @@ public:
 	{
 		((void(__cdecl*)(char*))(AddressSetter::Get(0x4D11A0, 0x6C57E0)))(line);
 	}
+
+	static void LoadVehicleObject(char* line)
+	{
+		((void(__cdecl*)(char*))(AddressSetter::Get(0x4D5D70, 0x6CA230)))(line);
+	}
 };

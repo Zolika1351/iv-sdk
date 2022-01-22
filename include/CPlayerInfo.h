@@ -80,3 +80,8 @@ CPed* FindPlayerPed()
 {
 	return ((CPed*(__cdecl*)())(AddressSetter::Get(0x417F40, 0x3CD230)))();
 }
+
+CVehicle* FindPlayerVehicle()
+{
+	return ((CVehicle*(__cdecl*)())(AddressSetter::Get(0x478890, 0x4B52F0)))();
+}

@@ -14,6 +14,10 @@ class CPedIntelligenceNY;
 class CAnimBlender;
 class fragInstNMGta;
 class CPedDataNY;
+class CTxdFile;
+struct TxdDef;
+struct IplDef;
+class CQuadTreeNode;
 
 class CPools
 {
@@ -34,4 +38,7 @@ public:
 	static inline CPool<CAnimBlender>*& ms_pAnimBlenderPool				= AddressSetter::GetRef<CPool<CAnimBlender>*>(0x12397B0, 0xE4E6B0);
 	static inline CPool<fragInstNMGta>*& ms_pFragInstNMGtaPool			= AddressSetter::GetRef<CPool<fragInstNMGta>*>(0x1306660, 0x12767C8);
 	static inline CPool<CPedDataNY>*& ms_pPedDataPool					= AddressSetter::GetRef<CPool<CPedDataNY>*>(0x14A82A8, 0x14CB038);
+	static inline CPool<CQuadTreeNode>*& ms_pQuadTreeNodePool			= AddressSetter::GetRef<CPool<CQuadTreeNode>*>(0xF504D0, 0x127608C);
+	static inline CPool<TxdDef>*& ms_pTxdPool							= AddressSetter::GetRef<CPool<TxdDef>*>(0xDD52D4, 0xE291E0);
+	static inline CPool<IplDef>*& ms_pIplPool							= AddressSetter::GetRef<CPool<IplDef>*>(0x128FF98, 0xF6E468);
 };

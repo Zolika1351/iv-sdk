@@ -1,3 +1,12 @@
+struct TxdDef
+{
+	rage::pgDictionary<rage::grcTexturePC>* m_pDictionary;		// 00-04
+	int32_t m_nRefCount;										// 04-08
+	uint32_t m_nHash;											// 08-0C
+	int32_t m_nParent;											// 0C-10
+};
+VALIDATE_SIZE(TxdDef, 0x10);
+
 class CTxdStore
 {
 public:
@@ -17,6 +26,10 @@ public:
 	static int FindTxdSlot(uint32_t nHash)
 	{
 		return ((int(__cdecl*)(uint32_t))(AddressSetter::Get(0x1F130, 0x8F0B0)))(nHash);
+	}
+	static int FindTxdSlot(char* sName)
+	{
+		return ((int(__cdecl*)(char*))(AddressSetter::Get(0x1ECE0, 0x8EC80)))(sName);
 	}
 	static bool LoadTxd(int slot, char* sName)
 	{

@@ -8,6 +8,11 @@ public:
 	static inline uint32_t& m_nVehicleModelBudget = AddressSetter::GetRef<uint32_t>(0xB22B60, 0xB49B98);
 	static inline uint8_t& ms_disableStreaming = AddressSetter::GetRef<uint8_t>(0xE1DFAA, 0xF997D2);
 
+	static bool IsStreamingDisabled()
+	{
+		return ((bool(__cdecl*)())(AddressSetter::Get(0x432EF0, 0x4B4E80)))();
+	}
+
 	// this is easier to use until RequestModel is fully documented
 	static void ScriptRequestModel(int32_t nHash, uint32_t* pRunningThread = nullptr)
 	{
@@ -33,7 +38,6 @@ public:
 	{
 		return ((rage::fiPackfile*(__cdecl*)())(AddressSetter::Get(0x4DB210, 0x56B000)))();
 	}
-
 	static void ClosePlayerPackfile()
 	{
 		((void(__cdecl*)())(AddressSetter::Get(0x4DA590, 0x56A340)))();

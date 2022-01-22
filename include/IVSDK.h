@@ -101,3 +101,5 @@ namespace plugin
 #include "fiPackfile.h"
 #include "audEngine.h"
 #include "CPedType.h"
+#include "CQuadTreeNode.h"
+#include "CIplStore.h"
