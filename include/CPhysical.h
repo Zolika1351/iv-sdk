@@ -18,7 +18,9 @@ public:
 		unsigned int bDestroyed : 1;
 		unsigned int flag18 : 15;
 	} m_nPhysicalFlags;													// 118-11C
-	uint8_t pad9[0xA0];													// 11C-1BC
+	uint8_t pad9[0x4];													// 11C-120
+	float m_fPercentSubmerged;											// 120-124
+	uint8_t pad124[0x98];												// 124-1BC
 	CEntity* m_pAttachedToEntity;										// 1BC-1C0
 	CVector m_vAttachOffset;											// 1C0-1CC
 	uint8_t pad10[0x4];													// 1CC-1D0
@@ -52,3 +54,4 @@ VALIDATE_OFFSET(CPhysical, m_pAttachedToEntity, 0x1BC);
 VALIDATE_OFFSET(CPhysical, m_vAttachOffset, 0x1C0);
 VALIDATE_OFFSET(CPhysical, m_qAttachOffset, 0x1D0);
 VALIDATE_OFFSET(CPhysical, m_pEntityIgnoredCollision, 0x1F8);
+VALIDATE_OFFSET(CPhysical, m_fPercentSubmerged, 0x120);

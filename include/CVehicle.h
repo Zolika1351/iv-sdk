@@ -165,7 +165,13 @@ public:
 	uint32_t m_nWheelCount;												// 0FD4-0FD8
 	CVehicleDoor* m_pDoors;												// 0FD8-0FDC
 	uint32_t m_nDoorCount;												// 0FDC-0FE0
-	uint8_t pad6[0x4];													// 0FE0-0FE4
+	struct
+	{
+		unsigned int pad : 16;
+		unsigned int bAbs : 1;
+		unsigned int bAbsAlt : 1;
+		unsigned int pad2 : 13;
+	} m_nAbsFlags;														// 0FE0-0FE4
 	uint8_t m_nPrimaryColor;											// 0FE4-0FE5
 	uint8_t m_nSecondaryColor;											// 0FE5-0FE6
 	uint8_t m_nTertiaryColor;											// 0FE6-0FE7
@@ -285,3 +291,4 @@ VALIDATE_OFFSET(CVehicle, m_fPlaneUpDown, 0x1F04);
 VALIDATE_OFFSET(CVehicle, m_fPlaneRotate, 0x1F08);
 VALIDATE_OFFSET(CVehicle, m_fPlaneThrust, 0x1F0C);
 VALIDATE_OFFSET(CVehicle, m_fPlanePropSpeed, 0x1F3C);
+VALIDATE_OFFSET(CVehicle, m_nAbsFlags, 0xFE0);

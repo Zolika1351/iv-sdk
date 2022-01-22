@@ -30,4 +30,9 @@ public:
 	{
 		((void(__cdecl*)(char*, char*))(AddressSetter::Get(0x8EB8D0, 0x38F8D0)))(fileName, mount);
 	}
+
+	static void LoadPedObject(char* line)
+	{
+		((void(__cdecl*)(char*))(AddressSetter::Get(0x4D11A0, 0x6C57E0)))(line);
+	}
 };

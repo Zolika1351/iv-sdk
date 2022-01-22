@@ -28,13 +28,24 @@ public:
 	uint32_t m_nHash;								// 3C-40
 	uint32_t m_nIDEFlags;							// 40-44
 	uint32_t m_nReferencesThisFrame;				// 44-48
-	uint8_t pad2[0xE];								// 48-56
+	int16_t m_nTexDictionary;						// 48-4A -1 or index in the txd pool
+	uint8_t pad2[0xC];								// 4A-56
 	int8_t m_nAnimIndex;							// 56-58
 	uint8_t pad3[0x8];								// 58-60
 
 	uint8_t GetModelType()
 	{
 		return ((uint8_t(__thiscall*)(CBaseModelInfo*))(*(void***)this)[3])(this);
+	}
+
+	void SetAnimGroup(char* group)
+	{
+		((void(__thiscall*)(CBaseModelInfo*, char*))(AddressSetter::Get(0x58F3F0, 0x63D400)))(this, group);
+	}
+
+	void SetTexDictionary(char* txd)
+	{
+		((void(__thiscall*)(CBaseModelInfo*, char*))(AddressSetter::Get(0x58EE30, 0x63CE40)))(this, txd);
 	}
 };
 VALIDATE_SIZE(CBaseModelInfo, 0x60);
@@ -46,6 +57,26 @@ VALIDATE_OFFSET(CBaseModelInfo, m_vMaxBounds, 0x30);
 VALIDATE_OFFSET(CBaseModelInfo, m_nHash, 0x3C);
 VALIDATE_OFFSET(CBaseModelInfo, m_nAnimIndex, 0x56);
 VALIDATE_OFFSET(CBaseModelInfo, m_nIDEFlags, 0x40);
+
+class CPedModelInfo : public CBaseModelInfo
+{
+public:
+	uint8_t pad[0x20];								// 60-80
+	int32_t m_nGestureAnimIndex;					// 80-84
+	int32_t m_nFacialAnimIndex;						// 84-88
+	int32_t m_nVisemesAnimIndex;					// 88-8C
+	uint8_t m_bStreamedPed;							// 8C-8D load from player:/
+	uint8_t pad2[0x3];								// 8C-90
+	uint32_t m_nPedType;							// 90-94
+	uint8_t pad3[0x28];								// 94-BC
+	uint32_t m_nVoiceHash;							// BC-C0
+};
+VALIDATE_OFFSET(CPedModelInfo, m_bStreamedPed, 0x8C);
+VALIDATE_OFFSET(CPedModelInfo, m_nPedType, 0x90);
+VALIDATE_OFFSET(CPedModelInfo, m_nGestureAnimIndex, 0x80);
+VALIDATE_OFFSET(CPedModelInfo, m_nFacialAnimIndex, 0x84);
+VALIDATE_OFFSET(CPedModelInfo, m_nVisemesAnimIndex, 0x88);
+VALIDATE_OFFSET(CPedModelInfo, m_nVoiceHash, 0xBC);
 
 class CVehicleStructure
 {
@@ -94,7 +125,9 @@ public:
 		unsigned int bBangerExhaustFx : 1;
 		unsigned int pad : 5;
 	} m_nVehicleFlags;								// 094-098
-	uint8_t pad3[0x34];								// 098-09C
+	uint8_t pad3[0x28];								// 098-0C0
+	int16_t m_nAnimIndex2;							// 0C0-0C2
+	uint8_t padC2[0xA];								// 0C2-0CC
 	CVehicleStructure* m_pVehicleStruct;			// 0CC-0D0
 	uint8_t pad4[0x6C];								// 070-13C
 	uint32_t m_nLiveryHashes[4];					// 13C-14C
@@ -116,6 +149,11 @@ public:
 		((void(__thiscall*)(CVehicleModelInfo*, uint8_t*, uint8_t*, uint8_t*, uint8_t*, int))(AddressSetter::Get(0x7E6930, 0x646370)))(this, color1, color2, color3, color4, startingColor);
 	}
 
+	void SetSecondaryAnimGroup(char* group)
+	{
+		((void(__thiscall*)(CVehicleModelInfo*, char*))(AddressSetter::Get(0x7EAC80, 0x64A6C0)))(this, group);
+	}
+
 	static inline CRGBA* ms_vehicleColourTable = (CRGBA*)AddressSetter::Get(0x12D65A8, 0x1001BE0); // ms_vehicleColourTable[196]
 };
 VALIDATE_SIZE(CVehicleModelInfo, 0x3D0);
@@ -125,6 +163,7 @@ VALIDATE_OFFSET(CVehicleModelInfo, m_nVehicleType, 0x6C);
 VALIDATE_OFFSET(CVehicleModelInfo, m_nLiveryHashes, 0x13C);
 VALIDATE_OFFSET(CVehicleModelInfo, m_pVehicleStruct, 0xCC);
 VALIDATE_OFFSET(CVehicleModelInfo, m_nVehicleFlags, 0x94);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nAnimIndex2, 0xC0);
 
 class CModelInfo
 {
@@ -133,5 +172,13 @@ public:
 	static CBaseModelInfo* GetModelInfo(uint32_t hashKey, int* index)
 	{
 		return ((CBaseModelInfo*(__cdecl*)(uint32_t, int*))(AddressSetter::Get(0x58AAE0, 0x4DD2D0)))(hashKey, index);
+	}
+	static CPedModelInfo* AddPedModel(char* modelName)
+	{
+		return ((CPedModelInfo*(__cdecl*)(char*))(AddressSetter::Get(0x58AE90, 0x4DD680)))(modelName);
+	}
+	static CVehicleModelInfo* AddVehicleModel(char* modelName)
+	{
+		return ((CVehicleModelInfo*(__cdecl*)(char*))(AddressSetter::Get(0x58AE20, 0x4DD610)))(modelName);
 	}
 };

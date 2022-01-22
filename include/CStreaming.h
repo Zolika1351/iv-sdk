@@ -1,6 +1,9 @@
+namespace rage { class fiPackfile; }
+
 class CStreaming
 {
 public:
+	static inline rage::fiPackfile* m_pPlayerPackfile = AddressSetter::GetRef<rage::fiPackfile*>(0xF503FC, 0xECEBCC); // player:/
 	static inline uint32_t& m_nPedModelBudget = AddressSetter::GetRef<uint32_t>(0xB22B5C, 0xB49B94);
 	static inline uint32_t& m_nVehicleModelBudget = AddressSetter::GetRef<uint32_t>(0xB22B60, 0xB49B98);
 	static inline uint8_t& ms_disableStreaming = AddressSetter::GetRef<uint8_t>(0xE1DFAA, 0xF997D2);
@@ -24,5 +27,15 @@ public:
 	static void AddImageList(char* fileName)
 	{
 		((void(__cdecl*)(char*))(AddressSetter::Get(0x4D1FB0, 0x6C6590)))(fileName);
+	}
+
+	static rage::fiPackfile* GetPlayerPackfile()
+	{
+		return ((rage::fiPackfile*(__cdecl*)())(AddressSetter::Get(0x4DB210, 0x56B000)))();
+	}
+
+	static void ClosePlayerPackfile()
+	{
+		((void(__cdecl*)())(AddressSetter::Get(0x4DA590, 0x56A340)))();
 	}
 };

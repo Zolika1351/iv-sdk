@@ -53,73 +53,73 @@ struct tHandlingData
 	float m_fSeatOffsetDist;									// 0E4-0E8
 	uint32_t m_nMonetaryValue;									// 0E8-0EC
 	struct {
-		unsigned int m_bIsVan : 1;
-		unsigned int m_bIsBus : 1;
-		unsigned int m_bIsLow : 1;
-		unsigned int m_bIsBig : 1;
-		unsigned int m_bAbsStd : 1;
-		unsigned int m_bAbsOption : 1;
-		unsigned int m_bAbsAltStd : 1;
-		unsigned int m_bAbsAltOption : 1;
-		unsigned int m_bNoDoors : 1;
-		unsigned int m_bTandemSeats : 1;
-		unsigned int m_bSitInBoat : 1;
-		unsigned int m_bNone : 1;
-		unsigned int m_bNoExhaust : 1;
-		unsigned int m_bDoubleExhaust : 1;
-		unsigned int m_bNo1fpsLookBehind : 1;
-		unsigned int m_bCanEnterIfNoDoor : 1;
-		unsigned int m_bAxleFNotilt : 1;
-		unsigned int m_bAxleFSolid : 1;
-		unsigned int m_bAxleFMcpherson : 1;
-		unsigned int m_bAxleFReverse : 1;
-		unsigned int m_bAxleRNotilt : 1;
-		unsigned int m_bAxleRSolid : 1;
-		unsigned int m_bAxleRMcpherson : 1;
-		unsigned int m_bAxleRReverse : 1;
-		unsigned int m_bIsBike : 1;
-		unsigned int m_bIsHeli : 1;
-		unsigned int m_bIsPlane : 1;
-		unsigned int m_bIsBoat : 1;
-		unsigned int m_bBouncePanels : 1;
-		unsigned int m_bDoubleRWheels : 1;
-		unsigned int m_bForceGroundClearance : 1;
-		unsigned int m_bIsHatchback : 1;
-	} m_mFlags;													// 0EC-0F0
+		unsigned int bIsVan : 1;
+		unsigned int bIsBus : 1;
+		unsigned int bIsLow : 1;
+		unsigned int bIsBig : 1;
+		unsigned int bAbsStd : 1;
+		unsigned int bAbsOption : 1;
+		unsigned int bAbsAltStd : 1;
+		unsigned int bAbsAltOption : 1;
+		unsigned int bNoDoors : 1;
+		unsigned int bTandemSeats : 1;
+		unsigned int bSitInBoat : 1;
+		unsigned int bNone : 1;
+		unsigned int bNoExhaust : 1;
+		unsigned int bDoubleExhaust : 1;
+		unsigned int bNo1fpsLookBehind : 1;
+		unsigned int bCanEnterIfNoDoor : 1;
+		unsigned int bAxleFNotilt : 1;
+		unsigned int bAxleFSolid : 1;
+		unsigned int bAxleFMcpherson : 1;
+		unsigned int bAxleFReverse : 1;
+		unsigned int bAxleRNotilt : 1;
+		unsigned int bAxleRSolid : 1;
+		unsigned int bAxleRMcpherson : 1;
+		unsigned int bAxleRReverse : 1;
+		unsigned int bIsBike : 1;
+		unsigned int bIsHeli : 1;
+		unsigned int bIsPlane : 1;
+		unsigned int bIsBoat : 1;
+		unsigned int bBouncePanels : 1;
+		unsigned int bDoubleRWheels : 1;
+		unsigned int bForceGroundClearance : 1;
+		unsigned int bIsHatchback : 1;
+	} m_nModelFlags;											// 0EC-0F0
 	struct {
-		unsigned int m_bSmoothCompresn : 1;
-		unsigned int m_bNone : 1;
-		unsigned int m_bNpcAntiRoll : 1;
-		unsigned int m_bNpcNeutralHandl : 1;
-		unsigned int m_bNoHandbrake : 1;
-		unsigned int m_bSteerRearwheels : 1;
-		unsigned int m_bHbRearwheelSteer : 1;
-		unsigned int m_bAltSteerOpt : 1;
-		unsigned int m_bWheelFNarrow2 : 1;
-		unsigned int m_bWheelFNarrow : 1;
-		unsigned int m_bWheelFWide : 1;
-		unsigned int m_bWheelFWide2 : 1;
-		unsigned int m_bWheelRNarrow2 : 1;
-		unsigned int m_bWheelRNarrow : 1;
-		unsigned int m_bWheelRWide : 1;
-		unsigned int m_bWheelRWide2 : 1;
-		unsigned int m_bHydraulicGeom : 1;
-		unsigned int m_bHydraulicInst : 1;
-		unsigned int m_bHydraulicNone : 1;
-		unsigned int m_bNosInst : 1;
-		unsigned int m_bOffroadAbility : 1;
-		unsigned int m_bOffroadAbility2 : 1;
-		unsigned int m_bHalogenLights : 1;
-		unsigned int m_bProcRearwheel1st : 1;
-		unsigned int m_bUseMaxspLimit : 1;
-		unsigned int m_bLowRider : 1;
-		unsigned int m_bStreetRacer : 1;
-		unsigned int m_bNone2 : 1;
-		unsigned int m_bSwingingChassis : 1;
-		unsigned int m_bOldPhysics : 1;
-		unsigned int m_bNone3 : 1;
-		unsigned int m_bNone4 : 1;
-	} m_hFlags;													// 0F0-0F4
+		unsigned int bSmoothCompresn : 1;
+		unsigned int bNone : 1;
+		unsigned int bNpcAntiRoll : 1;
+		unsigned int bNpcNeutralHandl : 1;
+		unsigned int bNoHandbrake : 1;
+		unsigned int bSteerRearwheels : 1;
+		unsigned int bHbRearwheelSteer : 1;
+		unsigned int bAltSteerOpt : 1;
+		unsigned int bWheelFNarrow2 : 1;
+		unsigned int bWheelFNarrow : 1;
+		unsigned int bWheelFWide : 1;
+		unsigned int bWheelFWide2 : 1;
+		unsigned int bWheelRNarrow2 : 1;
+		unsigned int bWheelRNarrow : 1;
+		unsigned int bWheelRWide : 1;
+		unsigned int bWheelRWide2 : 1;
+		unsigned int bHydraulicGeom : 1;
+		unsigned int bHydraulicInst : 1;
+		unsigned int bHydraulicNone : 1;
+		unsigned int bNosInst : 1;
+		unsigned int bOffroadAbility : 1;
+		unsigned int bOffroadAbility2 : 1;
+		unsigned int bHalogenLights : 1;
+		unsigned int bProcRearwheel1st : 1;
+		unsigned int bUseMaxspLimit : 1;
+		unsigned int bLowRider : 1;
+		unsigned int bStreetRacer : 1;
+		unsigned int bNone2 : 1;
+		unsigned int bSwingingChassis : 1;
+		unsigned int bOldPhysics : 1;
+		unsigned int bNone3 : 1;
+		unsigned int bNone4 : 1;
+	} m_nHandlingFlags;											// 0F0-0F4
 	uint8_t pad2[0x1C];											// 0F4-110
 };
 
@@ -145,8 +145,8 @@ VALIDATE_OFFSET(tHandlingData, m_fDeformationDamageMult, 0xDC);
 VALIDATE_OFFSET(tHandlingData, m_fEngineDamageMult, 0xE0);
 VALIDATE_OFFSET(tHandlingData, m_fSeatOffsetDist, 0xE4);
 VALIDATE_OFFSET(tHandlingData, m_nMonetaryValue, 0xE8);
-VALIDATE_OFFSET(tHandlingData, m_mFlags, 0xEC);
-VALIDATE_OFFSET(tHandlingData, m_hFlags, 0xF0);
+VALIDATE_OFFSET(tHandlingData, m_nModelFlags, 0xEC);
+VALIDATE_OFFSET(tHandlingData, m_nHandlingFlags, 0xF0);
 
 class cHandlingDataMgr
 {
@@ -164,5 +164,9 @@ public:
 	static tHandlingData* GetHandlingData(int id)
 	{
 		return ((tHandlingData*(__cdecl*)(int))(AddressSetter::Get(0x5719C0, 0x7A2610)))(id);
+	}
+	static int GetHandlingId(char* handlingName)
+	{
+		return ((int(__cdecl*)(char*))(AddressSetter::Get(0x571BF0, 0x7A2840)))(handlingName);
 	}
 };

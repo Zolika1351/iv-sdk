@@ -98,4 +98,6 @@ namespace plugin
 #include "CPickups.h"
 #include "CGameConfigReader.h"
 #include "fiDevice.h"
+#include "fiPackfile.h"
 #include "audEngine.h"
+#include "CPedType.h"
