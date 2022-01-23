@@ -18,9 +18,11 @@ public:
 	CMatrix* m_pMatrix;													// 020-024
 	struct
 	{
-		unsigned int pad1 : 5;
-		unsigned int m_bVisible : 1; // >> 5 & 1 - visible
-		unsigned int pad2 : 26;
+		unsigned int pad1 : 3;
+		unsigned int bIsStatic : 1; // & 8
+		unsigned int pad2 : 1;
+		unsigned int bIsVisible : 1; // >> 5 & 1 - visible
+		unsigned int pad3 : 26;
 	} m_nEntityFlags;													// 024-028 >> 5 & 1 - visible
 	uint32_t m_nEntityFlags2;											// 028-02C 0x80 - cast shadows
 	uint8_t pad1[0x2];													// 02C-02E

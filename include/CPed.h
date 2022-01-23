@@ -25,7 +25,8 @@ public:
 	float m_fMoveState;													// 08-0C 3 - sprint, 2 - run, 1 - walk
 	uint8_t pad1[0x10];													// 0C-1C
 	float m_fMoveLeanAmount;											// 1C-20 3 is normal, less than 3 leans left, more than 3 leans right
-	uint8_t pad2[0x8];													// 20-28
+	uint8_t pad2[0x4];													// 20-28
+	CPed* m_pPed;														// 24-28
 	float m_fMoveTurn;													// 28-2C
 	uint8_t pad3[0x24];													// 2C-50
 	uint32_t m_nUnkFlags;												// 50-54
@@ -35,10 +36,11 @@ public:
 	uint8_t pad5[0x5C];													// 74-D0
 };
 VALIDATE_SIZE(CPedMoveBlendOnFoot, 0xD0);
-VALIDATE_OFFSET(CPedMoveBlendOnFoot, m_fMoveLeanAmount, 0x1C);
-VALIDATE_OFFSET(CPedMoveBlendOnFoot, m_fMoveAnimSpeed, 0x6C);
 VALIDATE_OFFSET(CPedMoveBlendOnFoot, m_fMoveState, 0x8);
+VALIDATE_OFFSET(CPedMoveBlendOnFoot, m_fMoveLeanAmount, 0x1C);
+VALIDATE_OFFSET(CPedMoveBlendOnFoot, m_pPed, 0x24);
 VALIDATE_OFFSET(CPedMoveBlendOnFoot, m_fMoveTurn, 0x28);
+VALIDATE_OFFSET(CPedMoveBlendOnFoot, m_fMoveAnimSpeed, 0x6C);
 
 struct PedWeaponSlot
 {
@@ -154,7 +156,7 @@ public:																	// 000-210
 
 	void ProcessWeaponSwitch()
 	{
-		return ((void(__thiscall*)(CPed*))(AddressSetter::Get(0x5BE7D0, 0x597180)))(this);
+		((void(__thiscall*)(CPed*))(AddressSetter::Get(0x5BE7D0, 0x597180)))(this);
 	}
 	CPad* GetPadFromPlayer()
 	{
@@ -167,6 +169,14 @@ public:																	// 000-210
 	void SetHealth(float health, int unk)
 	{
 		((void(__thiscall*)(CPed*, float, int))(*(void***)this)[61])(this, health, unk);
+	}
+	void AddHealth(float health)
+	{
+		((void(__thiscall*)(CPed*, float))(*(void***)this)[62])(this, health);
+	}
+	void ProcessHeading()
+	{
+		((void(__thiscall*)(CPed*))(AddressSetter::Get(0x4A28B0, 0x53F9E0)))(this);
 	}
 };
 

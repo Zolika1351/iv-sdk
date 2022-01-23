@@ -20,7 +20,9 @@ public:
 	} m_nPhysicalFlags;													// 118-11C
 	uint8_t pad9[0x4];													// 11C-120
 	float m_fPercentSubmerged;											// 120-124
-	uint8_t pad124[0x98];												// 124-1BC
+	uint8_t pad124[0x20];												// 124-144
+	uint32_t m_nSubmergedState;											// 144-148 0 - not submerged, 1 - on water surface? (swimming for peds) 2 - below water surface?
+	uint8_t pad148[0x74];												// 148-1BC
 	CEntity* m_pAttachedToEntity;										// 1BC-1C0
 	CVector m_vAttachOffset;											// 1C0-1CC
 	uint8_t pad10[0x4];													// 1CC-1D0
@@ -43,6 +45,18 @@ public:
 	{
 		return ((CVector*(__thiscall*)(CPhysical*, CVector*))(*(void***)this)[59])(this, v);
 	}
+
+	// static
+	bool _ProcessWater()
+	{
+		return ((char(__thiscall*)(CPhysical*))(AddressSetter::Get(0x64AF20, 0x4E82E0)))(this);
+	}
+
+	// vftable
+	bool ProcessWater()
+	{
+		return ((char(__thiscall*)(CPhysical*))(*(void***)this)[71])(this);
+	}
 };
 
 VALIDATE_SIZE(CPhysical, 0x210);
@@ -55,3 +69,4 @@ VALIDATE_OFFSET(CPhysical, m_vAttachOffset, 0x1C0);
 VALIDATE_OFFSET(CPhysical, m_qAttachOffset, 0x1D0);
 VALIDATE_OFFSET(CPhysical, m_pEntityIgnoredCollision, 0x1F8);
 VALIDATE_OFFSET(CPhysical, m_fPercentSubmerged, 0x120);
+VALIDATE_OFFSET(CPhysical, m_nSubmergedState, 0x144);
