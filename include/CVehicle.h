@@ -253,6 +253,10 @@ public:
 	{
 		((void(__thiscall*)(CVehicle*, float))(AddressSetter::Get(0x5D3A10, 0x4FDD60)))(this, delta);
 	}
+	void ProcessAirControl(void* unk)
+	{
+		((void(__thiscall*)(CVehicle*, void*))(AddressSetter::Get(0x7FD450, 0x651580)))(this, unk);
+	}
 
 	static float HeightAboveCeiling(float height, int flightModel)
 	{

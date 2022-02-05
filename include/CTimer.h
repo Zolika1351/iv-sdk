@@ -1,8 +1,8 @@
 class CTimer
 {
 public:
-	static inline uint8_t& m_CodePause = AddressSetter::GetRef<uint8_t>(0xDDDF41, 0xDDDF42);
-	static inline uint8_t& m_UserPause = AddressSetter::GetRef<uint8_t>(0xCFCC39, 0xCFCC3A);
+	static inline uint8_t& m_CodePause = AddressSetter::GetRef<uint8_t>(0xDDDF42, 0xCFCC3A);
+	static inline uint8_t& m_UserPause = AddressSetter::GetRef<uint8_t>(0xDDDF41, 0xCFCC39);
 	static inline uint32_t& m_FrameCounter = AddressSetter::GetRef<uint32_t>(0xDDDF38, 0xCFCC30);
 	static inline uint32_t& m_snTimeInMilliseconds = AddressSetter::GetRef<uint32_t>(0xDDDE74, 0xCFCB6C);
 	static inline float& ms_fMinTimeStep = AddressSetter::GetRef<float>(0xB1D9E4, 0xB2E09C);
