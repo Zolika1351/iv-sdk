@@ -57,6 +57,11 @@ public:
 	{
 		return ((char(__thiscall*)(CPhysical*))(*(void***)this)[71])(this);
 	}
+
+	float GetHealth()
+	{
+		return ((float(__thiscall*)(CPhysical*))(*(void***)this)[63])(this);
+	}
 };
 
 VALIDATE_SIZE(CPhysical, 0x210);
