@@ -5,6 +5,8 @@ public:
 	static inline char*& sGameRpfPath = AddressSetter::GetRef<char*>(0x866753, 0x7E1C83); // platform:/data/game.rpf
 	static inline char*& sScenariosDatPath = AddressSetter::GetRef<char*>(0x4F8142, 0x7B17C2); // common:/DATA/Scenarios.dat
 	static inline char*& sButtonsTxdPath = AddressSetter::GetRef<char*>(0x3FA992, 0x4876C2); // platform:/textures/buttons_360
+	static inline char*& sProceduralDatPath = AddressSetter::GetRef<char*>(0x5081CD, 0x66E13D); // common:/data/materials
+	static inline char*& sStreamIniPath = AddressSetter::GetRef<char*>(0x43290C, 0x4B489C); // platform:/stream.ini
 
 	// priority? it's set to 2 and 1 for loading default.dat in TBoGT but 0 everywhere else
 	static void LoadLevel(char* levelName, int nUnk)
