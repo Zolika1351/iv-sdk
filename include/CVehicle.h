@@ -103,9 +103,11 @@ public:
 	uint8_t m_nSecondaryColor2;											// 02AE-02AF
 	uint8_t m_nTertiaryColor2;											// 02AF-02B0
 	uint8_t m_nQuaternaryColor2;										// 02B0-02B1
-	uint8_t pad1[0xB63];												// 02B1-0E14
+	uint8_t pad1[0x3D7];												// 02B1-0688
+	float m_fEngineRPM;													// 0688-068C
+	uint8_t pad1_[0x788];												// 068C-0E14
 	phInstGta* m_pVehicleFragInst;										// 0E14-0E18
-	tHandlingData* m_pHandling;												// 0E18-0E1C
+	tHandlingData* m_pHandling;											// 0E18-0E1C
 	struct {
 		unsigned int bSmoothCompresn : 1;
 		unsigned int bNone : 1;
@@ -268,6 +270,7 @@ public:
 	}
 };
 VALIDATE_SIZE(CVehicle, 0x20D0);
+VALIDATE_OFFSET(CVehicle, m_fEngineRPM, 0x688);
 VALIDATE_OFFSET(CVehicle, m_nDoorLock, 0x1320);
 VALIDATE_OFFSET(CVehicle, m_nVehicleType, 0x1354);
 VALIDATE_OFFSET(CVehicle, m_fLightMult, 0x1330);

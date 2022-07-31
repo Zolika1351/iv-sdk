@@ -2,15 +2,21 @@ namespace plugin
 {
 	namespace processScriptsEvent
 	{
+		uint8_t threadDummy[256];
 		uintptr_t returnAddress;
 		std::list<void(*)()> funcPtrs;
 
 		void Run()
 		{
+			auto bak = CTheScripts::m_pCurrentThread;
+			CTheScripts::m_pCurrentThread = (uint32_t)threadDummy;
+
 			for (auto& f : funcPtrs)
 			{
 				f();
 			}
+
+			CTheScripts::m_pCurrentThread = bak;
 		}
 		void __declspec(naked) MainHook()
 		{
