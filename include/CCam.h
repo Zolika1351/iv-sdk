@@ -51,8 +51,11 @@ public:
 	CMatrix m_mMatrix;													// 010-050
 	uint8_t pad2[0x10];													// 050-060
 	float m_fFOV;														// 060-064
-	float m_fFarZ;														// 064-068
-	uint8_t pad3[0xD8];													// 068-140
+	float m_fNearZ;														// 064-068
+	float m_fFarZ;														// 068-06C
+	float m_fNearDOF;													// 06C-06C
+	float m_fFarDOF;													// 070-074
+	uint8_t pad3[0xCC];													// 074-140
 
 	CCam* GetCamOfType(int type, int unk)
 	{
@@ -70,7 +73,10 @@ public:
 VALIDATE_SIZE(CCam, 0x140); // probably?
 VALIDATE_OFFSET(CCam, m_mMatrix, 0x10);
 VALIDATE_OFFSET(CCam, m_fFOV, 0x60);
-VALIDATE_OFFSET(CCam, m_fFarZ, 0x64);
+VALIDATE_OFFSET(CCam, m_fNearZ, 0x64);
+VALIDATE_OFFSET(CCam, m_fFarZ, 0x68);
+VALIDATE_OFFSET(CCam, m_fNearDOF, 0x6C);
+VALIDATE_OFFSET(CCam, m_fFarDOF, 0x70);
 
 class CCamFollowVehicle : public CCam
 {
