@@ -1,5 +1,4 @@
 #define _CRT_SECURE_NO_WARNINGS
-#define UNICODE
 #pragma comment(lib, "version.lib")
 #include <windows.h>
 #include <stdint.h>

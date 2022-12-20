@@ -2,22 +2,25 @@
 
 struct tViewportData
 {
-	uint8_t pad[0x280];						// 000-280
+	uint8_t pad[0x180];						// 000-180
+	CMatrix m_mProjectionMatrix;			// 180-1C0
+	uint8_t pad2[0xC0];						// 1C0-280
 	float m_fLeft;							// 280-284
 	float m_fTop;							// 284-288
 	float m_fRight;							// 288-28C
 	float m_fBottom;						// 28C-290
-	uint8_t pad2[0x20];						// 290-2B0
+	uint8_t pad3[0x20];						// 290-2B0
 	uint32_t m_nResX;						// 2B0-2B4
 	uint32_t m_nResY;						// 2B4-2B8
 	float m_fFOV;							// 2B8-2BC
 	float m_fAspect;						// 2BC-2C0
 	float m_fNearClip;						// 2C0-2C4
 	float m_fFarClip;						// 2C4-2C8
-	uint8_t pad3[0x8];						// 2C8-2D0
+	uint8_t pad4[0x8];						// 2C8-2D0
 	float m_fScaleX;						// 2D0-2D4
 	float m_fScaleY;						// 2D4-2D8
 };
+VALIDATE_OFFSET(tViewportData, m_mProjectionMatrix, 0x180);
 VALIDATE_OFFSET(tViewportData, m_fLeft, 0x280);
 VALIDATE_OFFSET(tViewportData, m_fTop, 0x284);
 VALIDATE_OFFSET(tViewportData, m_fRight, 0x288);

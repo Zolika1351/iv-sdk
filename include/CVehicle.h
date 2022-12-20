@@ -48,11 +48,13 @@ class CVehicleWheel
 {
 public:
 	uint32_t m_nBoneID;					// 000-004 in the order from tVehicleStruct
-	uint8_t pad[0x5C];					// 004-060
+	uint16_t m_nGroupID;				// 004-006 group for detach, needs to be higher than 0
+	uint8_t pad[0x5A];					// 006-060
 	CVector m_vPosition;				// 060-06C
 	uint8_t pad2[0x104];				// 06C-170
 };
 VALIDATE_SIZE(CVehicleWheel, 0x170);
+VALIDATE_OFFSET(CVehicleWheel, m_nGroupID, 0x4);
 VALIDATE_OFFSET(CVehicleWheel, m_vPosition, 0x60);
 
 
