@@ -235,6 +235,14 @@ public:
 		((void(__thiscall*)(CVehicle*))(*(void***)this)[101])(this);
 	}
 
+	void SetRemap(int id)
+	{
+		((void(__thiscall*)(CVehicle*, int))(AddressSetter::Get(0x5C7580, 0x4F14F0)))(this, id);
+	}
+	int GetRemapIndex()
+	{
+		return ((int(__thiscall*)(CVehicle*))(AddressSetter::Get(0x5C7560, 0x4F14D0)))(this);
+	}
 	void MakeDirty()
 	{
 		((void(__thiscall*)(CVehicle*))(AddressSetter::Get(0x5D3E90, 0x4FE1E0)))(this);

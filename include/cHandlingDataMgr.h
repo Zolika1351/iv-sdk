@@ -1,3 +1,18 @@
+struct tBikeHandlingData
+{
+	uint8_t pad[0x40];
+};
+
+struct tFlyingHandlingData
+{
+	uint8_t pad[0x60];
+};
+
+struct tBoatHandlingData
+{
+	uint8_t pad[0xE0];
+}; 
+
 struct tHandlingData
 {
 	char m_sName[16];											// 000-010
@@ -120,7 +135,11 @@ struct tHandlingData
 		unsigned int bNone3 : 1;
 		unsigned int bNone4 : 1;
 	} m_nHandlingFlags;											// 0F0-0F4
-	uint8_t pad2[0x1C];											// 0F4-110
+	uint8_t pad2[0x4];											// 0F4-0F8
+	tBikeHandlingData* m_pBikeHandling;							// 0F8-0FC
+	tFlyingHandlingData* m_pFlyingHandling;						// 0FC-100
+	tBoatHandlingData* m_pBoatHandling;							// 100-104
+	uint8_t pad3[0xC];											// 104-110
 };
 
 VALIDATE_SIZE(tHandlingData, 0x110);
@@ -147,11 +166,17 @@ VALIDATE_OFFSET(tHandlingData, m_fSeatOffsetDist, 0xE4);
 VALIDATE_OFFSET(tHandlingData, m_nMonetaryValue, 0xE8);
 VALIDATE_OFFSET(tHandlingData, m_nModelFlags, 0xEC);
 VALIDATE_OFFSET(tHandlingData, m_nHandlingFlags, 0xF0);
+VALIDATE_OFFSET(tHandlingData, m_pBikeHandling, 0xF8);
+VALIDATE_OFFSET(tHandlingData, m_pFlyingHandling, 0xFC);
+VALIDATE_OFFSET(tHandlingData, m_pBoatHandling, 0x100);
 
 class cHandlingDataMgr
 {
 public:
 	static inline tHandlingData* HandlingData = (tHandlingData*)AddressSetter::Get(0x11E3BF0, 0x12773B0); // HandlingData[160]
+	static inline tHandlingData* BikeHandlingData = (tHandlingData*)AddressSetter::Get(0x11EE5F0, 0x1281DB0); // BikeHandlingData[40]
+	static inline tHandlingData* FlyingHandlingData = (tHandlingData*)AddressSetter::Get(0x11EEFF0, 0x12827B0); // FlyingHandlingData[40]
+	static inline tHandlingData* BoatHandlingData = (tHandlingData*)AddressSetter::Get(0x11EFEF0, 0x12836B0); // BoatHandlingData[40]
 
 	static void Initialise()
 	{

@@ -18,6 +18,7 @@ class CTxdFile;
 struct TxdDef;
 struct IplDef;
 class CQuadTreeNode;
+class CPedTargetting;
 
 class CPools
 {
@@ -41,4 +42,5 @@ public:
 	static inline CPool<CQuadTreeNode>*& ms_pQuadTreeNodePool			= AddressSetter::GetRef<CPool<CQuadTreeNode>*>(0xF504D0, 0x127608C);
 	static inline CPool<TxdDef>*& ms_pTxdPool							= AddressSetter::GetRef<CPool<TxdDef>*>(0xDD52D4, 0xE291E0);
 	static inline CPool<IplDef>*& ms_pIplPool							= AddressSetter::GetRef<CPool<IplDef>*>(0x128FF98, 0xF6E468);
+	static inline CPool<CPedTargetting>*& ms_pPedTargettingPool			= AddressSetter::GetRef<CPool<CPedTargetting>*>(0x1311134, 0x12859EC);
 };

@@ -103,3 +103,8 @@ namespace plugin
 #include "CPedType.h"
 #include "CQuadTreeNode.h"
 #include "CIplStore.h"
+#include "CGameLogic.h"
+#include "CStats.h"
+#include "CGenericGameStorage.h"
+#include "CReplay.h"
+#include "CAudioZones.h"
