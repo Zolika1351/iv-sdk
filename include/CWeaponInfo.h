@@ -2,7 +2,7 @@ class CWeaponInfo
 {
 public:
 	uint32_t m_nWeaponType;									// 000-004
-	uint32_t m_nSlot;										// 004-008
+	uint32_t m_nWeaponSlot;									// 004-008
 	uint32_t m_nFireType;									// 008-00C
 	uint32_t m_nDamageType;									// 00C-010
 	uint32_t m_nGroup;										// 010-014
@@ -37,7 +37,7 @@ public:
 		unsigned int bDontRumbleWhenDoingDriveBy : 1;
 	} m_nWeaponFlags;										// 020-024
 	uint32_t m_nModelHash;									// 024-028
-	uint32_t m_nAnimation;									// 028-02C
+	uint32_t m_animGroup;									// 028-02C
 	float m_fFireRate;										// 02C-030
 	float m_fBlindFireRate;									// 030-034
 	float m_fAccuracy;										// 034-038
@@ -85,11 +85,32 @@ public:
 	uint8_t pad4[0xC];										// 104-110
 
 	static inline char** ms_aWeaponNames = (char**)AddressSetter::Get(0xB27A88, 0xB3ECA8);
-	static inline CWeaponInfo* ms_WeaponInfo = (CWeaponInfo*)AddressSetter::Get(0x1140A20, 0xE4A600); // ms_WeaponInfo[60]
 
-	static CWeaponInfo* GetWeaponInfo(uint32_t type)
+	static CWeaponInfo* GetWeaponInfo(uint32_t weaponID)
 	{
-		return ((CWeaponInfo*(__cdecl*)(uint32_t))(AddressSetter::Get(0x524E80, 0x4DDEB0)))(type);
+		return ((CWeaponInfo*(__cdecl*)(uint32_t))(AddressSetter::Get(0x524E80, 0x4DDEB0)))(weaponID);
+	}
+	static void LoadWeaponData(const char* path)
+	{
+		return ((void(__cdecl*)(const char*))(AddressSetter::Get(0x5263D0, 0x4DF2D0)))(path);
+	}
+	static int FindWeaponType(uint32_t nameHash, int defaultReturn)
+	{
+		return ((int(__cdecl*)(uint32_t, int))(AddressSetter::Get(0x524EA0, 0x4DDED0)))(nameHash, defaultReturn);
+	}
+	static int FindWeaponType(const char* pString, int defaultReturn)
+	{
+		return ((int(__cdecl*)(const char*, int))(AddressSetter::Get(0x5257E0, 0x4DE6F0)))(pString, defaultReturn);
+	}
+	static int FindWeaponFireType(const char* pString)
+	{
+		return ((int(__cdecl*)(const char*))(AddressSetter::Get(0x524F10, 0x4DDF40)))(pString);
+	}
+	static int FindWeaponDamageType(const char* pString)
+	{
+		return ((int(__cdecl*)(const char*))(AddressSetter::Get(0x524F70, 0x4DDFA0)))(pString);
 	}
 };
 VALIDATE_SIZE(CWeaponInfo, 0x110);
+
+CWeaponInfo* aWeaponInfo = (CWeaponInfo*)AddressSetter::Get(0x1140A20, 0xE4A600); // aWeaponInfo[60]

@@ -108,3 +108,7 @@ namespace plugin
 #include "CGenericGameStorage.h"
 #include "CReplay.h"
 #include "CAudioZones.h"
+#include "CStore.h"
+#include "CAnimManager.h"
+#include "CPopulation.h"
+#include "CWeather.h"

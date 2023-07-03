@@ -40,5 +40,41 @@ public:
 		if (!IsValid(slot)) return nullptr;
 		return (T*)&m_pObjects[m_nEntrySize * slot];
 	}
+
+	int FindNextUsed(int curr)
+	{
+		for (int i = curr; i < m_nCount; i++)
+		{
+			if (IsValid(i)) return i;
+		}
+		return -1;
+	}
+
+	// pool iterator
+	struct Iterator
+	{
+		Iterator(CPool<T>* ptr, int id)
+		{
+			pool = ptr;
+			index = id;
+		}
+
+		T* operator*() const { return pool->Get(index); }
+		Iterator& operator++()
+		{
+			index = pool->FindNextUsed(index + 1);
+			return *this;
+		}
+		bool operator!= (const Iterator& b) { return index != b.index; };
+
+	private:
+		CPool<T>* pool;
+		int index = 0;
+	};
 };
 VALIDATE_SIZE(CPool<CPed>, 0x1C);
+
+template<typename T>
+auto begin(CPool<T>* pool) { return CPool<T>::Iterator(pool, pool->FindNextUsed(0)); }
+template<typename T>
+auto end(CPool<T>* pool) { return CPool<T>::Iterator(pool, -1); }

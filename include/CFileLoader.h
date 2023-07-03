@@ -34,13 +34,18 @@ public:
 		((void(__cdecl*)(char*, char*))(AddressSetter::Get(0x8EB8D0, 0x38F8D0)))(fileName, mount);
 	}
 
-	static void LoadPedObject(char* line)
+	static void LoadObject(char* pLine)
 	{
-		((void(__cdecl*)(char*))(AddressSetter::Get(0x4D11A0, 0x6C57E0)))(line);
+		((void(__cdecl*)(char*))(AddressSetter::Get(0x4D2120, 0x6C6700)))(pLine);
 	}
 
-	static void LoadVehicleObject(char* line)
+	static void LoadPedObject(char* pLine)
 	{
-		((void(__cdecl*)(char*))(AddressSetter::Get(0x4D5D70, 0x6CA230)))(line);
+		((void(__cdecl*)(char*))(AddressSetter::Get(0x4D11A0, 0x6C57E0)))(pLine);
+	}
+
+	static void LoadVehicleObject(char* pLine)
+	{
+		((void(__cdecl*)(char*))(AddressSetter::Get(0x4D5D70, 0x6CA230)))(pLine);
 	}
 };

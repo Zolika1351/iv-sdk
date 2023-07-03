@@ -4,14 +4,15 @@ class phArchetypeGta;
 class gtaFragType;
 struct tDrawableStruct;
 
-enum eModelInfoType
+enum ModelInfoType
 {
-	MODEL_INFO_INSTANCE = 1,
-	MODEL_INFO_MLO = 2,
-	MODEL_INFO_TIME = 3,
-	MODEL_INFO_WEAPON = 4,
-	MODEL_INFO_VEHICLE = 5,
-	MODEL_INFO_PED = 6,
+	MI_TYPE_NONE = 0,
+	MI_TYPE_ATOMIC = 1,
+	MI_TYPE_MLO = 2,
+	MI_TYPE_TIME = 3,
+	MI_TYPE_WEAPON = 4,
+	MI_TYPE_VEHICLE = 5,
+	MI_TYPE_PED = 6,
 };
 
 class CBaseModelInfo
@@ -61,16 +62,18 @@ VALIDATE_OFFSET(CBaseModelInfo, m_nIDEFlags, 0x40);
 class CPedModelInfo : public CBaseModelInfo
 {
 public:
-	uint8_t pad[0x20];								// 60-80
-	int32_t m_nGestureAnimIndex;					// 80-84
-	int32_t m_nFacialAnimIndex;						// 84-88
-	int32_t m_nVisemesAnimIndex;					// 88-8C
-	uint8_t m_bStreamedPed;							// 8C-8D load from player:/
-	uint8_t pad2[0x3];								// 8C-90
-	uint32_t m_nPedType;							// 90-94
-	uint8_t pad3[0x28];								// 94-BC
-	uint32_t m_nVoiceHash;							// BC-C0
+	uint8_t pad[0x20];								// 060-080
+	int32_t m_nGestureAnimIndex;					// 080-084
+	int32_t m_nFacialAnimIndex;						// 084-088
+	int32_t m_nVisemesAnimIndex;					// 088-08C
+	uint8_t m_bStreamedPed;							// 08C-08D load from player:/
+	uint8_t pad2[0x3];								// 08C-090
+	uint32_t m_nPedType;							// 090-094
+	uint8_t pad3[0x28];								// 094-0BC
+	uint32_t m_nVoiceHash;							// 0BC-0C0
+	uint8_t pad4[0xA0];								// 0C0-160
 };
+VALIDATE_SIZE(CPedModelInfo, 0x160);
 VALIDATE_OFFSET(CPedModelInfo, m_bStreamedPed, 0x8C);
 VALIDATE_OFFSET(CPedModelInfo, m_nPedType, 0x90);
 VALIDATE_OFFSET(CPedModelInfo, m_nGestureAnimIndex, 0x80);
@@ -169,6 +172,7 @@ class CModelInfo
 {
 public:
 	static inline CBaseModelInfo** ms_modelInfoPtrs = (CBaseModelInfo**)AddressSetter::Get(0x11F73B0, 0xE2C168); // ms_modelInfoPtrs[31000]
+
 	static CBaseModelInfo* GetModelInfo(uint32_t hashKey, int* index)
 	{
 		return ((CBaseModelInfo*(__cdecl*)(uint32_t, int*))(AddressSetter::Get(0x58AAE0, 0x4DD2D0)))(hashKey, index);
@@ -180,5 +184,13 @@ public:
 	static CVehicleModelInfo* AddVehicleModel(char* modelName)
 	{
 		return ((CVehicleModelInfo*(__cdecl*)(char*))(AddressSetter::Get(0x58AE20, 0x4DD610)))(modelName);
+	}
+	static CBaseModelInfo* AddAtomicModel(char* modelName)
+	{
+		return ((CBaseModelInfo*(__cdecl*)(char*))(AddressSetter::Get(0x58AC60, 0x4DD450)))(modelName);
+	}
+	static void Initialise()
+	{
+		return ((void(__cdecl*)())(AddressSetter::Get(0x58AFF0, 0x4DD7B0)))();
 	}
 };
