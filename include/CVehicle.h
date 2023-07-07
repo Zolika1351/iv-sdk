@@ -58,17 +58,6 @@ VALIDATE_OFFSET(CVehicleDoor, m_nGroupID, 0x5);
 
 
 class CVehicleWheel {
-	/*
-	*	свободное место в этом классе:
-	*	pos		size
-	*	0x6		0x2
-	*	0x5c	0x4
-	*	0x6c	0x4
-	*	0xe8	0x8
-	*	0xfc	0x4
-	* 
-	*/
-
 public:
 	uint32_t m_nBoneID;					// 000-004 in the order from tVehicleStruct
 	uint16_t m_nGroupID;				// 004-006 group for detach, needs to be higher than 0
@@ -247,7 +236,7 @@ public:
 	pad[96] = float
 	pad[100] = float
 	pad[104] = float
-	pad[108] = poiter?
+	pad[108] = 
 	pad[112] = float
 	pad[116] = float
 	pad[120] = float
@@ -259,7 +248,7 @@ public:
 	pad[144] = float. posX?
 	pad[148] = float. posY?
 	pad[152] = float. posZ?
-	pad[156] = part of pointer? size 1
+	pad[156] = 
 	*/
 	uint8_t m_nPrimaryColor2;											// 02AD-02AE
 	uint8_t m_nSecondaryColor2;											// 02AE-02AF
