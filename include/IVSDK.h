@@ -112,3 +112,4 @@ namespace plugin
 #include "CAnimManager.h"
 #include "CPopulation.h"
 #include "CWeather.h"
+#include "CAchievements.h"

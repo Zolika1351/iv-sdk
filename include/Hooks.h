@@ -93,6 +93,42 @@ namespace plugin
 		}
 	};
 	
+	namespace ingameStartupEvent
+	{
+		uint8_t threadDummy[256];
+		uintptr_t returnAddress;
+		std::list<void(*)()> funcPtrs;
+
+		void Run()
+		{
+			auto bak = CTheScripts::m_pCurrentThread;
+			CTheScripts::m_pCurrentThread = (uint32_t)threadDummy;
+
+			for (auto& f : funcPtrs)
+			{
+				f();
+			}
+
+			CTheScripts::m_pCurrentThread = bak;
+		}
+		void __declspec(naked) MainHook()
+		{
+			__asm
+			{
+				pushad
+				call Run
+				popad
+				jmp returnAddress
+			}
+		}
+		// runs right before loading a save, starting a new game, switching episodes, etc.
+		// use this to clean things up
+		void Add(void(*funcPtr)())
+		{
+			funcPtrs.emplace_back(funcPtr);
+		}
+	};
+	
 	namespace mountDeviceEvent
 	{
 		uintptr_t returnAddress;

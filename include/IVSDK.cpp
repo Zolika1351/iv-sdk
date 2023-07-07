@@ -28,19 +28,11 @@ namespace plugin
 		{
 			Sleep(1000);
 		}
-		FreeLibraryAndExitThread(hModule, 0);
 		return 0;
 	}
-	uint32_t DoHook(uint32_t address, void(*Function)())
+	uintptr_t DoHook(uintptr_t address, void(*Function)())
 	{
-		if (address)
-		{
-			uint32_t origcall = (uint32_t)injector::ReadRelativeOffset(address + 1);
-
-			injector::MakeCALL(address, Function);
-
-			return origcall;
-		}
+		if (address) return (uintptr_t)injector::MakeCALL(address, Function);
 		return 0;
 	}
 	void InitHooks()
@@ -53,10 +45,14 @@ namespace plugin
 		processPadEvent::callAddress = DoHook(AddressSetter::Get(0x3C4002, 0x46A802), processPadEvent::MainHook);
 		processCameraEvent::returnAddress = DoHook(AddressSetter::Get(0x52C4C2, 0x694232), processCameraEvent::MainHook);
 		mountDeviceEvent::returnAddress = DoHook(AddressSetter::Get(0x3B2E27, 0x456C27), mountDeviceEvent::MainHook);
+		ingameStartupEvent::returnAddress = DoHook(AddressSetter::Get(0x20379, 0x93F09), ingameStartupEvent::MainHook);
 	}
 	void Init()
 	{
+#ifndef IVSDK_NO_DUMMY_THREAD
 		CreateThread(nullptr, 0, (LPTHREAD_START_ROUTINE)DummyThread, GetCurrentModule(), 0, nullptr);
+#endif
+
 		if (!AddressSetter::bAddressesRead) AddressSetter::Init();
 		if (gameVer != VERSION_NONE)
 		{
@@ -67,7 +63,7 @@ namespace plugin
 	}
 }
 
-BOOL APIENTRY DllMain(HMODULE, DWORD ul_reason_for_call, LPVOID lpReserved)
+BOOL APIENTRY DllMain(HMODULE module, DWORD ul_reason_for_call, LPVOID lpReserved)
 {
 	if (ul_reason_for_call == DLL_PROCESS_ATTACH) plugin::Init();
 	return TRUE;
