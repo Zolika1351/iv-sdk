@@ -99,7 +99,7 @@ public:
 	float _ff0;							// 0F0-0F4 has to do with suspension. 0 if the wheel is in the air
 	float _ff4;							// 0F4-0F8 has to do with suspension. 0 if the wheel is in the air
 	float _ff8;							// 0F8-0FC has to do with suspension. 0 if the wheel is in the air
-	uint32_t _ffс;						// 0FC-100 0xcdcdcdcd
+	uint32_t _ffc;						// 0FC-100 0xcdcdcdcd
 	float _f100;						// 100-104
 	float _f104;						// 104-108
 	float _f108;						// 108-10C has to do with suspension. 0 if the wheel is in the air
