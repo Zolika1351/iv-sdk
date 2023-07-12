@@ -14,7 +14,7 @@ public:
 	uint8_t Colour3;							// 34-35
 	uint8_t Colour4;							// 35-36
 	uint8_t pad3[0x2];							// 36-38
-	uint32_t unk;								// 38-3C CVehicle+0xE20
+	uint32_t Extras;							// 38-3C CVehicle+0xE20
 	uint32_t PaintJob;							// 3C-40
 	uint8_t pad4[0x2];							// 40-42
 	uint8_t unk2;								// 42-33 CVehicle+0x10C2

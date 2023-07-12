@@ -58,6 +58,11 @@ struct PedWeapons
 	CObject* m_pWeaponObject;											// 2C-30 CPed 2DC-2E0
 	uint8_t weaponspad3[0xC];											// 30-3C CPed 2E0-388
 	PedWeaponSlot m_aWeapons[12];										// 3C-CC CPed 2EC-37C
+
+	void GiveWeapon(int weaponType, uint32_t ammoQuantity, bool unk1, bool unk2, bool unk3)
+	{
+		((void(__thiscall*)(PedWeapons*, int, uint32_t, bool, bool, bool))(AddressSetter::Get(0x5AB750, 0x5CD690)))(this, weaponType, ammoQuantity, unk1, unk2, unk3);
+	}
 };
 VALIDATE_SIZE(PedWeapons, 0xCC);
 VALIDATE_OFFSET(PedWeapons, m_nActiveWeaponSlot, 0x18);
@@ -160,11 +165,11 @@ public:																	// 000-210
 	}
 	CPad* GetPadFromPlayer()
 	{
-		return ((CPad * (__thiscall*)(CPed*))(AddressSetter::Get(0x5BE5D0, 0x596F80)))(this);
+		return ((CPad*(__thiscall*)(CPed*))(AddressSetter::Get(0x5BE5D0, 0x596F80)))(this);
 	}
 	CVehicle* GetVehicle()
 	{
-		return ((CVehicle * (__thiscall*)(CPed*))(AddressSetter::Get(0x26AB0, 0x9FBA0)))(this);
+		return ((CVehicle*(__thiscall*)(CPed*))(AddressSetter::Get(0x26AB0, 0x9FBA0)))(this);
 	}
 	void SetHealth(float health, int unk)
 	{

@@ -604,6 +604,10 @@ public:
 	{
 		((void(__thiscall*)(CVehicle*, void*))(AddressSetter::Get(0x7FD450, 0x651580)))(this, unk);
 	}
+	bool IsDriver(CPed* pPed)
+	{
+		return ((bool(__thiscall*)(CVehicle*, CPed*))(AddressSetter::Get(0x5C5D60, 0x4EFCD0)))(this, pPed);
+	}
 
 	static float HeightAboveCeiling(float height, int flightModel)
 	{
