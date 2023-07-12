@@ -41,8 +41,6 @@ VALIDATE_OFFSET(CStoredCar, Colour1, 0x32);
 VALIDATE_OFFSET(CStoredCar, PaintJob, 0x3C);
 VALIDATE_OFFSET(CStoredCar, iFrontX, 0x43);
 VALIDATE_OFFSET(CStoredCar, iFrontZ, 0x45);
-
-VALIDATE_OFFSET(CStoredCar, unk, 0x38);
 VALIDATE_OFFSET(CStoredCar, unk2, 0x42);
 
 class CGarage

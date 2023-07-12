@@ -113,3 +113,4 @@ namespace plugin
 #include "CPopulation.h"
 #include "CWeather.h"
 #include "CAchievements.h"
+#include "CProjectileInfo.h"
