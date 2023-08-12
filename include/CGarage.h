@@ -60,11 +60,16 @@ public:
 	float MaxX;									// 2C-30
 	float MinY;									// 30-34
 	float MaxY;									// 34-38
-	uint8_t pad2[0x4];							// 38-3C
+	uint32_t TimeOfNextEvent;					// 38-3C
 	CVehicle* pCarToCollect;					// 3C-40
-	uint8_t pad3[0x8];							// 40-48
+	uint32_t NameHash;							// 40-44
+	uint8_t pad3[0x4];							// 44-48
 	uint8_t Type;								// 48-49
-	uint8_t pad4[0x23];							// 49-6C
+	uint8_t State;								// 49-4A
+	uint8_t pad4[0x1];							// 4A-4B
+	uint8_t OriginalType;						// 4B-4C
+	uint8_t Flags;								// 4C-4D
+	uint8_t pad5[0x1F];							// 4D-6C
 
 	bool IsPointInsideGarage(CVector Point)
 	{
@@ -93,13 +98,40 @@ VALIDATE_OFFSET(CGarage, Delta2Length, 0x24);
 VALIDATE_OFFSET(CGarage, CeilingZ, 0x1C);
 VALIDATE_OFFSET(CGarage, Delta1Length, 0x20);
 VALIDATE_OFFSET(CGarage, MinX, 0x28);
+VALIDATE_OFFSET(CGarage, TimeOfNextEvent, 0x38);
 VALIDATE_OFFSET(CGarage, pCarToCollect, 0x3C);
+VALIDATE_OFFSET(CGarage, NameHash, 0x40);
 VALIDATE_OFFSET(CGarage, Type, 0x48);
+VALIDATE_OFFSET(CGarage, State, 0x49);
+VALIDATE_OFFSET(CGarage, OriginalType, 0x4B);
+VALIDATE_OFFSET(CGarage, Flags, 0x4C);
 
 class CSaveGarage
 {
 public:
-	uint8_t pad[0x48];
+	uint8_t Type;								// 00-01
+	uint8_t State;								// 01-02
+	uint8_t Flags;								// 02-03
+	uint8_t pad;								// 03-04
+	float BaseX;								// 04-08
+	float BaseY;								// 08-0C
+	float BaseZ;								// 0C-10
+	float Delta1X;								// 10-14
+	float Delta1Y;								// 14-18
+	float Delta2X;								// 18-1C
+	float Delta2Y;								// 1C-20
+	float CeilingZ;								// 20-24
+	float Delta1Length;							// 24-28
+	float Delta2Length;							// 28-2C
+	float MinX;									// 2C-30
+	float MaxX;									// 30-34
+	float MinY;									// 34-38
+	float MaxY;									// 38-3C
+	int32_t TimeOfNextEvent;					// 3C-40
+	uint32_t NameHash;							// 40-44
+	uint8_t unk1;								// 44-45
+	uint8_t OriginalType;						// 45-46
+	uint8_t pad2[0x2];							// 46-48
 
 	void CopyGarageIntoSaveGarage(CGarage* pGarage)
 	{
@@ -111,6 +143,10 @@ public:
 	}
 };
 VALIDATE_SIZE(CSaveGarage, 0x48);
+VALIDATE_OFFSET(CSaveGarage, Flags, 0x2);
+VALIDATE_OFFSET(CSaveGarage, BaseX, 0x4);
+VALIDATE_OFFSET(CSaveGarage, TimeOfNextEvent, 0x3C);
+VALIDATE_OFFSET(CSaveGarage, NameHash, 0x40);
 
 class CGarages
 {
@@ -128,6 +164,7 @@ public:
 	static inline auto& NoResprays = AddressSetter::GetRef<bool>(0xF54A61, 0xECBDD9);
 
 	static inline auto& NumGarages = AddressSetter::GetRef<uint32_t>(0xF54A64, 0xECBDDC);
+	static inline auto& NumSafehouseGarages = AddressSetter::GetRef<uint32_t>(0xF54A50, 0xECBDC8);
 	static inline CGarage* aGarages = (CGarage*)AddressSetter::Get(0xF55030, 0xECC3A8); // aGarages[40]
 	static inline CStoredCar* aCarsInSafeHouse = (CStoredCar*)AddressSetter::Get(0xF54A88, 0xECBE00); // aCarsInSafeHouse[20]
 

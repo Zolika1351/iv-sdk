@@ -114,3 +114,7 @@ namespace plugin
 #include "CWeather.h"
 #include "CAchievements.h"
 #include "CProjectileInfo.h"
+#include "CCheat.h"
+#include "CWanted.h"
+#include "CText.h"
+#include "C_PcSave.h"
