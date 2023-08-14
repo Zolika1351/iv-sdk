@@ -118,3 +118,8 @@ namespace plugin
 #include "CWanted.h"
 #include "CText.h"
 #include "C_PcSave.h"
+#include "CRestart.h"
+#include "CTheZones.h"
+#include "CGangs.h"
+#include "CStuntJumpManager.h"
+#include "CAERadioTrackManager.h"

@@ -12,7 +12,7 @@ struct sRadarTrace
 {
 	uint16_t ReferenceIndex;							// 00-02
 	uint8_t pad[0x6];									// 02-08
-	uint8_t m_bSomething;								// 08-09 usually 1, if not then it reads everything from ms_RadarTrace[dword_B35F1C]
+	uint8_t m_bNotSimple;								// 08-09 usually 1, if not then it reads everything from ms_RadarTrace[m_nSimpleBlipIndex]
 	uint8_t pad2[0x3];									// 09-0C
 	uint32_t m_nDisplay;								// 0C-10
 	uint8_t pad3[0x8];									// 10-18
@@ -31,7 +31,7 @@ struct sRadarTrace
 	sRadarTraceProperties* m_pProperties;				// 5C-60
 };
 VALIDATE_OFFSET(sRadarTrace, ReferenceIndex, 0x0);
-VALIDATE_OFFSET(sRadarTrace, m_bSomething, 0x8);
+VALIDATE_OFFSET(sRadarTrace, m_bNotSimple, 0x8);
 VALIDATE_OFFSET(sRadarTrace, m_nDisplay, 0xC);
 VALIDATE_OFFSET(sRadarTrace, m_fScaleActual, 0x18);
 VALIDATE_OFFSET(sRadarTrace, m_nFlags, 0x20);
