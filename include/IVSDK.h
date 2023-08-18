@@ -123,3 +123,4 @@ namespace plugin
 #include "CGangs.h"
 #include "CStuntJumpManager.h"
 #include "CAERadioTrackManager.h"
+#include "CFrontEnd.h"
